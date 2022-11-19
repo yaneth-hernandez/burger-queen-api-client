@@ -1,0 +1,30 @@
+@import "../../generics.scss";
+
+.login{
+    width: 100%;
+    height: 100%;
+
+    @include flex-column-center;
+
+    padding: 20px 0;
+
+    gap: 100px;
+
+    &_containerLogo{
+        width: 50%;
+        max-width: 150px;
+
+        @include flex-column-center;
+
+        &--img{
+            width: 100%;
+        }
+
+        &--text{
+            font-size: 18px;
+            color: $tertiary-color;
+            font-weight: 600;
+        }
+
+    }
+}

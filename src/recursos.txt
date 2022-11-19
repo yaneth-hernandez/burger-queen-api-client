@@ -1,0 +1,16 @@
+1.- Uso vite: https://www.youtube.com/watch?v=UX4gvort2TU
+2.- Sass en react: https://www.youtube.com/watch?v=op6xKXMxTKI
+3.- Login I : https://www.youtube.com/watch?v=0gk6K80lN8g
+4.- Login II : https://www.youtube.com/watch?v=RTOG7kaDM4w&t=128s
+5.- Modificar el dom: https://www.youtube.com/watch?v=raJjjm3rhhU
+6.- Route: https://www.geeksforgeeks.org/reactjs-usenavigate-hook/
+https://www.youtube.com/watch?v=7xRVnmWcTE8
+7.- Sistema de autenticación: https://www.youtube.com/watch?v=ZXiJdEWVcqY
+https://stackabuse.com/post-http-request-in-react/
+https://upmostly.com/tutorials/how-to-post-requests-react
+https://stackabuse.com/post-http-request-in-react/
+https://www.freecodecamp.org/news/fetch-data-react/
+https://mockoon.com/tutorials/react-api-call-and-mocking/
+8.- CSS en react: https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/
+
+crear usuario: http://localhost:8080/users
