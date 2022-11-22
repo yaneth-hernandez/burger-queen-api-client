@@ -1,5 +1,5 @@
 import { LoginForm } from "../../components/LoginForm/LoginForm"
-import "./style.scss"
+import "./Login.scss"
 import logo from "../../assets/Logo.png"
 
 export const Login = () => {

@@ -1,6 +1,8 @@
 $primary-color: #0BA7B4;
-$secundary-color: #DEE7EC;
+$secondary-color: #DEE7EC;
 $tertiary-color: #EE7028;
+$logo-text:'Playfair Display', serif;
+$general-text:'Montserrat', sans-serif;
 
 *{
     box-sizing: border-box;
@@ -31,13 +33,19 @@ $tertiary-color: #EE7028;
     align-items: center;
 }
 
+@mixin styleHeader {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 @mixin styleInput {
     width: 90%;
     // min-width: 290px;
     max-width: 450px;
     padding: 10px 7px;
     outline: none;
-    background: $secundary-color;
+    background: $secondary-color;
     border: $primary-color solid 1px;
     border-radius: 8px;
 }

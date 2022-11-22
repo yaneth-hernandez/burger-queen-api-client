@@ -12,5 +12,7 @@ https://stackabuse.com/post-http-request-in-react/
 https://www.freecodecamp.org/news/fetch-data-react/
 https://mockoon.com/tutorials/react-api-call-and-mocking/
 8.- CSS en react: https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/
+grid https://www.youtube.com/watch?v=76BY3E8yi98
+table https://www.geeksforgeeks.org/how-to-create-a-table-in-reactjs/
 
 crear usuario: http://localhost:8080/users
