@@ -1,5 +1,6 @@
+import { requestDeleteUser } from '../../helpers/API_request/userRequest'
+
 export const ModalSelection = ({isOpen, closeModal})=>{
-   
     const modalHandle = () =>{
     if(isOpen){
         closeModal(false)
@@ -7,10 +8,15 @@ export const ModalSelection = ({isOpen, closeModal})=>{
     }
    }
 
+   //esto va en el componente del modalDelete
+   const deleteUser = () =>{
+    requestDeleteUser(9)
+   }
+
     return(
         <article>
             <button type="button" onClick={modalHandle}>Editar usuario</button>
-            <button type="button">Eliminar usuario</button>
+            <button type="button" onClick={deleteUser}>Eliminar usuario</button>
         </article>
     )
 }

@@ -26,7 +26,7 @@ export const Admin = () => {
         <section>
             <header className="admin_container">
                 <figure className="admin_containerLogo">
-                    <img className="admin_containerLogo--img" src={logo}></img>
+                    <img className="admin_containerLogo--img" src={logo} alt="logo"></img>
                     <figcaption className="admin_containerLogo--text">Burguer Queen</figcaption>
                 </figure>
                 <figure className="admin_containerIcon" onClick={showNavigationBar}>

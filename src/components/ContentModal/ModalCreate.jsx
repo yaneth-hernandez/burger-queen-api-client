@@ -29,7 +29,7 @@ export const ModalCreate = () =>{
             <option>waiter</option>
             <option>chef</option>
           </select>
-          <button type="button" onClick={handleSubmit}>Finalizar</button>
+          <button type="button" onClick={handleSubmit}>Crear</button>
           </form>
           </>
     )

@@ -3,11 +3,41 @@ import { ModalCreate } from "../ContentModal/ModalCreate.jsx";
 import { ModalEdit } from "../ContentModal/ModalEdit.jsx";
 import { ModalSelection } from '../ContentModal/ModalSelection';
 import { useModal } from "../../helpers/modals/useModal.jsx";
+import { Table } from "../Table/Table"
+import { ItemTable } from '../ItemTable/ItemTable';
+import { requestGetUser } from "../../helpers/API_request/userRequest";
+import './UserTable.scss'
+import { useState, useEffect } from 'react';
+
 
 export const UserTable = () => {
   const [isOpenModalCreate, openModalCreate, closeModalCreate] = useModal(false)
   const [isOpenModalEdit, openModalEdit, closeModalEdit] = useModal(false)
   const [isOpenModalSelection, openModalSelection, closeModalSelection] = useModal(false)
+  const [dataUser, setDataUser] = useState([])
+  const token = localStorage.getItem('Token')
+
+useEffect(() => {
+  fetch('http://localhost:8080/users',{
+    headers: {"Authorization": "Bearer " + token}
+})
+  .then(res => res.json())
+  .then((res)=>{
+   setDataUser(res.map(user => {
+      return {
+        email: user.email,
+        id: user.id,
+        password: user.password,
+        role: user.role,
+    }
+
+    
+    }));
+  })
+  .catch((error)=>{
+    console.error(error)
+  })
+}, []);
 
   return (
     <>
@@ -15,41 +45,21 @@ export const UserTable = () => {
         <button type="button" onClick={openModalCreate}>Crear usuario</button>
       </section>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Correo</th>
-            <th>Contraseña</th>
-            <th>Perfil</th>
-            <th>Acciones</th>
-          </tr>
-          <tr>
-            <td>Anom</td>
-            <td>19</td>
-            <td>Male</td>
-            <td>Male</td>
-            <td>
-            {/* <button onClick={openModalEdit}><i class="bi bi-three-dots-vertical"></i></button> */}
-            <button onClick={openModalSelection}><i className="bi bi-three-dots-vertical"></i></button>
-            </td>
-          </tr>
-          <tr>
-            <td>Megha</td>
-            <td>19</td>
-            <td>Female</td>
-            <td>Female</td>
-            <td>Female</td>
-          </tr>
-          <tr>
-            <td>Subham</td>
-            <td>25</td>
-            <td>Male</td>
-            <td>Male</td>
-            <td>Male</td>
-          </tr>
-        </thead>
-      </table>
+      <Table>
+      {
+        dataUser.map(user => (
+          <ItemTable
+          key={user.id} 
+          id={user.id}
+          email={user.email}
+          password={user.password}
+          role={user.role}
+          isOpen={openModalSelection}
+          />
+        ))
+      }
+        
+      </Table>
       <Modal isOpen={isOpenModalCreate} closeModal={closeModalCreate}>
         <ModalCreate />
       </Modal>

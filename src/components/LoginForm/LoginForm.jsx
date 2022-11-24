@@ -55,6 +55,7 @@ export const LoginForm = () => {
             .then((data) => {
                 validateDataUser(data)
                 localStorage.setItem('Profile', data.user.role)
+                localStorage.setItem('Token', data.accessToken)
             })
             .catch((error) => {
                 console.error(error)
@@ -70,7 +71,7 @@ export const LoginForm = () => {
                 </article>
                 <article className="loginForm_contentInput">
                     <label className="loginForm_contentInput--label">Contraseña</label>
-                    <input type="password" size="35" placeholder="Contraseña" onChange={(e) => setPassword(e.target.value)} className="loginForm_contentInput--input" required />
+                    <input type="password" size="6" placeholder="Contraseña" onChange={(e) => setPassword(e.target.value)} className="loginForm_contentInput--input" required />
                     <span className="loginForm_contentInput--span">{errorPassword}</span>
                 </article>
               

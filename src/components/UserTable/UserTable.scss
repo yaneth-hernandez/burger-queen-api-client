@@ -1,0 +1,26 @@
+@import "../../generics.scss";
+
+.container-table{
+    width: 90%;
+    //margin: 50px auto;
+
+    display: grid;
+    //grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1/2fr, 1fr, 1/2fr,1fr, 1fr);
+    grid-auto-rows: 30px;
+    .table-title{
+        grid-column-start: 1;
+        grid-column-end: 6;
+    }
+    
+}
+
+// .container-item{
+    
+// //margin: 50px auto;
+
+// display: grid;
+// //grid-template-columns: repeat(5, 1fr);
+// grid-template-columns: repeat(1/4fr, 1fr, 1fr, 1fr,1/2fr);
+// grid-auto-rows: 30px;
+// }
