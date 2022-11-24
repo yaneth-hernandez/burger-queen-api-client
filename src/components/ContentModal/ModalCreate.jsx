@@ -7,11 +7,11 @@ export const ModalCreate = () =>{
   const [role, setRole] = useState('')
 
   const handleSubmit = ()=>{
-    requestCreateUser(email, password, role)
-    .then((res) => res.json())
-    .then((res)=>{
-      console.log(res)
-    })
+      requestCreateUser(email, password, role)
+      .then((res) => res.json())
+      .then((res)=>{
+        console.log(res)
+      })
   }
 
     return(
