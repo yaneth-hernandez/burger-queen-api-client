@@ -1,0 +1,91 @@
+@import '../../generics.scss';
+
+.containerModalCreate {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .tittleModal {
+        margin-top: 20px;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .formModal_createUser {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        gap: 8px;
+        padding-top: 10px;
+
+        .formModal_label {
+            font-weight: bold;
+            font-size: .90rem;
+        }
+
+        .formModal_input {
+            width: 100%;
+            max-width: 450px;
+            padding: 8px 7px;
+            outline: none;
+            background: $secondary-color;
+            border: $primary-color solid 1px;
+            border-radius: 8px;
+        }
+
+        .containerSelect {
+            display: flex;
+            justify-content: space-between;
+
+            .formModal_select {
+                height: 25px;
+                width: 40%;
+                border-radius: 8px;
+                outline: none;
+                border: $primary-color solid 1px;
+                font-family: $general-text;
+                color: #102636;
+                font-weight: bold;
+                font-size: 1rem;
+
+                .formModal_option {
+                    font-family: $general-text;
+                    font-weight: bold;
+                    color: #102636;
+                    font-size: 1rem;
+                }
+            }
+
+            .btnReset {
+                width: 40%;
+                border-radius: 6px;
+                border: $primary-color solid 1px;
+                color: $primary-color;
+                background: $secondary-color;
+                font-weight: bold;
+                font-size: 1rem;
+            }
+        }
+
+        .btnSubmit {
+            padding: 7px 7px;
+            border: $tertiary-color solid 1px;
+            border-radius: 8px;
+            background-color: $tertiary-color;
+            color: $secondary-color;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .errorMessage {
+            color: red;
+            font-size: .8rem;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+    }
+}
+
+//@include styleInput

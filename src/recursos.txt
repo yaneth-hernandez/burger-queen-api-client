@@ -26,3 +26,5 @@ itglobers: alex@itglobers.com (Alex Fuentes)
 ejemplo elevación de estado: https://stackblitz.com/edit/react-ts-qitkys?file=App.tsx
 
 modal con portal : https://www.youtube.com/watch?v=nRWk8pAN74c&t=193s
+
+react desde cero: https://www.youtube.com/watch?v=6Jfk8ic3KVk
