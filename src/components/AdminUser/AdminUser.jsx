@@ -10,7 +10,7 @@ import { useEffect, useState, createContext, useContext } from "react";
 import { Table } from "../Table/Table";
 import { ItemTable } from "../ItemTable/ItemTable";
 
-export const UserContext = createContext();
+//export const UserContext = createContext();
 
 export const AdminUser = () => {
   const [isOpenModalCreate, openModalCreate, closeModalCreate] = useModal(false)
@@ -18,11 +18,10 @@ export const AdminUser = () => {
   const [isOpenModalSelection, openModalSelection, closeModalSelection] = useModal(false)
 
   const [dataUser, setDataUser] = useState([])
-  const [userEdit, setUserEdit] = useState(null)
+  //const [userEdit, setUserEdit] = useState(null)
   const token = localStorage.getItem('Token')
 
-  const edit = ()=> setUserEdit(dataUser)
-  console.log(userEdit)
+
   //const getUserList = ()=>{
 
 
@@ -55,7 +54,7 @@ export const AdminUser = () => {
       <section className="btnContainerCreate" >
         <button type="button" className="btnCreate" onClick={openModalCreate}>Crear usuario <i className="bi bi-plus-circle"></i></button>
       </section>
-<UserContext.Provider value={edit}>
+{/* <UserContext.Provider value={edit}> */}
 
       <Table>
         {
@@ -66,12 +65,12 @@ export const AdminUser = () => {
               email={user.email}
               password={user.password}
               role={user.role}
-              isOpen={openModalSelection}
+              //isOpen={openModalSelection}
             >
 
-              <Modal isOpen={isOpenModalEdit} closeModal={closeModalEdit}>
+              {/* <Modal isOpen={isOpenModalEdit} closeModal={closeModalEdit}>
                 <ModalEdit />
-              </Modal>
+              </Modal> */}
 
 
             </ItemTable>
@@ -79,7 +78,7 @@ export const AdminUser = () => {
           ))
         }
       </Table>
-</UserContext.Provider>
+{/*</UserContext.Provider>*/}
       {/* <UserList isOpen={openModalSelection}/> */}
       <Modal isOpen={isOpenModalCreate} closeModal={closeModalCreate}>
         <ModalCreate />
@@ -87,9 +86,9 @@ export const AdminUser = () => {
       {/* <Modal isOpen={isOpenModalEdit} closeModal={closeModalEdit}>
         <ModalEdit />
       </Modal> */}
-      <Modal isOpen={isOpenModalSelection} closeModal={closeModalSelection}>
+      {/* <Modal isOpen={isOpenModalSelection} closeModal={closeModalSelection}>
         <ModalSelection isOpen={openModalEdit} closeModal={closeModalSelection} />
-      </Modal>
+      </Modal> */}
     </>
   )
 }

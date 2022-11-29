@@ -1,22 +1,23 @@
-import { requestDeleteUser } from '../../helpers/API_request/userRequest'
 
-export const ModalSelection = ({ isOpen, closeModal }) => {
-    const modalHandle = () => {
+export const ModalSelection = ({ isOpen, isOpenDelete, closeModal }) => {
+    const modalHandleEdit = () => {
         if (isOpen) {
             closeModal(false)
             isOpen(true)
         }
     }
 
-    //esto va en el componente del modalDelete
-    const deleteUser = () => {
-        requestDeleteUser(28)
+    const modalHandleDelete = () => {
+        if (isOpen) {
+            closeModal(false)
+            isOpenDelete(true)
+        }
     }
 
     return (
         <article>
-            <button type="button" onClick={modalHandle}>Editar usuario</button>
-            <button type="button" onClick={deleteUser}>Eliminar usuario</button>
+            <button type="button" onClick={modalHandleEdit}>Editar usuario</button>
+            <button type="button" onClick={modalHandleDelete}>Eliminar usuario</button>
         </article>
     )
 }
