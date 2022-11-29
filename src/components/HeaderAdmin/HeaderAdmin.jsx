@@ -32,9 +32,9 @@ export const HeaderAdmin = () => {
                     <figcaption className="admin_containerIcon--text">{profile}</figcaption>
                 </figure>
                 <nav className="admin_navBar" id="admin_navBar_id">
-                    <button className="itemNavBar">Admin Usuario</button>
-                    <button className="itemNavBar">Admin Producto</button>
-                    <button className="itemNavBar" onClick={clearSession}>Cerrar Sesión</button>
+                    <button className="itemNavBar"><i className="bi bi-person-gear"><br/></i>Admin Usuario</button>
+                    <button className="itemNavBar"><i className="bi bi-house-gear"><br/></i>Admin Producto</button>
+                    <button className="itemNavBar" onClick={clearSession}><i className="bi bi-box-arrow-right"><br/></i>Cerrar Sesión</button>
                 </nav>
             </header>
           

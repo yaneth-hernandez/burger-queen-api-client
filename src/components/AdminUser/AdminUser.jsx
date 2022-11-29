@@ -10,7 +10,7 @@ import { useEffect, useState, createContext, useContext } from "react";
 import { Table } from "../Table/Table";
 import { ItemTable } from "../ItemTable/ItemTable";
 
-//const UserContext = createContext();
+export const UserContext = createContext();
 
 export const AdminUser = () => {
   const [isOpenModalCreate, openModalCreate, closeModalCreate] = useModal(false)
@@ -18,16 +18,19 @@ export const AdminUser = () => {
   const [isOpenModalSelection, openModalSelection, closeModalSelection] = useModal(false)
 
   const [dataUser, setDataUser] = useState([])
+  const [userEdit, setUserEdit] = useState(null)
   const token = localStorage.getItem('Token')
 
+  const edit = ()=> setUserEdit(dataUser)
+  console.log(userEdit)
   //const getUserList = ()=>{
 
-  
+
   useEffect(() => {
     fetch('http://localhost:8080/users', {
       headers: { "Authorization": "Bearer " + token }
     })
-  //    requestGetUser()
+      //    requestGetUser()
       .then(res => res.json())
       .then((res) => {
         setDataUser(res.map(user => {
@@ -43,39 +46,47 @@ export const AdminUser = () => {
         console.error(error)
       })
   }, []);
-//}
+  //}
 
-//useEffect(() => { getUserList() } , [])
+  //useEffect(() => { getUserList() } , [])
 
   return (
     <>
-      <section>
-        <button type="button" onClick={openModalCreate}>Crear usuario</button>
+      <section className="btnContainerCreate" >
+        <button type="button" className="btnCreate" onClick={openModalCreate}>Crear usuario <i className="bi bi-plus-circle"></i></button>
       </section>
-      
-        <Table>
-          {
-            dataUser.map(user => (
-              <ItemTable
-                key={user.id}
-                id={user.id}
-                email={user.email}
-                password={user.password}
-                role={user.role}
-                isOpen={openModalSelection}
-              />
-             
-            ))
-          }
-        </Table>
-      
+<UserContext.Provider value={edit}>
+
+      <Table>
+        {
+          dataUser.map(user => (
+            <ItemTable
+              key={user.id}
+              id={user.id}
+              email={user.email}
+              password={user.password}
+              role={user.role}
+              isOpen={openModalSelection}
+            >
+
+              <Modal isOpen={isOpenModalEdit} closeModal={closeModalEdit}>
+                <ModalEdit />
+              </Modal>
+
+
+            </ItemTable>
+
+          ))
+        }
+      </Table>
+</UserContext.Provider>
       {/* <UserList isOpen={openModalSelection}/> */}
       <Modal isOpen={isOpenModalCreate} closeModal={closeModalCreate}>
-        <ModalCreate/>
+        <ModalCreate />
       </Modal>
-      <Modal isOpen={isOpenModalEdit} closeModal={closeModalEdit}>
+      {/* <Modal isOpen={isOpenModalEdit} closeModal={closeModalEdit}>
         <ModalEdit />
-      </Modal>
+      </Modal> */}
       <Modal isOpen={isOpenModalSelection} closeModal={closeModalSelection}>
         <ModalSelection isOpen={openModalEdit} closeModal={closeModalSelection} />
       </Modal>

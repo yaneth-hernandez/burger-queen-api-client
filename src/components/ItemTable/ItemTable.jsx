@@ -1,5 +1,19 @@
+import { useState } from "react"
 
-export const ItemTable = ({isOpen, id, email, role})=>{
+
+export const ItemTable = ({children,isOpen, id, email, role})=>{
+const [userEdit, setUserEdit] = useState(null)
+
+const dataUser={
+    id:id,
+    email:email,
+    role:role,
+}
+console.log(dataUser)
+ const handleOnclick = (e)=>{
+    isOpen()
+    console.log(e.target.dataset)
+ }
  
     return (
         <>
@@ -7,8 +21,8 @@ export const ItemTable = ({isOpen, id, email, role})=>{
           <article className="item-table">{email}</article>
           {/* <article className="item-table">******</article>  */}
           <article className="item-table">{role}</article>
-          <article className="item-table"><button onClick={isOpen}><i className="bi bi-three-dots-vertical" data-id={id}></i></button></article>
-          
-          </>
+          <article className="item-table"><button className="selection" onClick={(e)=>handleOnclick(e)}><i className="bi bi-three-dots-vertical" data-id={id} data-email={email} data-role={role}></i></button></article>
+{children}
+         </>
     )
 }

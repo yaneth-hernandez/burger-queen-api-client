@@ -49,19 +49,19 @@
     }
 
     .admin_navBar {
-        width: 100%;
+        width: 45%;
         height: 500px;
         @include flex-column-center;
-      justify-content: space-around;
+      justify-content: space-evenly;
       
       margin-top: 643px;
-      margin-left: 450px;
+      margin-left: 780px;
    
         //margin-top: -20rem;//oculta arriba
-        //position: absolute;
+        position: absolute;
         transition: all 500ms ease;
         background-color: $secondary-color;
-        opacity: 85%;
+        opacity: 95%;
         .itemNavBar{
             border: 0;
             background-color: transparent;
@@ -69,6 +69,9 @@
             font-size: 1.1rem;
             font-family: $general-text;
             font-weight: bold;
+            .bi{
+                font-size: 2rem;
+            }
         }
     }
     .admin_navBar_view{
@@ -77,6 +80,6 @@
         //transform: translateX(85px) translateY(308px);;//vista table-lado
         
         margin-top: 643px;
-        margin-left: 85px;
+    margin-left: 445px;
     }
 }

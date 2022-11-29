@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { requestCreateUser } from '../../helpers/API_request/userRequest'
-import './ModalCreate.scss'
+import './ModalStyles.scss'
 
 export const ModalCreate = () => {
   const [email, setUser] = useState('')
@@ -43,9 +43,9 @@ export const ModalCreate = () => {
   }
 
   return (
-    <section className="containerModalCreate">
+    <section className="containerModal">
       <h3 className="tittleModal">Crear usuario</h3>
-      <form className="formModal_createUser" onSubmit={(e) => handleSubmit(e)}>
+      <form className="formModal" onSubmit={(e) => handleSubmit(e)}>
         <label className="formModal_label">Correo electrónico</label>
         <input className="formModal_input" type="text" placeholder="@corre" onChange={(e) => setUser(e.target.value)} required />
         <label className="formModal_label">Contraseña</label>

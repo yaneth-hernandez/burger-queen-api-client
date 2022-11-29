@@ -1,6 +1,6 @@
 @import '../../generics.scss';
 
-.containerModalCreate {
+.containerModal {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -11,7 +11,7 @@
         margin-bottom: 15px;
     }
 
-    .formModal_createUser {
+    .formModal {
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -33,12 +33,16 @@
             border-radius: 8px;
         }
 
+        .input_with {
+            width: 40%;
+        }
+
         .containerSelect {
             display: flex;
             justify-content: space-between;
 
             .formModal_select {
-                height: 25px;
+                height: 34px;
                 width: 40%;
                 border-radius: 8px;
                 outline: none;
@@ -75,6 +79,10 @@
             color: $secondary-color;
             font-weight: bold;
             font-size: 1rem;
+        }
+
+        .btnWith {
+            width: 48%;
         }
 
         .errorMessage {

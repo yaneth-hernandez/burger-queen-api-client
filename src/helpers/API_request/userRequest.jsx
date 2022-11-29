@@ -39,7 +39,7 @@ export const requestCreateUser = (email, password, role) => {
 }
 
 //creo que hay que pasar el id del usuario
-export const requestEditUser = (email, password, role,id) => {
+export const requestEditUser = (email,  role,id) => {
     console.log(token)
     return fetch(`http://localhost:8080/users/${id}`, {
         method: 'PATCH',
@@ -50,7 +50,7 @@ export const requestEditUser = (email, password, role,id) => {
         },
         body: JSON.stringify({
             "email": email,
-            "password": password,
+            // "password": password,
             "role": role,
             "id": id
         })
