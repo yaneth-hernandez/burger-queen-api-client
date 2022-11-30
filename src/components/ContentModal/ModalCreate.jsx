@@ -2,7 +2,7 @@ import { useState } from "react"
 import { requestCreateUser } from '../../helpers/API_request/userRequest'
 import './ModalStyles.scss'
 
-export const ModalCreate = () => {
+export const ModalCreate = ({closeModal, onAddUser}) => {
   const [email, setUser] = useState('')
   const [password, setPassword] = useState('')
   const [role, setRole] = useState('')
@@ -25,6 +25,8 @@ export const ModalCreate = () => {
         console.log(data)
         setMessage('')
         event.target.reset()
+        closeModal()
+        onAddUser(data.user)
     }
   }
 
@@ -49,7 +51,7 @@ export const ModalCreate = () => {
         <label className="formModal_label">Correo electrónico</label>
         <input className="formModal_input" type="text" placeholder="@corre" onChange={(e) => setUser(e.target.value)} required />
         <label className="formModal_label">Contraseña</label>
-        <input className="formModal_input" type="text" placeholder="contraseña" onChange={(e) => setPassword(e.target.value)} required />
+        <input className="formModal_input" type="password" placeholder="contraseña" onChange={(e) => setPassword(e.target.value)} required />
         <label className="formModal_label">Perfil</label>
         <div className="containerSelect">
           <select className="formModal_select" onChange={(e) => setRole(e.target.value)} required>

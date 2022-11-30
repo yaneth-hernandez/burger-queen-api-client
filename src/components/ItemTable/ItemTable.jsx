@@ -1,4 +1,4 @@
-import { useContext, createContext, useState } from "react"
+import { createContext, useState } from "react"
 import { useModal } from "../../helpers/modals/useModal"
 import { Modal } from "../../pages/Modal/Modal"
 import { ModalEdit } from "../ContentModal/ModalEdit"
@@ -7,7 +7,7 @@ import { ModalSelection } from "../ContentModal/ModalSelection"
 
 export const UserContext = createContext()
 
-export const ItemTable = ({ id, email, role }) => {
+export const ItemTable = ({ id, email, role, addUser, setDataUser }) => {
     const [user, setUser] = useState([])
     const [isOpenModalEdit, openModalEdit, closeModalEdit] = useModal(false)
     const [isOpenModalDelete, openModalDelete, closeModalDelete] = useModal(false)
@@ -28,8 +28,13 @@ export const ItemTable = ({ id, email, role }) => {
        
     }
 
+    const contextValue = {
+        user,
+        setDataUser
+    }
+
     return (
-        <UserContext.Provider value={user}>
+        <UserContext.Provider value={contextValue}>
         <>
             <article className="item-table">{id}</article>
             <article className="item-table">{email}</article>
@@ -37,7 +42,7 @@ export const ItemTable = ({ id, email, role }) => {
             <article className="item-table">{role}</article>
             <article className="item-table"><button className="selection" onClick={(e) => handleOnclick(e)}><i className="bi bi-three-dots-vertical" data-id={id} data-email={email} data-role={role}></i></button></article>
             <Modal isOpen={isOpenModalEdit} closeModal={closeModalEdit}>
-                <ModalEdit />
+                <ModalEdit onAddUser={addUser}/>
             </Modal>
             <Modal isOpen={isOpenModalDelete} closeModal={closeModalDelete}>
                 <ModalDelete />

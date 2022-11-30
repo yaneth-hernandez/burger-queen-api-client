@@ -14,7 +14,7 @@ export const requestLogin = (email,password) => {
     })
 }
 
-export const requestGetUser = () => {
+export const requestGetUser = (token) => {
     // return fetch('http://localhost:8080/users')
     return fetch('http://localhost:8080/users',{
         //method: 'GET',
@@ -40,7 +40,7 @@ export const requestCreateUser = (email, password, role) => {
 
 //creo que hay que pasar el id del usuario
 export const requestEditUser = (email,  role,id) => {
-    console.log(token)
+    //console.log(token)
     return fetch(`http://localhost:8080/users/${id}`, {
         method: 'PATCH',
         headers: {
@@ -59,7 +59,7 @@ export const requestEditUser = (email,  role,id) => {
 
 export const requestDeleteUser = (id) => {
     const token = localStorage.getItem('Token')
-    console.log(token)
+    //console.log(token)
     return fetch(`http://localhost:8080/users/${id}`, {
         method: 'DELETE',
         headers: {

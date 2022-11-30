@@ -2,6 +2,7 @@ import { Modal } from '../../pages/Modal/Modal'
 import { ModalCreate } from "../ContentModal/ModalCreate.jsx";
 import { ModalEdit } from "../ContentModal/ModalEdit.jsx";
 import { ModalSelection } from '../ContentModal/ModalSelection';
+import { ModalDelete } from '../ContentModal/ModalDelete';
 import { useModal } from "../../helpers/modals/useModal.jsx";
 import './AdminUser.scss'
 // import { UserList } from '../UserList/UserList';
@@ -16,6 +17,8 @@ export const AdminUser = () => {
   const [isOpenModalCreate, openModalCreate, closeModalCreate] = useModal(false)
   const [isOpenModalEdit, openModalEdit, closeModalEdit] = useModal(false)
   const [isOpenModalSelection, openModalSelection, closeModalSelection] = useModal(false)
+  const [isOpenModalDelete, openModalDelete, closeModalDelete] = useModal(false)
+    
 
   const [dataUser, setDataUser] = useState([])
   //const [userEdit, setUserEdit] = useState(null)
@@ -23,13 +26,12 @@ export const AdminUser = () => {
 
 
   //const getUserList = ()=>{
-
+    const addUser = (user)=>{
+      setDataUser((prevState) => [...prevState, user])
+    }
 
   useEffect(() => {
-    fetch('http://localhost:8080/users', {
-      headers: { "Authorization": "Bearer " + token }
-    })
-      //    requestGetUser()
+      requestGetUser(token)
       .then(res => res.json())
       .then((res) => {
         setDataUser(res.map(user => {
@@ -54,7 +56,7 @@ export const AdminUser = () => {
       <section className="btnContainerCreate" >
         <button type="button" className="btnCreate" onClick={openModalCreate}>Crear usuario <i className="bi bi-plus-circle"></i></button>
       </section>
-{/* <UserContext.Provider value={edit}> */}
+      {/* <UserContext.Provider value={edit}> */}
 
       <Table>
         {
@@ -65,7 +67,9 @@ export const AdminUser = () => {
               email={user.email}
               password={user.password}
               role={user.role}
-              //isOpen={openModalSelection}
+              setDataUser={setDataUser}
+              onAddUser={addUser}
+            //isOpen={openModalSelection}
             >
 
               {/* <Modal isOpen={isOpenModalEdit} closeModal={closeModalEdit}>
@@ -78,14 +82,18 @@ export const AdminUser = () => {
           ))
         }
       </Table>
-{/*</UserContext.Provider>*/}
+      {/*</UserContext.Provider>*/}
       {/* <UserList isOpen={openModalSelection}/> */}
       <Modal isOpen={isOpenModalCreate} closeModal={closeModalCreate}>
-        <ModalCreate />
+        <ModalCreate closeModal={closeModalCreate} onAddUser={addUser}/>
       </Modal>
       {/* <Modal isOpen={isOpenModalEdit} closeModal={closeModalEdit}>
         <ModalEdit />
       </Modal> */}
+      {/* <Modal isOpen={isOpenModalDelete} closeModal={closeModalDelete}>
+                <ModalDelete />
+            </Modal> */}
+      
       {/* <Modal isOpen={isOpenModalSelection} closeModal={closeModalSelection}>
         <ModalSelection isOpen={openModalEdit} closeModal={closeModalSelection} />
       </Modal> */}
