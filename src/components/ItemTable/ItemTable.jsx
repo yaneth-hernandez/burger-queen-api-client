@@ -12,12 +12,7 @@ export const ItemTable = ({ id, email, role, addUser, setDataUser }) => {
     const [isOpenModalEdit, openModalEdit, closeModalEdit] = useModal(false)
     const [isOpenModalDelete, openModalDelete, closeModalDelete] = useModal(false)
     const [isOpenModalSelection, openModalSelection, closeModalSelection] = useModal(false)
-    // const dataUser={
-    //     id:id,
-    //     email:email,
-    //     role:role,
-    // }
-    //console.log(dataUser)
+   
     const handleOnclick = (e) => {
         openModalSelection()
         setUser({

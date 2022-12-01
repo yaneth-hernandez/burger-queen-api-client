@@ -1,45 +1,47 @@
 import { Modal } from '../../pages/Modal/Modal'
-import { ModalCreate } from "../ContentModal/ModalCreate.jsx";
-import { ModalEdit } from "../ContentModal/ModalEdit.jsx";
-import { ModalSelection } from '../ContentModal/ModalSelection';
+import { ModalCreate } from "../ContentModalProduct/ModalCreate.jsx";
+import { ModalEdit } from "../ContentModalProduct/ModalEdit.jsx";
+import { ModalSelection } from '../ContentModalProduct/ModalSelection';
 
 import { useModal } from "../../helpers/modals/useModal.jsx";
-import './AdminUser.scss'
+import './AdminProducts.scss'
 // import { UserList } from '../UserList/UserList';
-import { requestGetUser } from '../../helpers/API_request/userRequest'
+import { requestGetProducts } from '../../helpers/API_request/productRequest'
 import { useEffect, useState, createContext, useContext } from "react";
-import { Table } from "../Table/Table";
-import { ItemTable } from "../ItemTable/ItemTable";
+import { TableProducts } from "../TableProducts/TableProducts";
+import { ItemTableProducts} from "../ItemTableProducts/ItemTableProducts";
 import { HeaderAdmin } from '../HeaderAdmin/HeaderAdmin';
 //export const UserContext = createContext();
 
-export const AdminUser = () => {
+export const AdminProducts = () => {
   const [isOpenModalCreate, openModalCreate, closeModalCreate] = useModal(false)
   const [isOpenModalEdit, openModalEdit, closeModalEdit] = useModal(false)
   const [isOpenModalSelection, openModalSelection, closeModalSelection] = useModal(false)
   //const [isOpenModalDelete, openModalDelete, closeModalDelete] = useModal(false)
     
 
-  const [dataUser, setDataUser] = useState([])
+  const [dataProduct, setDataProduct] = useState([])
   //const [userEdit, setUserEdit] = useState(null)
   const token = localStorage.getItem('Token')
 
 
   //const getUserList = ()=>{
-    const addUser = (user)=>{
-      setDataUser((prevState) => [...prevState, user])
+    const addProduct = (product)=>{
+      setDataProduct((prevState) => [...prevState, product])
     }
 
   useEffect(() => {
-      requestGetUser(token)
+    requestGetProducts(token)
       .then(res => res.json())
       .then((res) => {
-        setDataUser(res.map(user => {
+        console.log(res)
+        setDataProduct(res.map(product => {
           return {
-            email: user.email,
-            id: user.id,
-            password: user.password,
-            role: user.role,
+            name: product.name,
+            id: product.id,
+            price: product.price,
+            image: product.image,
+            type: product.type,
           }
         }));
       })
@@ -55,21 +57,22 @@ export const AdminUser = () => {
     <>
     <HeaderAdmin/>
       <section className="btnContainerCreate" >
-        <button type="button" className="btnCreate" onClick={openModalCreate}>Crear usuario <i className="bi bi-plus-circle"></i></button>
+        <button type="button" className="btnCreate" onClick={openModalCreate}>Crear producto<i className="bi bi-plus-circle"></i></button>
       </section>
       {/* <UserContext.Provider value={edit}> */}
 
-      <Table>
+      <TableProducts>
         {
-          dataUser.map(user => (
-            <ItemTable
-              key={user.id}
-              id={user.id}
-              email={user.email}
-              password={user.password}
-              role={user.role}
-              setDataUser={setDataUser}
-              onAddUser={addUser}
+          dataProduct.map(product => (
+            <ItemTableProducts
+              key={product.id}
+              id={product.id}
+              name={product.name}
+              price={product.price}
+              image={product.image}
+              type={product.type}
+              setDataProduct={setDataProduct}
+              onAddProduct={addProduct}
             //isOpen={openModalSelection}
             >
 
@@ -78,15 +81,15 @@ export const AdminUser = () => {
               </Modal> */}
 
 
-            </ItemTable>
+            </ItemTableProducts>
 
           ))
         }
-      </Table>
+      </TableProducts>
       {/*</UserContext.Provider>*/}
       {/* <UserList isOpen={openModalSelection}/> */}
       <Modal isOpen={isOpenModalCreate} closeModal={closeModalCreate}>
-        <ModalCreate closeModal={closeModalCreate} onAddUser={addUser}/>
+        <ModalCreate closeModal={closeModalCreate} onAddProduct={addProduct}/>
       </Modal>
       {/* <Modal isOpen={isOpenModalEdit} closeModal={closeModalEdit}>
         <ModalEdit />
