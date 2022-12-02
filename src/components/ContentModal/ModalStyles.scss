@@ -33,6 +33,15 @@
             border-radius: 8px;
         }
 
+        .formModal_input_delete{
+            width: 100%;
+            max-width: 450px;
+            padding: 8px 7px;
+            // outline: none;
+            background: red;//$secondary-color;
+            border: $primary-color solid 1px;
+            border-radius: 8px;
+        }
         .input_with {
             width: 40%;
         }
