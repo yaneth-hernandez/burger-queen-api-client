@@ -3,58 +3,40 @@ import { requestCreateProduct } from '../../helpers/API_request/productRequest'
 import { postImage } from "../../helpers/API_request/productRequest"
 import './ModalStyles.scss'
 
-export const ModalCreate = ({closeModal, onAddProduct}) => {
+export const ModalCreate = ({ closeModal, onAddProduct }) => {
   const [name, setName] = useState('')
   const [image, setImage] = useState([])
   const [type, setType] = useState('')
   const [price, setPrice] = useState('')
-  const [previewImage, setPreviewImage] = useState(null)
-  const [message, setMessage] = useState('')
   const token = localStorage.getItem('Token')
-
   const imgRef = useRef('')
-  //const [form, setForm] = useState(false)
-//console.log('Información',image[0].name)
 
   const validateRegistrationData = (data, event) => {
-    switch (data) {
-      case 'Email format is invalid':
-        setMessage('Formato de email inválido');
-        break;
-      case 'Email already exists':
-        setMessage('Email ya existe');
-        break;
-      case 'Password is too short':
-        setMessage('Contraseña demasiado corta');
-        break;
-      default:
-        console.log(data)
-        setMessage('')
-        event.target.reset()
-        closeModal()
-        onAddUser(data)
-    }
+      event.target.reset()
+      closeModal()
+      onAddProduct(data)
+      imgRef.current.src = ''
   }
 
 
   postImage(image[0])
-  .then((res)=> res.json())
-  .then((res)=>{
-    if(res.status == 200){
-      console.log(res.data.image.url)
-      imgRef.current.src = res.data.image.url
-    }
-   })
-   .catch((error)=>{
-    console.log(error)
-   })
+    .then((res) => res.json())
+    .then((res) => {
+      if (res.status == 200) {
+        // console.log(res.data.image.url)
+        imgRef.current.src = res.data.image.url
+      }
+    })
+    .catch((error) => {
+      console.log(error)
+    })
 
   const handleSubmit = (e) => {
     e.preventDefault()
     requestCreateProduct(token, name, type, price, imgRef.current.currentSrc)
       .then((res) => res.json())
       .then((res) => {
-        console.log(res)
+        validateRegistrationData(res, e)
       })
       .catch((error) => {
         console.log(error)
@@ -68,9 +50,9 @@ export const ModalCreate = ({closeModal, onAddProduct}) => {
         <label className="formModal_label">Nombre del producto</label>
         <input className="formModal_input" type="text" placeholder="" onChange={(e) => setName(e.target.value)} required />
         <section className="content_imge">
-        <label className="formModal_label" htmlFor="image">Imagen</label>
-        <input className="formModal_input" type="file" name="image" placeholder="" onChange={(e) => {setImage(e.target.files), setPreviewImage(e.target.src)}} required />
-        <img ref={imgRef} src="" alt="" className="preview_img" />
+          <label className="formModal_label" htmlFor="image">Imagen</label>
+          <input className="formModal_input" type="file" name="image" placeholder="" onChange={(e) => { setImage(e.target.files) }} required />
+          <img ref={imgRef} src="" alt="" className="preview_img" />
         </section>
         <label className="formModal_label">Precio</label>
         <input className="formModal_input" type="number" placeholder="" onChange={(e) => setPrice(e.target.value)} required />
@@ -85,7 +67,6 @@ export const ModalCreate = ({closeModal, onAddProduct}) => {
         </div>
 
         <button className="btnSubmit" type="submit">Crear producto</button>
-        <span className="message">{message}</span> 
       </form>
 
     </section>

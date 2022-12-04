@@ -15,8 +15,8 @@ import { HeaderAdmin } from '../HeaderAdmin/HeaderAdmin';
 
 export const AdminProducts = () => {
   const [isOpenModalCreate, openModalCreate, closeModalCreate] = useModal(false)
-  const [isOpenModalEdit, openModalEdit, closeModalEdit] = useModal(false)
-  const [isOpenModalSelection, openModalSelection, closeModalSelection] = useModal(false)
+  // const [isOpenModalEdit, openModalEdit, closeModalEdit] = useModal(false)
+  // const [isOpenModalSelection, openModalSelection, closeModalSelection] = useModal(false)
   //const [isOpenModalDelete, openModalDelete, closeModalDelete] = useModal(false)
     
 
@@ -34,7 +34,6 @@ export const AdminProducts = () => {
     requestGetProducts(token)
       .then(res => res.json())
       .then((res) => {
-        console.log(res)
         setDataProduct(res.map(product => {
           return {
             name: product.name,
@@ -51,7 +50,7 @@ export const AdminProducts = () => {
   }, []);
   //}
 
-  //useEffect(() => { getUserList() } , [])
+  
 
   return (
     <>
