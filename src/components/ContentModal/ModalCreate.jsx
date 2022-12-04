@@ -1,13 +1,17 @@
 import { useState } from "react"
 import { requestCreateUser } from '../../helpers/API_request/userRequest'
+// import { Modal } from "../../pages/Modal/Modal"
+// import { ModalConfirmation } from "./ModalConfirmation"
+import { useModal } from "../../helpers/modals/useModal";
+
 import './ModalStyles.scss'
 
-export const ModalCreate = ({closeModal, onAddUser}) => {
+export const ModalCreate = ({closeModal, onAddUser, isOpen}) => {
   const [email, setUser] = useState('')
   const [password, setPassword] = useState('')
   const [role, setRole] = useState('')
   const [message, setMessage] = useState('')
-  //const [form, setForm] = useState(false)
+  // const [isOpenModalConfirmation, openModalConfirmation, closeModalConfirmation] = useModal(false)
 
 
   const validateRegistrationData = (data, event) => {
@@ -22,12 +26,12 @@ export const ModalCreate = ({closeModal, onAddUser}) => {
         setMessage('Contraseña demasiado corta');
         break;
       default:
-        console.log(data)
         setMessage('')
         event.target.reset()
         closeModal()
         onAddUser(data.user)
-    }
+        isOpen()
+   }
   }
 
   const handleSubmit = (e) => {
@@ -36,6 +40,7 @@ export const ModalCreate = ({closeModal, onAddUser}) => {
       .then((res) => res.json())
       .then((res) => {
         validateRegistrationData(res, e)
+        
       })
       .catch((error) => {
         console.log(error)
@@ -45,9 +50,10 @@ export const ModalCreate = ({closeModal, onAddUser}) => {
   }
 
   return (
+    <>
     <section className="containerModal">
       <h3 className="tittleModal">Crear usuario</h3>
-      <form className="formModal" onSubmit={(e) => handleSubmit(e)}>
+      <form className="formModal" data-text="create" onSubmit={(e) => handleSubmit(e)}>
         <label className="formModal_label">Correo electrónico</label>
         <input className="formModal_input" type="text" placeholder="@corre" onChange={(e) => setUser(e.target.value)} required />
         <label className="formModal_label">Contraseña</label>
@@ -63,11 +69,15 @@ export const ModalCreate = ({closeModal, onAddUser}) => {
           <button className="btnReset" type="reset" >Limpiar</button>
         </div>
 
-        <button className="btnSubmit" type="submit">Crear usuario</button>
+        <button className="btnSubmit" type="submit" >Crear usuario</button>
         <span className="message">{message}</span> 
       </form>
-
     </section>
+
+    {/* <Modal isOpen={isOpenModalConfirmation} closeModal={closeModalConfirmation}>
+        <ModalConfirmation closeModal={closeModalConfirmation}/>
+      </Modal> */}
+    </>
   )
 }
 

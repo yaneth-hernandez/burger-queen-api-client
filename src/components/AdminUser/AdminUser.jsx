@@ -1,7 +1,8 @@
 import { Modal } from '../../pages/Modal/Modal'
 import { ModalCreate } from "../ContentModal/ModalCreate.jsx";
-import { ModalEdit } from "../ContentModal/ModalEdit.jsx";
-import { ModalSelection } from '../ContentModal/ModalSelection';
+// import { ModalEdit } from "../ContentModal/ModalEdit.jsx";
+// import { ModalSelection } from '../ContentModal/ModalSelection';
+import { ModalConfirmCreate } from '../ContentModal/ModalConfirmCreate'
 
 import { useModal } from "../../helpers/modals/useModal.jsx";
 import './AdminUser.scss'
@@ -15,19 +16,21 @@ import { HeaderAdmin } from '../HeaderAdmin/HeaderAdmin';
 
 export const AdminUser = () => {
   const [isOpenModalCreate, openModalCreate, closeModalCreate] = useModal(false)
-  const [isOpenModalEdit, openModalEdit, closeModalEdit] = useModal(false)
-  const [isOpenModalSelection, openModalSelection, closeModalSelection] = useModal(false)
+  const [isOpenModalConfirmation, openModalConfirmation, closeModalConfirmation] = useModal(false)
+  // const [isOpenModalEdit, openModalEdit, closeModalEdit] = useModal(false)
+  // const [isOpenModalSelection, openModalSelection, closeModalSelection] = useModal(false)
   //const [isOpenModalDelete, openModalDelete, closeModalDelete] = useModal(false)
     
 
   const [dataUser, setDataUser] = useState([])
-  //const [userEdit, setUserEdit] = useState(null)
+  const [newUser, setNewUser] = useState([])
   const token = localStorage.getItem('Token')
 
 
   //const getUserList = ()=>{
     const addUser = (user)=>{
       setDataUser((prevState) => [...prevState, user])
+      setNewUser(user)
     }
 
   useEffect(() => {
@@ -47,10 +50,8 @@ export const AdminUser = () => {
         console.error(error)
       })
   }, []);
-  //}
-
-  //useEffect(() => { getUserList() } , [])
-
+ 
+ //console.log(newUser)
   return (
     <>
     <HeaderAdmin/>
@@ -86,7 +87,13 @@ export const AdminUser = () => {
       {/*</UserContext.Provider>*/}
       {/* <UserList isOpen={openModalSelection}/> */}
       <Modal isOpen={isOpenModalCreate} closeModal={closeModalCreate}>
+        <ModalCreate closeModal={closeModalCreate} isOpen={openModalConfirmation} onAddUser={addUser}/>
+      </Modal>
+      {/* <Modal isOpen={isOpenModalCreate} closeModal={closeModalCreate}>
         <ModalCreate closeModal={closeModalCreate} onAddUser={addUser}/>
+      </Modal> */}
+      <Modal isOpen={isOpenModalConfirmation} closeModal={closeModalConfirmation}>
+        <ModalConfirmCreate closeModal={closeModalConfirmation} newUser={newUser}/>
       </Modal>
       {/* <Modal isOpen={isOpenModalEdit} closeModal={closeModalEdit}>
         <ModalEdit />

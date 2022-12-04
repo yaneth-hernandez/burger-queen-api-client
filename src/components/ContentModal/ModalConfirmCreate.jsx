@@ -1,11 +1,10 @@
-export const ModalConfirmation = ({data, event})=>{
+export const ModalConfirmCreate = ({newUser})=>{
     return(
-        <div>
-            {event.target.dataset.text === 'update'} ?
-            <i className="bi bi-check-circle"></i>
-            <h3>Usuario {data.email} editado </h3>
-            :
-            <h3>Usuario {data.email} eliminado con éxito</h3> 
+        <div className="modalConfirm">
+           <i className="bi bi-check-circle"></i>
+            <h3>Id: {newUser.id}</h3>
+            <h3>Correo: {newUser.email}</h3>
+            <h4>Creado con exito! </h4>
         </div>
     )
 }

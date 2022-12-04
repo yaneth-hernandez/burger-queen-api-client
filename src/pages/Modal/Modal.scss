@@ -16,7 +16,6 @@
 
 .modal.is-open {
     display: flex;
-    //flex-direction: column;
 }
 
 .modalContent {
@@ -33,6 +32,22 @@
     flex-direction: column;
     font-family: $general-text;
     color: #102636;
+
+    .modalConfirm {
+        display: flex;
+        flex-direction: column;
+        height: 210px;
+        align-items: center;
+        justify-content: space-evenly;
+
+        .bi {
+            font-size: 5rem;
+            color: $primary-color;
+        }
+        h3 {
+            color: #102636;
+        }
+    }
 }
 
 .modalClose {

@@ -4,24 +4,26 @@ import { UserContext } from '../ItemTable/ItemTable'
 import './ModalStyles.scss'
 
 
-export const ModalEdit = () => {
+export const ModalEdit = ({isOpen, closeModal}) => {
   const { user, setDataUser } = useContext(UserContext)
   const roleRef = useRef(null)
   const emailRef = useRef(null)
   const idRef = useRef(null)
   const token = localStorage.getItem('Token')
-
+  const errorRef = useRef(null)
   // const [email, setEmail] = useState(user.email || '')
   // const [role, setRole] = useState(user.role || '')
   // const [id, setId] = useState(user.id || '')
 
-// const validateData=(event, data)=>{
-//   if(data === 'Email format is invalid'){
-//       console.log('Formato de email inválido')
-//   }else {
-//     console.log('Open modal')
-//   }
-// }
+const validateData=(data)=>{
+  if(data === 'Email format is invalid'){
+      errorRef.current.innerText = 'Formato de email inválido'
+  }else {
+    closeModal()
+    isOpen()
+    errorRef.current.innerText = ''
+  }
+}
 
 
 
@@ -31,8 +33,8 @@ export const ModalEdit = () => {
     // requestEditUser(email, role, id, token)
       .then((res) => res.json())
       .then((res) => {
-        validateData(e, res)
-        console.log(res)
+        //validateData(res)
+        // console.log(res)
         requestGetUser(token)
           .then(res => res.json())
           .then((res) => {
@@ -48,6 +50,7 @@ export const ModalEdit = () => {
           .catch((error) => {
             console.error(error)
           })
+          validateData(res)
       })
   }
 
@@ -74,6 +77,7 @@ export const ModalEdit = () => {
           </select>
           <button className="btnSubmit btnWith" type='submit' data-text="editar">Editar</button>
         </div>
+        <p ref={errorRef}></p>
       </form>
     </section>
   )

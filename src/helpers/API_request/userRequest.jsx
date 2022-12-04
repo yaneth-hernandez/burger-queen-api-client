@@ -15,10 +15,8 @@ export const requestLogin = (email,password) => {
 }
 
 export const requestGetUser = (token) => {
-    // return fetch('http://localhost:8080/users')
-    return fetch('http://localhost:8080/users',{
-        //method: 'GET',
-        headers: {"Authorization": "Bearer " + token}
+     return fetch('http://localhost:8080/users',{
+       headers: {"Authorization": "Bearer " + token}
     })
 }
 
@@ -70,41 +68,3 @@ export const requestDeleteUser = (id) => {
         body:id
     })
 }
-
-
-
-
-//lina
-// const fetchHandle = (event)=>{
-//     event.preventDefault()
-//     postLogin(email, password).then(res => {res.json()
-//       console.log(res.statusText , 'estado');
-//       /* if(res.statusText == "Bad Request"){
-//         console.log(res);
-//         //setError(true)
-//         console.log(setError(res.statusText) );
-//         //throw new Error(res.statusText )
-//       } */
-//     }).then(resJson => {
-//           setUser(resJson.user)
-//           console.log(resJson , 'es la respuesta');
-//             if(typeof resJson == String){
-//             console.log(typeof resJson);
-//             setError(resJson)
-//             throw new Error(resJson)
-//           }
-//           //unaVariable = 'chao'
-//           //console.log(unaVariable)
-//           setToken_role(resJson.accessToken, resJson.user.role )
-//           console.log(setToken_role(resJson.accessToken, resJson.user.role ), 'guardar token y rol')
-//         //   if(resJson.user.role === undefined)
-//         //   /* if(typeof resJson == String) */ {
-//         //     console.log(typeof resJson);
-//         //     throw new Error(resJson)
-//         // }
-//           if(resJson.user.role === 'admin'){
-//             console.log('es administrador');
-//             navigate("/getUser");
-//           }
-//         }) .catch((error )=> {console.log(error , 'ES EL CATCH')})
-//   }
