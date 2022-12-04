@@ -7,44 +7,64 @@ export const requestGetProducts = (token) => {
     })
 }
 
-export const requestCreateProduct = (token, data)=>{
+
+
+ export const postImage = (img) => {
+    const apiKey = '439686b154b99d1b91858118eb9ddefb'
+    const url = `https://api.imgbb.com/1/upload?key=${apiKey}`
+
+    const form = new FormData();
+    form.append('image', img);
+
+    return fetch(url,{
+        method: 'POST',
+        headers: {
+        },
+        body: form
+    })
+
+
+  }
+
+  export const requestCreateProduct = (token, name, type, price, img)=>{
     return fetch('http://localhost:8080/products',{
         method: 'POST',
         headers: {
-            "Accept": "application/json, image/* ",
-            "Content-Type": "multipart/form-data",
+            "Content-Type": "application/json",
+            "Access-Control-Request-Method": "POST",
             "Authorization": "Bearer " + token
         },
-        body: data
+        body: JSON.stringify({
+            "name": name,
+            "type": type,
+            "price": price,
+            "image": img
+        })
     })
 }
 
 
-
-
-async function uploadImgWeb (img) {
-
-    const form = new FormData();
-    form.append('image', img);
-    console.log('img helpers ', typeof img);
-  
-    const apiKey = 'c04d608433763cbe2f5981c6f6bf2eb5'
-  
-    const url = `https://api.imgbb.com/1/upload?key=${apiKey}`
-  
-    const petition = {
-        method: 'POST',
-        body: form
-    }
-  
-    const response = await fetch(url,petition) 
-    console.log('response helpers ', response);
-    const dataResponse = await response.json()
-  
-    console.log('URL IMAGEN >>>>', dataResponse.data.url )
-    return dataResponse.data.url
-  
-  }
-
-
   //https://api.imgbb.com/
+
+  
+// async function uploadImgWeb (img) {
+
+//     const form = new FormData();
+//     form.append('image', img);
+//     console.log('img helpers ', typeof img);
+  
+    
+  
+//     const petition = {
+//         method: 'POST',
+//         body: form
+//     }
+  
+//     const response = await fetch(url,petition) 
+//     console.log('response helpers ', response);
+//     const dataResponse = await response.json()
+  
+//     console.log('URL IMAGEN >>>>', dataResponse.data.url )
+//     return dataResponse.data.url
+  
+//   }

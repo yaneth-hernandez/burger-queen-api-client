@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { requestCreateProduct } from '../../helpers/API_request/productRequest'
+import { postImage } from "../../helpers/API_request/productRequest"
 import './ModalStyles.scss'
 
 export const ModalCreate = ({closeModal, onAddProduct}) => {
@@ -7,11 +8,13 @@ export const ModalCreate = ({closeModal, onAddProduct}) => {
   const [image, setImage] = useState([])
   const [type, setType] = useState('')
   const [price, setPrice] = useState('')
-  const [previewImage, setPreviewImage]=useState(null)
+  const [previewImage, setPreviewImage] = useState(null)
   const [message, setMessage] = useState('')
   const token = localStorage.getItem('Token')
+
+  const imgRef = useRef('')
   //const [form, setForm] = useState(false)
-console.log('Información',image[0].name)
+//console.log('Información',image[0].name)
 
   const validateRegistrationData = (data, event) => {
     switch (data) {
@@ -33,17 +36,22 @@ console.log('Información',image[0].name)
     }
   }
 
-  const formData = new FormData()
-  formData.append('name', name)
-  formData.append('type', type)
-  formData.append('price', price)
-  formData.append('image', image[0].name)
 
-console.log(formData)
+  postImage(image[0])
+  .then((res)=> res.json())
+  .then((res)=>{
+    if(res.status == 200){
+      console.log(res.data.image.url)
+      imgRef.current.src = res.data.image.url
+    }
+   })
+   .catch((error)=>{
+    console.log(error)
+   })
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    requestCreateProduct(token, formData)
+    requestCreateProduct(token, name, type, price, imgRef.current.currentSrc)
       .then((res) => res.json())
       .then((res) => {
         console.log(res)
@@ -51,8 +59,6 @@ console.log(formData)
       .catch((error) => {
         console.log(error)
       })
-    
-    
   }
 
   return (
@@ -64,7 +70,7 @@ console.log(formData)
         <section className="content_imge">
         <label className="formModal_label" htmlFor="image">Imagen</label>
         <input className="formModal_input" type="file" name="image" placeholder="" onChange={(e) => {setImage(e.target.files), setPreviewImage(e.target.src)}} required />
-        <img src={image} alt="" className="preview_img" />
+        <img ref={imgRef} src="" alt="" className="preview_img" />
         </section>
         <label className="formModal_label">Precio</label>
         <input className="formModal_input" type="number" placeholder="" onChange={(e) => setPrice(e.target.value)} required />
