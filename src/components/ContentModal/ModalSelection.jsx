@@ -17,8 +17,8 @@ export const ModalSelection = ({ isOpen, isOpenDelete, closeModal }) => {
     return (
         <section className="containerModal">
             <article className="selectionModal">
-                <button className="btnSelection" type="button" onClick={modalHandleEdit}>Editar usuario</button>
-                <button className="btnSelection" type="button" onClick={modalHandleDelete}>Eliminar usuario</button>
+                <button className="btnSelection" type="button" onClick={modalHandleEdit}>Editar Usuario</button>
+                <button className="btnSelection" type="button" onClick={modalHandleDelete}>Eliminar Usuario</button>
             </article>
         </section>
     )

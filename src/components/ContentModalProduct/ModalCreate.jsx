@@ -3,7 +3,7 @@ import { requestCreateProduct } from '../../helpers/API_request/productRequest'
 import { postImage } from "../../helpers/API_request/productRequest"
 import './ModalStyles.scss'
 
-export const ModalCreate = ({ closeModal, onAddProduct }) => {
+export const ModalCreate = ({ closeModal, onAddProduct, isOpen }) => {
   const [name, setName] = useState('')
   const [image, setImage] = useState([])
   const [type, setType] = useState('')
@@ -16,31 +16,41 @@ export const ModalCreate = ({ closeModal, onAddProduct }) => {
       closeModal()
       onAddProduct(data)
       imgRef.current.src = ''
+      isOpen()
   }
 
+const handleImage = (e)=>{
+  if(imgRef.current.currentSrc !== null){
+    setImage(e.target.files)
+  }
+  
+}
 
-  postImage(image[0])
-    .then((res) => res.json())
-    .then((res) => {
-      if (res.status == 200) {
-        // console.log(res.data.image.url)
-        imgRef.current.src = res.data.image.url
-      }
-    })
-    .catch((error) => {
-      console.log(error)
-    })
+postImage(image[0])
+.then((res) => res.json())
+.then((res) => {
+  if (res.status < 400) {
+    imgRef.current.src = res.data.image.url
+  }
+  
+})
+.catch((error) => {
+  console.log(error)
+})
+  
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    requestCreateProduct(token, name, type, price, imgRef.current.currentSrc)
+    requestCreateProduct(token, name, price, imgRef.current.currentSrc, type )
       .then((res) => res.json())
       .then((res) => {
         validateRegistrationData(res, e)
+        console.log(res)
       })
       .catch((error) => {
         console.log(error)
       })
+    
   }
 
   return (
@@ -51,7 +61,7 @@ export const ModalCreate = ({ closeModal, onAddProduct }) => {
         <input className="formModal_input" type="text" placeholder="" onChange={(e) => setName(e.target.value)} required />
         <section className="content_imge">
           <label className="formModal_label" htmlFor="image">Imagen</label>
-          <input className="formModal_input" type="file" name="image" placeholder="" onChange={(e) => { setImage(e.target.files) }} required />
+          <input className="formModal_input" type="file" name="image" placeholder="" onChange={(e) => { handleImage(e) }} required />
           <img ref={imgRef} src="" alt="" className="preview_img" />
         </section>
         <label className="formModal_label">Precio</label>

@@ -93,7 +93,7 @@ export const AdminUser = () => {
         <ModalCreate closeModal={closeModalCreate} onAddUser={addUser}/>
       </Modal> */}
       <Modal isOpen={isOpenModalConfirmation} closeModal={closeModalConfirmation}>
-        <ModalConfirmCreate closeModal={closeModalConfirmation} newUser={newUser}/>
+        <ModalConfirmCreate closeModal={closeModalConfirmation} newItem={newUser}/>
       </Modal>
       {/* <Modal isOpen={isOpenModalEdit} closeModal={closeModalEdit}>
         <ModalEdit />

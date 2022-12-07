@@ -24,14 +24,15 @@
     min-width: 50%;
     max-width: 50%;
     min-height: 250px;
-    max-height: 400px;
+    // max-height: 500px;
     border-radius: 8%;
     background-color: #C0D1DB;
     opacity: 95%;
     display: flex;
     flex-direction: column;
-    font-family: $general-text;
+    font-family: "Montserrat", sans-serif;
     color: #102636;
+    margin-top: 166px;
 
     .modalConfirm {
         display: flex;

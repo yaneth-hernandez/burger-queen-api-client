@@ -30,11 +30,8 @@ const validateData=(data)=>{
   const handleSubmit = (e) => {
     e.preventDefault(e)
     requestEditUser(emailRef.current.value,roleRef.current.value, idRef.current.value, token)
-    // requestEditUser(email, role, id, token)
       .then((res) => res.json())
       .then((res) => {
-        //validateData(res)
-        // console.log(res)
         requestGetUser(token)
           .then(res => res.json())
           .then((res) => {

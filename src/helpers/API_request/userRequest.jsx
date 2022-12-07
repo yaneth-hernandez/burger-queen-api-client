@@ -56,7 +56,7 @@ export const requestEditUser = (email,  role, id, token) => {
 }
 
 export const requestDeleteUser = (id) => {
-    const token = localStorage.getItem('Token')
+    
     //console.log(token)
     return fetch(`http://localhost:8080/users/${id}`, {
         method: 'DELETE',

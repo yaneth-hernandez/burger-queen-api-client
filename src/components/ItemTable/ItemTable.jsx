@@ -5,7 +5,7 @@ import { ModalEdit } from "../ContentModal/ModalEdit"
 import { ModalDelete } from "../ContentModal/ModalDelete"
 import { ModalSelection } from "../ContentModal/ModalSelection"
 import { ModalConfirmEdit } from "../ContentModal/ModalConfirmEdit"
-import { ModalConfirmDelete } from "../ContentModal/ModalConfirmDelete"
+import { ModalConfirmDelete } from '../ContentModal/ModalConfirmDelete'
 
 export const UserContext = createContext()
 
@@ -47,7 +47,7 @@ export const ItemTable = ({ id, email, role, addUser, setDataUser }) => {
                     <ModalEdit onAddUser={addUser} isOpen={openModalConfirmEdit} closeModal={closeModalEdit} />
                 </Modal>
                 <Modal isOpen={isOpenModalConfirmEdit} closeModal={closeModalConfirmEdit}>
-                    <ModalConfirmEdit closeModal={closeModalConfirmEdit} />
+                    <ModalConfirmEdit closeModal={closeModalConfirmEdit} itemEdit={user}/>
                 </Modal>
                 <Modal isOpen={isOpenModalDelete} closeModal={closeModalDelete}>
                     <ModalDelete isOpen={openModalConfirmDelete} closeModal={closeModalDelete} />
