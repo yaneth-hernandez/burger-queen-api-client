@@ -1,0 +1,44 @@
+@import "../../generics.scss";
+
+.loginForm{
+    width: 90%;
+    max-width: 500px;
+
+    @include flex-column-center;
+
+    gap: 30px;
+
+    &_contentInput{
+        width: 100%;
+
+        gap: 5px;
+
+        @include flex-column-center;
+
+        &--label{
+            width: 90%;
+            color: $primary-color;
+
+        }
+
+        &--input{
+            @include styleInput;
+        }
+
+        &--span{
+            color: red;
+            font-size: 1rem;
+        }
+    }
+
+    &_button{
+
+        @include styleButton;
+    }
+
+
+
+}
+
+// font-family: 'Montserrat', sans-serif;
+// font-family: 'Playfair Display', serif;

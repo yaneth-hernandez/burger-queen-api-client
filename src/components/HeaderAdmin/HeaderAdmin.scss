@@ -1,0 +1,85 @@
+@import '../../generics.scss';
+
+.admin_container {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .admin_containerLogo {
+        width: 30%;
+        display: flex;
+        justify-content: flex-end;
+
+        @include flex-column-center;
+
+        .admin_containerLogo--img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .admin_containerLogo--text {
+            font-size: 0.80rem;
+            color: $tertiary-color;
+            font-weight: 1px;
+            font-family: $logo-text;
+            font-weight: bold;
+        }
+    }
+
+    .admin_containerIcon {
+        width: 31%;
+        height: 55px;
+        @include flex-column-center;
+
+        .bi {
+            font-size: 50px;
+            color: $primary-color;
+        }
+
+        .admin_containerIcon--text {
+            font-size: 1rem;
+            color: $primary-color;
+            font-family: $general-text;
+            font-weight: bolder;
+            letter-spacing: 0.5px;
+        }
+
+    }
+
+    .admin_navBar {
+        width: 45%;
+        height: 500px;
+        @include flex-column-center;
+      justify-content: space-evenly;
+      
+      margin-top: 643px;
+      margin-left: 780px;
+   
+        //margin-top: -20rem;//oculta arriba
+        position: absolute;
+        transition: all 500ms ease;
+        background-color: $secondary-color;
+        opacity: 95%;
+        .itemNavBar{
+            border: 0;
+            background-color: transparent;
+            color: $primary-color;
+            font-size: 1.1rem;
+            font-family: $general-text;
+            font-weight: bold;
+            .bi{
+                font-size: 2rem;
+            }
+        }
+    }
+    .admin_navBar_view{
+        //margin-top: 20.4em;//mostrar de arriba a aboajo
+        //transform: translateX(85px); //vista table-lado
+        //transform: translateX(85px) translateY(308px);;//vista table-lado
+        
+        margin-top: 643px;
+    margin-left: 445px;
+    }
+}
