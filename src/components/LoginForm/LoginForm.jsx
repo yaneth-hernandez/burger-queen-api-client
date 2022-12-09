@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 // import env from "react-dotenv"
 import { useNavigate } from "react-router-dom";
-import { LOGIN, ADMIN_USERS, MENU, ORDERS } from "../../routes/paths";
+import { LOGIN, ADMIN_USERS, WAITER_MENU, ORDERS } from "../../routes/paths";
 import "./LoginFom.scss"
 import { requestLogin } from '../../helpers/API_request/userRequest'
 
@@ -38,7 +38,7 @@ export const LoginForm = () => {
                     navigate(ADMIN_USERS);
                     break;
                 case 'waiter':
-                    navigate(MENU);
+                    navigate(WAITER_MENU);
                     break;
                 case 'chef':
                     navigate(ORDERS)

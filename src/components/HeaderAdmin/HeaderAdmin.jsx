@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { LOGIN, ADMIN_USERS, ADMIN_PRODUCTS } from "../../routes/paths.js";
 import logo from '../../assets/Logo.png'
 import './HeaderAdmin.scss'

@@ -15,7 +15,6 @@ export const requestGetProducts = (token) => {
 
     const form = new FormData();
     form.append('image', img);
-
     return fetch(url,{
         method: 'POST',
         headers: {
