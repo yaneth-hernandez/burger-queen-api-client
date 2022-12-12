@@ -3,12 +3,12 @@ import { HeaderWaiter } from '../HeaderWaiter/HeaderWaiter'
 import { Menu } from '../Menu/Menu'
 import { ShoppingCart } from '../ShoppingCart/ShoppingCart'
 import { requestGetProducts } from '../../../helpers/API_request/productRequest'
-
-export const MenuContext = createContext()
+import { CartProvider } from '../CartContext/CartContext'
+//export const MenuContext = createContext()
 
 export const ViewWaiter = ()=>{
 const token = localStorage.getItem('Token')
-const [menu, setMenu] = useState([])
+//const [menu, setMenu] = useState([]) 
 //const [menuItem, setMenuItem] = useState([])
 const [breakFats, setBreakFast] = useState([])
 const [dinner, setDinner] = useState([])
@@ -29,6 +29,7 @@ useEffect(()=>{
         //   }));
           setBreakFast(res.filter(element => {
             if(element.type === 'Desayuno'){
+               
                 return {
                     name: element.name,
                     id: element.id,
@@ -38,29 +39,31 @@ useEffect(()=>{
                   }
             }
         }));
-        setDinner(res.filter(element => {
-            if(element.type === 'Almuerzo'){
-                return {
-                    name: element.name,
-                    id: element.id,
-                    price: element.price,
-                    image: element.image,
-                    type: element.type,
-                  }
-            }
-        }));
+        // setDinner(res.filter(element => {
+        //     if(element.type === 'Almuerzo'){
+               
+        //         return {
+        //             name: element.name,
+        //             id: element.id,
+        //             price: element.price,
+        //             image: element.image,
+        //             type: element.type,
+        //           }
+        //     }
+        // }));
     })
 },[])
-    
+   // console.log('Contexto:', menu)
 // console.log('Desayuno:', breakFats)
 // console.log('Almuerzo:', dinner)
     return(
-        <MenuContext.Provider value={menu}>
+      // <MenuContext.Provider value={menu}>
+      <CartProvider>
         <>
             <HeaderWaiter/>
-            <Menu breakFats={breakFats} dinner={dinner}/>
+            <Menu breakFats={breakFats} />
             <ShoppingCart/>
         </>
-        </MenuContext.Provider>
+        </CartProvider>
     )
 }

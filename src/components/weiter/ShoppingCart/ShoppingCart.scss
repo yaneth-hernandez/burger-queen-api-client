@@ -15,7 +15,7 @@
 
     .invoiceContainer {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         grid-auto-rows: 40px;
 
         .headerInvoice {
@@ -30,6 +30,26 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            img{
+                width: 30px;
+            }
         }
     }
+
+    .buttonContainer{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .btnSubmit {
+        width: 44%;
+        padding: 7px 7px;
+        border: $tertiary-color solid 1px;
+        border-radius: 8px;
+        background-color: $tertiary-color;
+        color: $secondary-color;
+        font-weight: bold;
+        font-size: 1rem;
+    }
 }
+
