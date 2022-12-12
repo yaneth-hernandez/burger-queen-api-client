@@ -3,55 +3,33 @@ import { createContext, useEffect, useState } from "react";
 export const CartContext = createContext()
 
 export const CartProvider = ({ children }) => {
-    
     const [cartItems, setCartItems] = useState([])
-    
-    console.log(cartItems)
+    const [total, setTotal] = useState(0)
+
     useEffect(() => {
         !cartItems ? '' :
             setTotal(
                 cartItems.reduce((previous, current) => previous + parseInt(current.qty), 0)
-              
             )
-            console.log(cartItems)
-    }, [cartItems])
-    
-
-    const [total, setTotal] = useState(0)
-useEffect(() => {
-        !cartItems ? '' :
-            setTotal(
-                //cartItems.reduce((previous, current) => previous + parseInt(current.qty), 0)
-                cartItems.reduce((previous, current) => {previous + parseInt(current.qty)}, 0)
-              
-            )
-            console.log(cartItems)
     }, [cartItems])
 
     const addItemToCart = (product) => {
-//console.log(product)
         const inCart = cartItems.find(
             (productInCart) => productInCart.product.id === product.id
         )
-
         if (inCart) {
             setCartItems(
                 cartItems.map((productInCart) => {
-
                     if (productInCart.product.id === product.id) {
-
                         return { ...productInCart, qty: productInCart.qty += 1 }
                     } else {
                         return productInCart
                     }
                 })
             )
-        }else {
-             setCartItems([...cartItems, { product: product, qty: 1 }])
-         }
-
-
-
+        } else {
+            setCartItems([...cartItems, { product: product, qty: 1 }])
+        }
     }
 
     const deleteItemToCart = (product) => {
@@ -76,7 +54,6 @@ useEffect(() => {
         } else {
             setCartItems([...cartItems])
         }
-
     }
 
     return (
@@ -85,14 +62,3 @@ useEffect(() => {
         </CartContext.Provider>
     )
 }
-
-
-// // const dataOrder = {
-// //     userId: new Date().getTime(),
-// //     client: client,
-// //     products: productsOrder,
-// //     status: 'pending',
-// //     dateEntry: `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString('es-ES')}`,
-// //     totalTime: '00:00'
-// // }
-

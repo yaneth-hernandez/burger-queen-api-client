@@ -4,9 +4,8 @@ import { LOGIN } from "../../../routes/paths.js";
 import logo from '../../../assets/Logo.png'
 import '../../HeaderAdmin/HeaderAdmin.scss'
 
-export const HeaderWaiter = () => {
+export const HeaderWaiter = ({setTypeMenu}) => {
     const navigate = useNavigate()
-
     const profile = localStorage.getItem('Profile') === 'waiter' ? 'Mesero':''
 
     const clearSession = () => {
@@ -20,10 +19,6 @@ export const HeaderWaiter = () => {
         navBar.classList.toggle('admin_navBar_view')
    }
 
-   const getMenuEvent = (event)=>{
-        console.log(event.target.dataset.menu)
-   }
-
     return (
         <header className="admin_container">
         <figure className="admin_containerLogo">
@@ -35,11 +30,10 @@ export const HeaderWaiter = () => {
             <figcaption className="admin_containerIcon--text">{profile}</figcaption>
         </figure>
         <nav className="admin_navBar" id="admin_navBar_id">
-            
             <button className="itemNavBar" data-nav="users" ><i className="bi bi-person-gear"><br/></i>Menú</button>
             <article>
-            <button type="button" data-menu="desayuno" onClick={(e)=>{getMenuEvent(e)}}>Desayuno</button>
-            <button type="button" data-menu="almuerzo" onClick={(e)=>{getMenuEvent(e)}} >Almuerzos/cena</button>
+            <button type="button" onClick={()=>{setTypeMenu('Desayuno')}}>Desayuno</button>
+            <button type="button" onClick={()=>{setTypeMenu('Almuerzo')}} >Almuerzos/cena</button>
             </article>
             <button className="itemNavBar" data-nav="products" ><i className="bi bi-house-gear"><br/></i>Estado de pedido</button>
             <button className="itemNavBar" onClick={clearSession}><i className="bi bi-box-arrow-right"><br/></i>Cerrar Sesión</button>

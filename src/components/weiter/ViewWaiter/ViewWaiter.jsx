@@ -1,34 +1,22 @@
-import { useEffect, useState, createContext } from 'react'
+import { useEffect, useState } from 'react'
 import { HeaderWaiter } from '../HeaderWaiter/HeaderWaiter'
 import { Menu } from '../Menu/Menu'
 import { ShoppingCart } from '../ShoppingCart/ShoppingCart'
 import { requestGetProducts } from '../../../helpers/API_request/productRequest'
 import { CartProvider } from '../CartContext/CartContext'
-//export const MenuContext = createContext()
 
 export const ViewWaiter = ()=>{
 const token = localStorage.getItem('Token')
-//const [menu, setMenu] = useState([]) 
-//const [menuItem, setMenuItem] = useState([])
-const [breakFats, setBreakFast] = useState([])
-const [dinner, setDinner] = useState([])
+const [menu, setMenu] = useState([]) 
+const [typeMenu, setTypeMenu ] = useState('Desayuno')
+
 
 useEffect(()=>{
     requestGetProducts(token)
     .then(res => res.json())
     .then((res)=>{
-        //console.log(res)
-        // setMenuItem(res.map(item => {
-        //     return {
-        //       name: item.name,
-        //       id: item.id,
-        //       price: item.price,
-        //       image: item.image,
-        //       type: item.type,
-        //     }
-        //   }));
-          setBreakFast(res.filter(element => {
-            if(element.type === 'Desayuno'){
+        setMenu(res.filter(element => {
+            if(element.type === typeMenu){
                
                 return {
                     name: element.name,
@@ -39,29 +27,13 @@ useEffect(()=>{
                   }
             }
         }));
-        // setDinner(res.filter(element => {
-        //     if(element.type === 'Almuerzo'){
-               
-        //         return {
-        //             name: element.name,
-        //             id: element.id,
-        //             price: element.price,
-        //             image: element.image,
-        //             type: element.type,
-        //           }
-        //     }
-        // }));
     })
-},[])
-   // console.log('Contexto:', menu)
-// console.log('Desayuno:', breakFats)
-// console.log('Almuerzo:', dinner)
+},[typeMenu])
     return(
-      // <MenuContext.Provider value={menu}>
       <CartProvider>
         <>
-            <HeaderWaiter/>
-            <Menu breakFats={breakFats} />
+            <HeaderWaiter setTypeMenu={setTypeMenu}/>
+            <Menu menu={menu} />
             <ShoppingCart/>
         </>
         </CartProvider>
