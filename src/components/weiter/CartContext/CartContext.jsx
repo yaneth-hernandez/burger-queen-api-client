@@ -9,7 +9,7 @@ export const CartProvider = ({ children }) => {
     useEffect(() => {
         !cartItems ? '' :
             setTotal(
-                cartItems.reduce((previous, current) => previous + parseInt(current.qty), 0)
+                cartItems.reduce((previous, current) => previous + parseInt(current.qty) * current.product.price, 0)
             )
     }, [cartItems])
 
@@ -56,8 +56,22 @@ export const CartProvider = ({ children }) => {
         }
     }
 
+    const deleteLineToCart = (product)=>{
+        const inCart = cartItems.find(
+            (productInCart) => productInCart.product.id === product.id)
+
+            if(inCart.qty >=1){
+                setCartItems(
+                    cartItems.filter(productInCart => productInCart.product.id !== product.id)
+                )
+            }
+        
+    }
+
+    
+
     return (
-        <CartContext.Provider value={{ cartItems, total, addItemToCart, deleteItemToCart }}>
+        <CartContext.Provider value={{ cartItems, total, addItemToCart, deleteItemToCart, deleteLineToCart, setCartItems }}>
             {children}
         </CartContext.Provider>
     )

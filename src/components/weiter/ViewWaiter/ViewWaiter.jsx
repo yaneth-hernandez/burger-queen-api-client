@@ -5,6 +5,7 @@ import { ShoppingCart } from '../ShoppingCart/ShoppingCart'
 import { requestGetProducts } from '../../../helpers/API_request/productRequest'
 import { CartProvider } from '../CartContext/CartContext'
 
+
 export const ViewWaiter = ()=>{
 const token = localStorage.getItem('Token')
 const [menu, setMenu] = useState([]) 
@@ -32,9 +33,10 @@ useEffect(()=>{
     return(
       <CartProvider>
         <>
-            <HeaderWaiter setTypeMenu={setTypeMenu}/>
-            <Menu menu={menu} />
-            <ShoppingCart/>
+            <HeaderWaiter setTypeMenu={setTypeMenu} />
+            <Menu menu={menu} typeMenu={typeMenu}/>
+            <ShoppingCart typeMenu={typeMenu}/>
+            
         </>
         </CartProvider>
     )
