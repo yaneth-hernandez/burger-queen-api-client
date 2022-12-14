@@ -62,7 +62,7 @@ export const requestEditProducts = (token, id, name, price,img, type)=>{
 
 
   
-  export const requestDeleteProduct=(id)=>{
+  export const requestDeleteProduct=(id,token)=>{
     return fetch(`http://localhost:8080/products/${id}`, {
         method: 'DELETE',
         headers: {

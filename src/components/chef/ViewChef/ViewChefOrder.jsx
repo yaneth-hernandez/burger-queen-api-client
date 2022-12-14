@@ -1,16 +1,16 @@
-import { HeaderWaiterOrder } from "../HeaderWaiter/HeaderWaiterOrder"
+import { HeaderChef } from "../HeaderChef"
 import { ItemOrder } from "../ItemOrder/ItemOrder"
 import { TableOrder } from "../TableOrder/TableOrder"
 import { getOrderList } from "../../../helpers/API_request/orderRequest"
-import './ViewWaiterOrder.scss'
+import './ViewChefOrder.scss'
 import { useEffect, useState } from "react"
-import { useModal } from '../../../helpers/modals/useModal'
-import { Modal } from '../../../pages/Modal/Modal'
-import { ModalViewOrder } from "../Modal/ModalViewOrder"
-import { OrderProvider } from '../OrderContext/OrderContext'
+// import { useModal } from '../../../helpers/modals/useModal'
+// import { Modal } from '../../../pages/Modal/Modal'
+// import { ModalViewOrder } from "../Modal/ModalViewOrder"
+// import { OrderProvider } from '../OrderContext/OrderContext'
 
 
-export const OrderStatus = () => {
+export const ViewChefOrder = () => {
     const token = localStorage.getItem('Token')
     const [orders, setOrders] = useState([])
     const user = localStorage.getItem('Profile')
@@ -19,16 +19,16 @@ export const OrderStatus = () => {
     //     setOrders((prevState) => [...prevState,order])
     //     //setNewUser(user)
     //   }
-    
+   
     useEffect(() => {
         getOrderList(token)
             .then((res) => res.json())
             .then((res) => {
                 //console.log(res)
                 setOrders(
-                    res.map((item => {
+                    res.filter((item => {
                         
-                        if(user==='waiter'){
+                        if(item.status==='pending'){
                             //console.log(item)
                             return {
                             client: item.client || '',
@@ -50,13 +50,15 @@ export const OrderStatus = () => {
     return (
         <>
         
-                <HeaderWaiterOrder />
+                <HeaderChef />
                 <TableOrder>
                     {
                         orders.map((order =>
                             <ItemOrder key={order.id} order={order}  />
                         ))
                     }
+
+                    
 
                 </TableOrder>
                 

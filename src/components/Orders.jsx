@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 import { LOGIN } from "../routes/paths";
 
+
 export const Orders = (props)=>{
     const navigate = useNavigate()
 
@@ -27,5 +28,7 @@ export const Orders = (props)=>{
             <button onClick={clearSession}>CERRAR SESIÓN</button>
         </nav>
     </header>
+
+    
     )
 }

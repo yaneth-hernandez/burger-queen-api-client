@@ -21,7 +21,7 @@ export const ModalDelete = ({isOpen, closeModal}) => {
   }
 
   const deleteProduct = () => {
-    requestDeleteProduct(product.id)
+    requestDeleteProduct(product.id, token)
       .then((res) => res.json())
       .then((res) => {
         console.log(res)
@@ -66,7 +66,6 @@ export const ModalDelete = ({isOpen, closeModal}) => {
         <label className="formModal_label">Menu</label>
         <div className="containerSelect">
           <select className="formModal_select" ref={typeRef} defaultValue={product.type}>
-            <option className="formModal_option"></option>
             <option className="formModal_option"> Desayuno</option>
             <option className="formModal_option">Almuerzo</option>
           

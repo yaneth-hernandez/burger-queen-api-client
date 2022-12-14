@@ -5,7 +5,7 @@ import Logo from '../assets/Logo.png'
 import { AdminUser } from '../components/AdminUser/AdminUser'
 import { AdminProducts } from '../components/AdminProducts/AdminProducts'
 import { ViewWaiterMenu } from './waiter/ViewWaiterMenu/ViewWaiterMenu'
-import { Orders } from './Orders'
+import { ViewChefOrder } from './chef/ViewChef/ViewChefOrder'
 import { Login } from '../pages/Login/Login'
 import { OrderStatus } from './waiter/ViewWaiterOrder/ViewWaiterOrder'
 
@@ -19,6 +19,7 @@ function App() {
           <Route path={ADMIN_PRODUCTS} element={<AdminProducts/>}/>
           <Route path={WAITER_MENU} element={<ViewWaiterMenu />} />
           <Route path={WAITER_STATUS} element={<OrderStatus />} />
+          <Route path={ORDERS} element={<ViewChefOrder />} />
           {/* <Route path={ORDERS} element={<Orders logo={Logo}/>} /> */}
         </Routes>
       </BrowserRouter>
