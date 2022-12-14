@@ -1,0 +1,15 @@
+@import '../../../generics.scss';
+
+.containerTable{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 30px;
+    margin: 15px;
+    border: 1px solid #0BA7B4;
+    border-radius: 5px;
+
+    .headerList{
+        background-color: $primary-color;
+        color: $secondary-color;
+    }
+}

@@ -12,6 +12,7 @@ export const HeaderAdmin = () => {
     const clearSession = () => {
         localStorage.removeItem('Token')
         localStorage.removeItem('Profile')
+        localStorage.removeItem('IdUser')
         navigate(LOGIN)
     }
 

@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
-import { HeaderWaiter } from '../HeaderWaiter/HeaderWaiter'
+import { HeaderWaiterMenu } from '../HeaderWaiter/HeaderWaiterMenu'
 import { Menu } from '../Menu/Menu'
 import { ShoppingCart } from '../ShoppingCart/ShoppingCart'
 import { requestGetProducts } from '../../../helpers/API_request/productRequest'
 import { CartProvider } from '../CartContext/CartContext'
 
 
-export const ViewWaiter = ()=>{
+export const ViewWaiterMenu = ()=>{
 const token = localStorage.getItem('Token')
 const [menu, setMenu] = useState([]) 
 const [typeMenu, setTypeMenu ] = useState('Desayuno')
@@ -33,7 +33,7 @@ useEffect(()=>{
     return(
       <CartProvider>
         <>
-            <HeaderWaiter setTypeMenu={setTypeMenu} />
+            <HeaderWaiterMenu setTypeMenu={setTypeMenu} />
             <Menu menu={menu} typeMenu={typeMenu}/>
             <ShoppingCart typeMenu={typeMenu}/>
             

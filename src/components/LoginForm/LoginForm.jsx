@@ -53,8 +53,10 @@ export const LoginForm = () => {
         requestLogin(email, password)
             .then((res) => res.json())
             .then((data) => {
+                console.log(data)
                 validateDataUser(data)
                 localStorage.setItem('Profile', data.user.role)
+                localStorage.setItem('IdUser', data.user.id)
                 localStorage.setItem('Token', data.accessToken)
             })
             .catch((error) => {
