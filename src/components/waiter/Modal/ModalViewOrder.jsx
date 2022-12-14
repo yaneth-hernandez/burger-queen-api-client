@@ -1,12 +1,28 @@
-import { useRef } from "react"
+import { useContext, useRef } from "react"
 import { ItemModal } from "./ItemModal"
 import { TableModal } from "./TableModal"
+import { requestEditOrders } from '../../../helpers/API_request/orderRequest'
 import './ModalStyle.scss'
 
-export const ModalViewOrder = ({ order, orderProduct }) => {
-    const statusRef = useRef(null)
 
-    console.log(order)
+export const ModalViewOrder = ({ order, orderProduct }) => {
+    const token = localStorage.getItem('Token')
+
+    const statusRef = useRef(null)
+    const date = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString('es-ES')}`
+
+    const handleClick = () => {
+        requestEditOrders(token, order.id, statusRef.current.value, date)
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((error) => {
+                console.error(error)
+            })
+    }
+
+
     return (
         <>
             <div className="orderHeader">
@@ -46,8 +62,10 @@ export const ModalViewOrder = ({ order, orderProduct }) => {
                 <option className="formModal_option">pending</option>
                 <option className="formModal_option">delivered</option>
                 <option className="formModal_option">ready</option>
-                
+
             </select>
+
+            <button type="button" onClick={handleClick}>Enviar</button>
 
 
         </>

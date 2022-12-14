@@ -7,11 +7,11 @@ import { ModalViewOrder } from '../Modal/ModalViewOrder'
 
 export const OrderContext = createContext()
 
-export const ItemOrder = ({ order }) => {
+export const ItemOrder = ({ order}) => {
     const [orderProduct, setOrderProduct] = useState([])
     const [isOPenModalView, openModalView, closeModalView] = useModal(false)
-
-
+// const [editedOrder, setEditedOrder] = useState([])
+// setEditedOrder(order)
 
     const handleOnclick = (e) => {
         
@@ -27,7 +27,7 @@ export const ItemOrder = ({ order }) => {
             }
         }))
     }
-    console.log(orderProduct)
+    
     return (
 
 

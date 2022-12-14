@@ -25,3 +25,19 @@ export const getOrderList = (token)=>{
     })
 }
 
+export const requestEditOrders = (token, id, status, dateProcessed)=>{
+    return fetch(`http://localhost:8080/orders/${id}`,{
+        method: 'PATCH',
+        headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Request-Method": "PATCH",
+            "Authorization": "Bearer " + token
+        },
+        body: JSON.stringify({
+            "id":id,
+            "status": status, 
+            "dateProcessed": dateProcessed
+        })
+    })
+}
+

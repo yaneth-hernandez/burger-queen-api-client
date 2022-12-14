@@ -14,7 +14,10 @@ export const OrderStatus = () => {
     const token = localStorage.getItem('Token')
     const [orders, setOrders] = useState([])
     // const [isOPenModalView, openModalView, closeModalView] = useModal(false)
-
+    // const addOrder = (order)=>{
+    //     setOrders((prevState) => [...prevState,order])
+    //     //setNewUser(user)
+    //   }
     
     useEffect(() => {
         getOrderList(token)
@@ -35,12 +38,12 @@ export const OrderStatus = () => {
                     }))
                 )
             })
-    }, [])
+    }, [orders])
 
 
     return (
         <>
-         {/* <OrderProvider>  */}
+        {/* <OrderProvider>   */}
                 <HeaderWaiterOrder />
                 <TableOrder>
                     {
@@ -53,7 +56,7 @@ export const OrderStatus = () => {
                 {/* <Modal isOpen={isOPenModalView} closeModal={closeModalView}>
                     <ModalViewOrder />
                 </Modal> */}
-            {/* </OrderProvider>  */}
+            {/* </OrderProvider>   */}
         </>
     )
 }
