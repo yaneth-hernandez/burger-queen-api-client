@@ -1,0 +1,175 @@
+@import '../../../generics.scss';
+
+
+.invoice {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+
+    .background {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .backgroundText {
+            color: $primary-color;
+            font-family: $general-text;
+            font-size: 20px;
+        }
+
+        .backgroundImg {
+            width: 100%;
+            opacity: 10%;
+        }
+    }
+
+    .clientContainer {
+        width: 94%;
+        display: flex;
+        justify-content: space-between;
+        margin-left: -20px;
+
+        .client {
+            width: 55%;
+            padding-left: 54px;
+            display: flex;
+            justify-content: space-between;
+            color: $primary-color;
+            font-weight: bold;
+            font-family: "Montserrat", sans-serif;
+            font-size: 18px;
+            margin-bottom: 30px;
+
+            input {
+                width: 76%;
+                padding: 5px;
+                outline: none;
+                background: $secondary-color;
+                border: $primary-color solid 1px;
+                border-radius: 8px;
+                font-family: $general-text;
+                font-weight: bold;
+
+                ::placeholder {
+                    font-size: xx-small;
+                    color: $primary-color;
+                }
+
+            }
+
+
+        }
+
+        p {
+            color: $primary-color;
+            font-family: $general-text;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    }
+
+
+    .invoiceContainer {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-auto-rows: 40px;
+        grid-gap: 10px;
+        font-size: 16px;
+        color: rgb(5, 39, 57);
+        font-family: "Montserrat", sans-serif;
+        background: #DEE7EC;
+        border: 1px solid #0BA7B4;
+        border-radius: 20px;
+        margin: 0px 10px;
+        padding-bottom: 10px;
+
+        .headerInvoice {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            font-weight: bolder;
+            color: $primary-color;
+        }
+
+        .itemInvoice.quantity {
+            width: 80%;
+            display: flex;
+            justify-content: space-evenly;
+            padding-left: 27px;
+        }
+
+        .itemInvoice {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+
+            button {
+                border: none;
+                background-color: transparent;
+
+                .bi {
+                    color: $primary-color;
+                    font-size: 20px;
+                    border: none;
+                }
+            }
+
+
+            img {
+                width: 45px;
+                height: 45px;
+            }
+
+        }
+    }
+
+    .totalContainer {
+        width: 74%;
+        display: flex;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        justify-content: flex-end;
+
+        .total {
+            width: 37%;
+            display: flex;
+            justify-content: space-between;
+            font-family: $general-text;
+            font-weight: bold;
+            font-size: 17px;
+        }
+    }
+}
+
+.buttonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btnSubmit {
+    width: 34%;
+    padding: 7px 7px;
+    border: $tertiary-color solid 1px;
+    border-radius: 8px;
+    background-color: $tertiary-color;
+    color: $secondary-color;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.btnClear {
+    width: 34%;
+    padding: 7px 7px;
+    border: $tertiary-color solid 1px;
+    border-radius: 8px;
+    background-color: $secondary-color;
+    color: $tertiary-color;
+    font-weight: bold;
+    font-size: 1rem;
+}

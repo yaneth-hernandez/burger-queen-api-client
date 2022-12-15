@@ -30,3 +30,9 @@ modal con portal : https://www.youtube.com/watch?v=nRWk8pAN74c&t=193s
 react desde cero: https://www.youtube.com/watch?v=6Jfk8ic3KVk
 
 post imagen con formData: https://www.youtube.com/watch?v=0kX6FTN5OZ4
+
+
+{
+    "email": "grace.hopper@systers.xyz",
+    "password": "123456"
+}

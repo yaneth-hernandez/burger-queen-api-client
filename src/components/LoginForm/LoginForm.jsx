@@ -55,6 +55,7 @@ export const LoginForm = () => {
             .then((data) => {
                 validateDataUser(data)
                 localStorage.setItem('Profile', data.user.role)
+                localStorage.setItem('IdUser', data.user.id)
                 localStorage.setItem('Token', data.accessToken)
             })
             .catch((error) => {

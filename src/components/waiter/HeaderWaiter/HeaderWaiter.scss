@@ -1,0 +1,30 @@
+@import '../../../generics.scss';
+
+.navMenu {
+    width: 90%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    position: absolute;
+    transition: all 500ms ease;
+    background-color: $secondary-color;
+    opacity: 95%;
+   transform: translate(168px, -135px);
+    .btnMenu {
+        border: 0;
+        background-color: transparent;
+        color: $primary-color;
+        font-size: 1.1rem;
+        font-family: $general-text;
+        font-weight: bold;
+    }
+
+   
+} 
+
+.navMenuView {
+        transform: translate(-155px, -135px);
+    }

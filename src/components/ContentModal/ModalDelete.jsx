@@ -52,7 +52,7 @@ const handleModal = (data)=>{
         <label className="formModal_label">Perfil</label>
         <div className="containerSelect">
         <select className="formModal_select" ref={roleRef} defaultValue={user.role} readOnly required>
-          <option className="formModal_option"></option>
+         
           <option className="formModal_option">admin</option>
           <option className="formModal_option">waiter</option>
           <option className="formModal_option">chef</option>

@@ -67,7 +67,7 @@ const validateData=(data)=>{
         <div className="containerSelect">
           <select className="formModal_select" ref={roleRef} defaultValue={user.role} required>
           {/* <select className="formModal_select" onChange={e => setRole(e.target.value)} value={role} > */}
-            <option className="formModal_option"></option>
+            
             <option className="formModal_option">admin</option>
             <option className="formModal_option">waiter</option>
             <option className="formModal_option">chef</option>

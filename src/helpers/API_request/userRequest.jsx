@@ -43,7 +43,7 @@ export const requestEditUser = (email,  role, id, token) => {
         method: 'PATCH',
         headers: {
             "Content-Type": "application/json",
-            "Access-Control-Request-Method": "POST",
+            "Access-Control-Request-Method": "PATCH",
             "Authorization": "Bearer " + token
         },
         body: JSON.stringify({

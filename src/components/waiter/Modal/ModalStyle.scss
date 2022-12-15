@@ -1,0 +1,64 @@
+@import '../../../generics.scss';
+
+.orderHeader {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 17px;
+    .userDateContainer,
+    .orderClientContainer {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 5px 0px;
+        .user,
+        .order,
+        .date,
+        .client {
+            width: 50%;
+            display: flex;
+            
+        }
+    }
+}
+
+
+.tableContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    //grid-auto-rows: 45px;
+    grid-gap: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    .tableModalPrice{
+        text-align: right;
+       
+    }
+
+    .price{
+        text-align: right;
+    }
+}
+
+.status{
+    margin: 15px 0px;
+}
+
+.formModal_select {
+    height: 34px;
+    width: 40%;
+    border-radius: 8px;
+    outline: none;
+    border: $primary-color solid 1px;
+    font-family: $general-text;
+    color: #102636;
+    font-weight: bold;
+    font-size: 1rem;
+
+    .formModal_option {
+        font-family: $general-text;
+        font-weight: bold;
+        color: #102636;
+        font-size: 1rem;
+    }
+}

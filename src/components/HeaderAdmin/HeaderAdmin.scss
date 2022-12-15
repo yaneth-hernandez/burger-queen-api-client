@@ -15,16 +15,14 @@
         @include flex-column-center;
 
         .admin_containerLogo--img {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+    height: 80px;
         }
 
         .admin_containerLogo--text {
-            font-size: 0.80rem;
+            font-size: 0.88rem;
             color: $tertiary-color;
-            font-weight: 1px;
             font-family: $logo-text;
-            font-weight: bold;
         }
     }
 
@@ -49,7 +47,7 @@
     }
 
     .admin_navBar {
-        width: 45%;
+        width: 22%;
         height: 500px;
         @include flex-column-center;
       justify-content: space-evenly;
@@ -80,6 +78,6 @@
         //transform: translateX(85px) translateY(308px);;//vista table-lado
         
         margin-top: 643px;
-    margin-left: 445px;
+    margin-left: 599px;
     }
 }
