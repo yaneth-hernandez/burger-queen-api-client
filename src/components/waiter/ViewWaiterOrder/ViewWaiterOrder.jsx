@@ -14,13 +14,8 @@ export const OrderStatus = () => {
     const token = localStorage.getItem('Token')
     const [orders, setOrders] = useState([])
     const user = localStorage.getItem('Profile')
-    // const [isOPenModalView, openModalView, closeModalView] = useModal(false)
-    // const addOrder = (order)=>{
-    //     setOrders((prevState) => [...prevState,order])
-    //     //setNewUser(user)
-    //   }
-    
-    useEffect(() => {
+   
+    const getOrder = ()=>{
         getOrderList(token)
             .then((res) => res.json())
             .then((res) => {
@@ -44,7 +39,11 @@ export const OrderStatus = () => {
                     }))
                 )
             })
-    }, [orders])
+    }
+    
+    useEffect(() => {
+        getOrder()
+    }, [])
 
 
     return (
@@ -54,7 +53,7 @@ export const OrderStatus = () => {
                 <TableOrder>
                     {
                         orders.map((order =>
-                            <ItemOrder key={order.id} order={order}  />
+                            <ItemOrder key={order.id} order={order} getOrder={getOrder} />
                         ))
                     }
 

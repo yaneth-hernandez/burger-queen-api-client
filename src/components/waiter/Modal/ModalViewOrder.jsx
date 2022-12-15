@@ -5,7 +5,7 @@ import { requestEditOrders } from '../../../helpers/API_request/orderRequest'
 import './ModalStyle.scss'
 
 
-export const ModalViewOrder = ({ order, orderProduct }) => {
+export const ModalViewOrder = ({ order, orderProduct, getOrder }) => {
     const token = localStorage.getItem('Token')
 
     const statusRef = useRef(null)
@@ -15,14 +15,12 @@ export const ModalViewOrder = ({ order, orderProduct }) => {
         requestEditOrders(token, order.id, statusRef.current.value, date)
             .then((res) => res.json())
             .then((res) => {
-                console.log(res)
+                getOrder()
             })
             .catch((error) => {
                 console.error(error)
             })
     }
-
-
     return (
         <>
             <div className="orderHeader">
@@ -47,9 +45,6 @@ export const ModalViewOrder = ({ order, orderProduct }) => {
                     </div>
                 </div>
             </div>
-            {/* <article>Cantidad:</article>
-            <article>{order.products.length}</article> */}
-
             <TableModal>
                 {
                     orderProduct.map((item, i) => (
@@ -62,9 +57,7 @@ export const ModalViewOrder = ({ order, orderProduct }) => {
                 <option className="formModal_option">pending</option>
                 <option className="formModal_option">delivered</option>
                 <option className="formModal_option">ready</option>
-
             </select>
-
             <button type="button" onClick={handleClick}>Enviar</button>
 
 

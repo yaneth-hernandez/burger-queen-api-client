@@ -1,23 +1,16 @@
 import '../ViewChef/ViewChefOrder.scss'
-// import { OrderContext } from '../OrderContext/OrderContext'
-import { createContext, useContext, useState } from 'react'
+import { createContext, useState } from 'react'
 import { useModal } from '../../../helpers/modals/useModal'
 import { Modal } from '../../../pages/Modal/Modal'
 import { ModalViewOrder } from '../../waiter/Modal/ModalViewOrder'
 
 export const OrderContext = createContext()
 
-export const ItemOrder = ({ order}) => {
+export const ItemOrder = ({ order,getOrder}) => {
     const [orderProduct, setOrderProduct] = useState([])
     const [isOPenModalView, openModalView, closeModalView] = useModal(false)
-// const [editedOrder, setEditedOrder] = useState([])
-// setEditedOrder(order)
 
     const handleOnclick = (e) => {
-        
-        //setOrderItem({})
-        // console.log(order.products)
-        //setOrderItem(order.products)
         openModalView()
         setOrderProduct(order.products.map((item) => {
             return {
@@ -29,8 +22,6 @@ export const ItemOrder = ({ order}) => {
     }
     
     return (
-
-
         <>
             <article className="itemList">#00{order.id}</article>
             <article className="itemList">{order.client}</article>
@@ -44,7 +35,7 @@ export const ItemOrder = ({ order}) => {
                 </button>
             </article>
             <Modal isOpen={isOPenModalView} closeModal={closeModalView}>
-                <ModalViewOrder order={order} orderProduct={orderProduct}/>
+                <ModalViewOrder order={order} orderProduct={orderProduct} getOrder={getOrder}/>
             </Modal>
         </>
     )

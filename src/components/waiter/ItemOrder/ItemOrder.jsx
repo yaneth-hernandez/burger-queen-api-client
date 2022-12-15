@@ -7,7 +7,7 @@ import { ModalViewOrder } from '../Modal/ModalViewOrder'
 
 export const OrderContext = createContext()
 
-export const ItemOrder = ({ order}) => {
+export const ItemOrder = ({ order, getOrder}) => {
     const [orderProduct, setOrderProduct] = useState([])
     const [isOPenModalView, openModalView, closeModalView] = useModal(false)
 // const [editedOrder, setEditedOrder] = useState([])
@@ -44,7 +44,7 @@ export const ItemOrder = ({ order}) => {
                 </button>
             </article>
             <Modal isOpen={isOPenModalView} closeModal={closeModalView}>
-                <ModalViewOrder order={order} orderProduct={orderProduct}/>
+                <ModalViewOrder order={order} orderProduct={orderProduct} getOrder={getOrder}/>
             </Modal>
         </>
     )

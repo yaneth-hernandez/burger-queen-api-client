@@ -1,56 +1,46 @@
 import { useState, useRef } from "react"
 import { requestCreateProduct } from '../../helpers/API_request/productRequest'
-import { postImage } from "../../helpers/API_request/productRequest"
+import { onChangeImg, uploadImgWeb } from "../../helpers/API_request/productRequest"
 import './ModalStyles.scss'
 
 export const ModalCreate = ({ closeModal, onAddProduct, isOpen }) => {
+ // const { product, setDataProduct } = useContext(ProductContext)
   const [name, setName] = useState('')
-  const [image, setImage] = useState([])
+  const [image, setImage] = useState('')
+  const [imageUrl, setImageUrl] = useState('')
   const [type, setType] = useState('')
   const [price, setPrice] = useState('')
   const token = localStorage.getItem('Token')
   const imgRef = useRef('')
 
   const validateRegistrationData = (data, event) => {
-      event.target.reset()
-      closeModal()
-      onAddProduct(data)
-      imgRef.current.src = ''
-      isOpen()
+    event.target.reset()
+    closeModal()
+    onAddProduct(data)
+    isOpen()
   }
 
-const handleImage = (e)=>{
-  if(imgRef.current.currentSrc !== null){
-    setImage(e.target.files)
-  }
-  
+
+  const handleChangeImage = async (e) => {
+    const urlImgUpload = await onChangeImg(e, setImageUrl)
+    const urlImageWeb = await uploadImgWeb(urlImgUpload)
+    setImage(urlImageWeb)
 }
 
-postImage(image[0])
-.then((res) => res.json())
-.then((res) => {
-  if (res.status < 400) {
-    imgRef.current.src = res.data.image.url
-  }
-  
-})
-.catch((error) => {
-  console.log(error)
-})
-  
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    requestCreateProduct(token, name, price, imgRef.current.currentSrc, type )
+    requestCreateProduct(token, name, price, image, type)
       .then((res) => res.json())
       .then((res) => {
         validateRegistrationData(res, e)
-        console.log(res)
+        //console.log(res)
       })
       .catch((error) => {
         console.log(error)
       })
-    
+
   }
 
   return (
@@ -61,8 +51,8 @@ postImage(image[0])
         <input className="formModal_input" type="text" placeholder="" onChange={(e) => setName(e.target.value)} required />
         <section className="content_imge">
           <label className="formModal_label" htmlFor="image">Imagen</label>
-          <input className="formModal_input" type="file" name="image" placeholder="" onChange={(e) => { handleImage(e) }} required />
-          <img ref={imgRef} src="" alt="" className="preview_img" />
+          <input className="formModal_input" type="file" name="image" onChange={(e) => { handleChangeImage(e) }} required />
+          <img  src={imageUrl} alt="" className="preview_img" />
         </section>
         <label className="formModal_label">Precio</label>
         <input className="formModal_input" type="number" placeholder="" onChange={(e) => setPrice(e.target.value)} required />
