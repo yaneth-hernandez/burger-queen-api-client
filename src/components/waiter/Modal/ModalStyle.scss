@@ -62,3 +62,30 @@
         font-size: 1rem;
     }
 }
+
+.totalContainer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    p{
+        font-weight: bold;
+    }
+}
+
+.buttonContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.btnSubmit {
+    width: 50%;
+    padding: 7px 7px;
+    border: $tertiary-color solid 1px;
+    border-radius: 8px;
+    background-color: $tertiary-color;
+    color: $secondary-color;
+    font-weight: bold;
+    font-size: 1rem;
+}

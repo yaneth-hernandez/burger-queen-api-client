@@ -18,8 +18,8 @@ export const ShoppingCart = () => {
 
     const idUser = localStorage.getItem('IdUser')
 
-    //const date = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString('es-ES')}`
-    const date = `${new Date().toLocaleTimeString('es-ES')}`
+    const date = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString('es-ES')}`
+    const hour = `${new Date().toLocaleTimeString('es-ES')}`
     //const idUser = new Date().getTime()
 
     const time = '00:00'
@@ -29,10 +29,10 @@ export const ShoppingCart = () => {
     const [order, setOrder] = useState('')
 
     const handleOnclick = () => {
-        requestCreateOrder(token, idUser, client, cartItems, total, 'pending', date, time)
+        requestCreateOrder(token, idUser, client, cartItems, total, 'pending', date, hour, time)
             .then((res) => res.json())
             .then((res) => {
-                console.log(res)
+                //console.log(res)
                 setOrder(res.id)
                 openModalOrder()
             })

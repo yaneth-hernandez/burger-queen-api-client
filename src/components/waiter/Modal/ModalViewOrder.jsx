@@ -7,6 +7,7 @@ import './ModalStyle.scss'
 
 export const ModalViewOrder = ({ order, orderProduct, getOrder }) => {
     const token = localStorage.getItem('Token')
+    const profile = localStorage.getItem('Profile')
 
     const statusRef = useRef(null)
     const date = `${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString('es-ES')}`
@@ -31,7 +32,7 @@ export const ModalViewOrder = ({ order, orderProduct, getOrder }) => {
                     </div>
                     <div className="date">
                         <h4>Hora:  </h4>
-                        <p>{order.dataEntry}</p>
+                        <p>{order.hour}</p>
                     </div>
                 </div>
                 <div className="orderClientContainer">
@@ -52,13 +53,33 @@ export const ModalViewOrder = ({ order, orderProduct, getOrder }) => {
                     ))
                 }
             </TableModal>
+            <div className="totalContainer">
+                <h4>Total</h4>
+                <p>${order.amount}.00</p>
+            </div>
             <label className="status">Estado</label>
             <select className="formModal_select" ref={statusRef} defaultValue={order.status} required>
-                <option className="formModal_option">pending</option>
+            {
+                profile === 'waiter'? (
+                    <>
+                     <option className="formModal_option">pending</option>
                 <option className="formModal_option">delivered</option>
+                {/* <option className="formModal_option">ready</option> */}
+                </>
+                ):(
+                    <>
+                     <option className="formModal_option">pending</option>
+                {/* <option className="formModal_option">delivered</option> */}
                 <option className="formModal_option">ready</option>
+                </>
+                )
+            }
+               
             </select>
-            <button type="button" onClick={handleClick}>Enviar</button>
+            <div className="buttonContainer">
+                <button  className="btnSubmit" type="button" onClick={handleClick}>Cambiar estado</button>
+            </div>
+            
 
 
         </>

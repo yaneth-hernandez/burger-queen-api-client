@@ -29,6 +29,7 @@ export const OrderStatus = () => {
                             client: item.client || '',
                             id: item.id,
                             dataEntry: item.dataEntry || '',
+                            hour:item.hour || '',
                             status: item.status || '',
                             products: item.products || '',
                             userId:item.userId,

@@ -14,12 +14,9 @@ export const ItemOrder = ({ order, getOrder}) => {
 // setEditedOrder(order)
 
     const handleOnclick = (e) => {
-        
-        //setOrderItem({})
-        // console.log(order.products)
-        //setOrderItem(order.products)
         openModalView()
         setOrderProduct(order.products.map((item) => {
+
             return {
                 product: item.product.name,
                 price: item.product.price,
@@ -27,15 +24,12 @@ export const ItemOrder = ({ order, getOrder}) => {
             }
         }))
     }
-    
     return (
-
-
         <>
             <article className="itemList">#00{order.id}</article>
             <article className="itemList">{order.client}</article>
-            <article className="itemList">{order.amount}</article>
-            <article className="itemList">{order.dataEntry}</article>
+            <article className="itemList">${order.amount}.00</article>
+            <article className="itemList">{order.hour}</article>
             <article className="itemList">{order.status}</article>
             <article className="itemList">{order.userId}</article>
             <article className="itemList">

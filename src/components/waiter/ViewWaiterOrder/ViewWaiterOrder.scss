@@ -1,5 +1,12 @@
 @import '../../../generics.scss';
 
+.titleList{
+    text-align: center;
+    margin: 50px 0px;
+    font-family: $general-text;
+    color: $primary-color;
+}
+
 .containerTable{
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -7,9 +14,30 @@
     margin: 15px;
     border: 1px solid #0BA7B4;
     border-radius: 5px;
+    font-family: $general-text;
 
     .headerList{
         background-color: $primary-color;
         color: $secondary-color;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    .itemList{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        button{
+            border: none;
+            color: $primary-color;
+            background: transparent;
+            .bi{
+                font-size: 18px;
+            }
+        }
     }
 }

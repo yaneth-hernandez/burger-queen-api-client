@@ -1,5 +1,5 @@
 
-export const requestCreateOrder = (token, idUser, clientName, productArray, total, status, date, time) => {
+export const requestCreateOrder = (token, idUser, clientName, productArray, total, status, date, hour, time) => {
     return fetch('http://localhost:8080/orders', {
         method: 'POST',
         headers: {
@@ -14,6 +14,7 @@ export const requestCreateOrder = (token, idUser, clientName, productArray, tota
             "amount":total,
             "status": status,
             "dataEntry": date,
+            "hour":hour,
             "totalTime": time
         })
     })

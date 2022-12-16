@@ -20,10 +20,13 @@ export const ItemOrder = ({ order,getOrder}) => {
             }
         }))
     }
-    
+
+    if(order.status === 'pending')
     return (
         <>
-            <article className="itemList">#00{order.id}</article>
+        
+                <>
+                <article className="itemList">#00{order.id}</article>
             <article className="itemList">{order.client}</article>
             <article className="itemList">${order.amount}.00</article>
             <article className="itemList">{order.dataEntry}</article>
@@ -34,9 +37,17 @@ export const ItemOrder = ({ order,getOrder}) => {
                     <i className="bi bi-pencil-square"></i>
                 </button>
             </article>
+            </>
+             
+        
+           
             <Modal isOpen={isOPenModalView} closeModal={closeModalView}>
                 <ModalViewOrder order={order} orderProduct={orderProduct} getOrder={getOrder}/>
             </Modal>
         </>
     )
+    // else
+    // return(
+    //     <p>No hay ordenes pendientes</p>
+    // )
 }

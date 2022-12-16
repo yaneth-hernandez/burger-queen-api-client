@@ -31,6 +31,7 @@ react desde cero: https://www.youtube.com/watch?v=6Jfk8ic3KVk
 
 post imagen con formData: https://www.youtube.com/watch?v=0kX6FTN5OZ4
 
+useContext para usuario: https://www.youtube.com/watch?v=lSMBhUEVK8k
 
 {
     "email": "grace.hopper@systers.xyz",
