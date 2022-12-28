@@ -10,6 +10,7 @@ export const TableOrderReady = ({ children }) => {
                 <article className="headerList">Importe$</article>
                 <article className="headerList">Estado</article>
                 <article className="headerList">Tiempo</article>
+                <article className="headerList">Borrar</article>
                 {children}
 
             </section>

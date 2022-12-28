@@ -17,7 +17,7 @@ export const ViewChefOrder = () => {
     .then((res) => {
         setOrders(
             res.map((item => {
-                console.log(item)
+                //console.log(item)
              //  if(item.status==='pending' || item.status==='ready'){
                 // console.log(item)
                     return {
@@ -36,11 +36,11 @@ export const ViewChefOrder = () => {
         )
     })
    }
-console.log(orders)
+//console.log(orders)
     useEffect(() => {
         getOrder()
     }, [])
-    console.log(orders)
+   // console.log(orders)
     return (
         <>
                 <HeaderChef />
@@ -58,7 +58,7 @@ console.log(orders)
                 {
                         orders.map((order) =>{
                            // if(order.status === "ready"){
-                            return (  <ItemOrderReady key={order.id} order={order}  />)
+                            return (  <ItemOrderReady key={order.id} order={order} getOrder={getOrder} />)
                        // }
                         })      
                     }

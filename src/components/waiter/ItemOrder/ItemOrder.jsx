@@ -24,7 +24,8 @@ export const ItemOrder = ({ order, getOrder}) => {
             }
         }))
     }
-    return (
+    if(order.status === "pending"){
+        return (
         <>
             <article className="itemList">#00{order.id}</article>
             <article className="itemList">{order.client}</article>
@@ -38,8 +39,10 @@ export const ItemOrder = ({ order, getOrder}) => {
                 </button>
             </article>
             <Modal isOpen={isOPenModalView} closeModal={closeModalView}>
-                <ModalViewOrder order={order} orderProduct={orderProduct} getOrder={getOrder}/>
+                <ModalViewOrder order={order} orderProduct={orderProduct} getOrder={getOrder} isOpen={isOPenModalView} closeModal={closeModalView}/>
             </Modal>
         </>
     )
+    }
+    
 }

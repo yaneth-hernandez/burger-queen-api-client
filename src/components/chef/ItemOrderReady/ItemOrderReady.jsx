@@ -1,14 +1,37 @@
-export const ItemOrderReady = ({order})=>{
-    //console.log(order)
-    if(order.status === 'ready')
-    return(
-        <>
-        <article className="itemList">#00{order.id}</article>
-            <article className="itemList">{order.client}</article>
-            <article className="itemList">${order.amount}.00</article>
-            <article className="itemList">{order.status}</article>
-            <article className="itemList">{order.hour}</article>
-            <article className="itemList">{order.totalTime}</article>
+import { requestDeleteOrder } from '../../../helpers/API_request/orderRequest'
+
+export const ItemOrderReady = ({ order, getOrder }) => {
+
+    const token = localStorage.getItem('Token')
+    const currentTime = new Date().toLocaleTimeString('es-ES').split(':')
+
+    const orderTime = order.hour.split(':')
+
+    let timeString = []
+
+    for (let i = 0; i < orderTime.length; i++) {
+        timeString.push(Math.abs(parseInt(currentTime[i]) - parseInt(orderTime[i])))
+    }
+    const preparationTime = timeString.toString().replaceAll(',', ':')
+
+    const deleteOrder = () => {
+        requestDeleteOrder(token, order.id)
+            .then((res) => res.json())
+            .then((res) => {
+                getOrder()
+            })
+    }
+
+    if (order.status === 'ready')
+        return (
+            <>
+                <article className="itemList">#00{order.id}</article>
+                <article className="itemList">{order.client}</article>
+                <article className="itemList">${order.amount}.00</article>
+                <article className="itemList">{order.status}</article>
+                <article className="itemList">{preparationTime}</article>
+                <article className="itemList"><button className="btnDelete" type="button" onClick={deleteOrder}><i className="bi bi-trash-fill"></i></button></article>
+                
             </>
-    )
+        )
 }

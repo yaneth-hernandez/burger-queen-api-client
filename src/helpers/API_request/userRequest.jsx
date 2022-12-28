@@ -55,7 +55,7 @@ export const requestEditUser = (email,  role, id, token) => {
     })
 }
 
-export const requestDeleteUser = (id) => {
+export const requestDeleteUser = (id, token) => {
     
     //console.log(token)
     return fetch(`http://localhost:8080/users/${id}`, {

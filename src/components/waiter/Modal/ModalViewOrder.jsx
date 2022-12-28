@@ -5,7 +5,7 @@ import { requestEditOrders } from '../../../helpers/API_request/orderRequest'
 import './ModalStyle.scss'
 
 
-export const ModalViewOrder = ({ order, orderProduct, getOrder }) => {
+export const ModalViewOrder = ({ order, orderProduct, getOrder, closeModal }) => {
     const token = localStorage.getItem('Token')
     const profile = localStorage.getItem('Profile')
 
@@ -17,6 +17,7 @@ export const ModalViewOrder = ({ order, orderProduct, getOrder }) => {
             .then((res) => res.json())
             .then((res) => {
                 getOrder()
+                closeModal()
             })
             .catch((error) => {
                 console.error(error)
@@ -59,27 +60,27 @@ export const ModalViewOrder = ({ order, orderProduct, getOrder }) => {
             </div>
             <label className="status">Estado</label>
             <select className="formModal_select" ref={statusRef} defaultValue={order.status} required>
-            {
-                profile === 'waiter'? (
-                    <>
-                     <option className="formModal_option">pending</option>
-                <option className="formModal_option">delivered</option>
-                {/* <option className="formModal_option">ready</option> */}
-                </>
-                ):(
-                    <>
-                     <option className="formModal_option">pending</option>
-                {/* <option className="formModal_option">delivered</option> */}
-                <option className="formModal_option">ready</option>
-                </>
-                )
-            }
-               
+                {
+                    profile === 'waiter' ? (
+                        <>
+                            <option className="formModal_option">pending</option>
+                            <option className="formModal_option">delivered</option>
+                            {/* <option className="formModal_option">ready</option> */}
+                        </>
+                    ) : (
+                        <>
+                            <option className="formModal_option">pending</option>
+                            {/* <option className="formModal_option">delivered</option> */}
+                            <option className="formModal_option">ready</option>
+                        </>
+                    )
+                }
+
             </select>
             <div className="buttonContainer">
-                <button  className="btnSubmit" type="button" onClick={handleClick}>Cambiar estado</button>
+                <button className="btnSubmit" type="button" onClick={handleClick}>Cambiar estado</button>
             </div>
-            
+
 
 
         </>

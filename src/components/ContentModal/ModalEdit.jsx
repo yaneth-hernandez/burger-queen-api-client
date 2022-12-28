@@ -1,5 +1,5 @@
 import { requestEditUser, requestGetUser } from '../../helpers/API_request/userRequest'
-import { useContext, useRef, useState } from 'react'
+import { useContext, useRef} from 'react'
 import { UserContext } from '../ItemTable/ItemTable'
 import './ModalStyles.scss'
 
@@ -11,10 +11,7 @@ export const ModalEdit = ({isOpen, closeModal}) => {
   const idRef = useRef(null)
   const token = localStorage.getItem('Token')
   const errorRef = useRef(null)
-  // const [email, setEmail] = useState(user.email || '')
-  // const [role, setRole] = useState(user.role || '')
-  // const [id, setId] = useState(user.id || '')
-
+  
 const validateData=(data)=>{
   if(data === 'Email format is invalid'){
       errorRef.current.innerText = 'Formato de email inválido'
@@ -24,8 +21,6 @@ const validateData=(data)=>{
     errorRef.current.innerText = ''
   }
 }
-
-
 
   const handleSubmit = (e) => {
     e.preventDefault(e)
@@ -51,23 +46,17 @@ const validateData=(data)=>{
       })
   }
 
-
   return (
-
     <section className="containerModal">
       <h3 className="tittleModal">Editar usuario</h3>
       <form className="formModal" data-text="update" onSubmit={(e) => { handleSubmit(e) }}>
         <label className="formModal_label">Id</label>
         <input className="formModal_input input_with" type="text" placeholder="id"  ref={idRef} defaultValue={ user.id }  readOnly/>
-        {/* <input className="formModal_input input_with" type="text" placeholder="id" onChange={e => setId(e.target.value)} value={id} readOnly /> */}
         <label className="formModal_label">Correo electrónico</label>
         <input className="formModal_input" type="text"  ref={emailRef} defaultValue={ user.email } required/>
-        {/* <input className="formModal_input" type="text" onChange={e => setEmail(e.target.value)} value={email} /> */}
         <label className="formModal_label">Perfil</label>
         <div className="containerSelect">
           <select className="formModal_select" ref={roleRef} defaultValue={user.role} required>
-          {/* <select className="formModal_select" onChange={e => setRole(e.target.value)} value={role} > */}
-            
             <option className="formModal_option">admin</option>
             <option className="formModal_option">waiter</option>
             <option className="formModal_option">chef</option>
@@ -79,4 +68,3 @@ const validateData=(data)=>{
     </section>
   )
 }
-//

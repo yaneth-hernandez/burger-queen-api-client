@@ -19,7 +19,7 @@ const handleModal = (data)=>{
 }
 
   const deleteUser = () => {
-   requestDeleteUser(user.id)
+   requestDeleteUser(user.id, token)
       .then((res) => res.json())
       .then((res) => {
        requestGetUser(token)

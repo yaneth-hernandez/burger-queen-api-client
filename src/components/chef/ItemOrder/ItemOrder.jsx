@@ -29,7 +29,7 @@ export const ItemOrder = ({ order,getOrder}) => {
                 <article className="itemList">#00{order.id}</article>
             <article className="itemList">{order.client}</article>
             <article className="itemList">${order.amount}.00</article>
-            <article className="itemList">{order.dataEntry}</article>
+            <article className="itemList">{order.hour}</article>
             <article className="itemList">{order.status}</article>
             <article className="itemList">{order.userId}</article>
             <article className="itemList">
@@ -42,7 +42,7 @@ export const ItemOrder = ({ order,getOrder}) => {
         
            
             <Modal isOpen={isOPenModalView} closeModal={closeModalView}>
-                <ModalViewOrder order={order} orderProduct={orderProduct} getOrder={getOrder}/>
+                <ModalViewOrder order={order} orderProduct={orderProduct} getOrder={getOrder} isOpen={isOPenModalView} closeModal={closeModalView}/>
             </Modal>
         </>
     )
