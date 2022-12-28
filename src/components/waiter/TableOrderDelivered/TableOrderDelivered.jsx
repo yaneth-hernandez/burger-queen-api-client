@@ -1,16 +1,16 @@
-import '../ViewChef/ViewChefOrder.scss'
+import '../ViewWaiterOrder/ViewWaiterOrder.scss'
 
-export const TableOrderReady = ({ children }) => {
+export const TableOrderDelivered = ({ children }) => {
     return (
         <>
-            <h3 className="titleList">Ordenes Listas</h3>
-            <section className="containerTableReady">
+            <h3 className="titleList">Ordenes Entregadas</h3>
+            <section className="containerTableDelivered">
                 <article className="headerList">#Pedido</article>
                 <article className="headerList">Cliente</article>
                 <article className="headerList">Importe$</article>
                 <article className="headerList">Estado</article>
                 <article className="headerList">Tiempo</article>
-                {/* <article className="headerList">Borrar</article> */}
+                <article className="headerList">Borrar</article>
                 {children}
 
             </section>

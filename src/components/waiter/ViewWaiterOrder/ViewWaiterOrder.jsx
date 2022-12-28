@@ -8,6 +8,8 @@ import { useModal } from '../../../helpers/modals/useModal'
 import { Modal } from '../../../pages/Modal/Modal'
 import { ModalViewOrder } from "../Modal/ModalViewOrder"
 import { OrderProvider } from '../OrderContext/OrderContext'
+import { TableOrderDelivered } from "../TableOrderDelivered/TableOrderDelivered"
+import { ItemOrderDelivered } from "../ItemOrderDelivered/ItemOrderDelivered"
 
 
 export const OrderStatus = () => {
@@ -59,6 +61,16 @@ export const OrderStatus = () => {
                     }
 
                 </TableOrder>
+
+                <TableOrderDelivered>
+                {
+                        orders.map((order) =>{
+                           // if(order.status === "ready"){
+                            return (  <ItemOrderDelivered key={order.id} order={order} getOrder={getOrder} />)
+                       // }
+                        })      
+                    }
+                </TableOrderDelivered>
                 
         </>
     )

@@ -24,7 +24,7 @@ export const ItemOrder = ({ order, getOrder}) => {
             }
         }))
     }
-    if(order.status === "pending"){
+    if(order.status === "pending" || order.status === "ready"){
         return (
         <>
             <article className="itemList">#00{order.id}</article>

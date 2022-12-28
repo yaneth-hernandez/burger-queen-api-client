@@ -65,7 +65,7 @@ export const ModalViewOrder = ({ order, orderProduct, getOrder, closeModal }) =>
                         <>
                             <option className="formModal_option">pending</option>
                             <option className="formModal_option">delivered</option>
-                            {/* <option className="formModal_option">ready</option> */}
+                            <option className="formModal_option">ready</option>
                         </>
                     ) : (
                         <>
