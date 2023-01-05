@@ -13,45 +13,18 @@ export const ModalEdit = ({ isOpen, closeModal }) => {
   const nameRef = useRef(null)
   const idRef = useRef(null)
   const priceRef = useRef(null)
-  const imgRef = useRef('')
-
+  
   const token = localStorage.getItem('Token')
-
   const validateData = () => {
     closeModal()
     isOpen()
   }
-
-  // const handleImage = (e) => {
-  //  // if (e.isTrusted) {
-  //     setImage(e.target.files)
-  //  // }
-
-   
-  // }
-
 
   const handleChangeImage = async (e) => {
     const urlImgUpload = await onChangeImg(e, setImageUrl)
     const urlImageWeb = await uploadImgWeb(urlImgUpload)
     setImage(urlImageWeb)
 }
-
-
-  // if (image[0] !== undefined && image[0] !== null && image[0] !== '') {
-  // postImage(image[0])
-  //   .then((res) => res.json())
-  //   .then((res) => {
-  //     if (res.status >= 200 && res.status <= 400) {
-  //       console.log(res.data.image.url)
-  //       setImageUrl(res.data.image.url)
-  //       imgRef.current.src = res.data.image.url
-  //     }
-  //   })
-  //   .catch((error) => {
-  //     console.log(error)
-  //   })
-  // }
 
   const handleSubmit = (e) => {
     e.preventDefault(e)
@@ -86,7 +59,7 @@ export const ModalEdit = ({ isOpen, closeModal }) => {
 
   return (
 
-    <section className="containerModal">
+    <aside className="containerModal">
       <h3 className="tittleModal">Editar Producto</h3>
       <form className="formModal" onSubmit={(e) => { handleSubmit(e) }}>
         <label className="formModal_label">Id</label>
@@ -111,6 +84,6 @@ export const ModalEdit = ({ isOpen, closeModal }) => {
           <button className="btnSubmit btnWith" type='submit'>Editar</button>
         </div>
       </form>
-    </section>
+    </aside>
   )
 }

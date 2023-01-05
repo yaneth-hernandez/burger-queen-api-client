@@ -1,8 +1,6 @@
 import { requestDeleteOrder } from '../../../helpers/API_request/orderRequest'
 
-export const ItemOrderReady = ({ order, getOrder }) => {
-
-    const token = localStorage.getItem('Token')
+export const ItemOrderReady = ({ order }) => {
     const currentTime = new Date().toLocaleTimeString('es-ES').split(':')
 
     const orderTime = order.hour.split(':')
@@ -14,14 +12,6 @@ export const ItemOrderReady = ({ order, getOrder }) => {
     }
     const preparationTime = timeString.toString().replaceAll(',', ':')
 
-    // const deleteOrder = () => {
-    //     requestDeleteOrder(token, order.id)
-    //         .then((res) => res.json())
-    //         .then((res) => {
-    //             getOrder()
-    //         })
-    // }
-
     if (order.status === 'ready')
         return (
             <>
@@ -30,8 +20,6 @@ export const ItemOrderReady = ({ order, getOrder }) => {
                 <article className="itemList">${order.amount}.00</article>
                 <article className="itemList">{order.status}</article>
                 <article className="itemList">{preparationTime}</article>
-                {/* <article className="itemList"><button className="btnDelete" type="button" onClick={deleteOrder}><i className="bi bi-trash-fill"></i></button></article> */}
-                
             </>
         )
 }

@@ -47,7 +47,7 @@ const validateData=(data)=>{
   }
 
   return (
-    <section className="containerModal">
+    <aside className="containerModal">
       <h3 className="tittleModal">Editar usuario</h3>
       <form className="formModal" data-text="update" onSubmit={(e) => { handleSubmit(e) }}>
         <label className="formModal_label">Id</label>
@@ -65,6 +65,6 @@ const validateData=(data)=>{
         </div>
         <p ref={errorRef}></p>
       </form>
-    </section>
+    </aside>
   )
 }

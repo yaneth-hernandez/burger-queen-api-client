@@ -35,7 +35,6 @@ export const ModalCreate = ({ closeModal, onAddProduct, isOpen }) => {
       .then((res) => res.json())
       .then((res) => {
         validateRegistrationData(res, e)
-        //console.log(res)
       })
       .catch((error) => {
         console.log(error)
@@ -44,7 +43,7 @@ export const ModalCreate = ({ closeModal, onAddProduct, isOpen }) => {
   }
 
   return (
-    <section className="containerModal">
+    <aside className="containerModal">
       <h3 className="tittleModal">Crear producto</h3>
       <form className="formModal" onSubmit={(e) => handleSubmit(e)}>
         <label className="formModal_label">Nombre del producto</label>
@@ -68,7 +67,6 @@ export const ModalCreate = ({ closeModal, onAddProduct, isOpen }) => {
 
         <button className="btnSubmit" type="submit">Crear producto</button>
       </form>
-
-    </section>
+    </aside>
   )
 }

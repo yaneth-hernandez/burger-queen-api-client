@@ -10,8 +10,6 @@ export const OrderContext = createContext()
 export const ItemOrder = ({ order, getOrder}) => {
     const [orderProduct, setOrderProduct] = useState([])
     const [isOPenModalView, openModalView, closeModalView] = useModal(false)
-// const [editedOrder, setEditedOrder] = useState([])
-// setEditedOrder(order)
 
     const handleOnclick = (e) => {
         openModalView()

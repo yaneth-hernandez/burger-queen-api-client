@@ -1,9 +1,5 @@
 import { useState } from "react"
 import { requestCreateUser } from '../../helpers/API_request/userRequest'
-// import { Modal } from "../../pages/Modal/Modal"
-// import { ModalConfirmation } from "./ModalConfirmation"
-import { useModal } from "../../helpers/modals/useModal";
-
 import './ModalStyles.scss'
 
 export const ModalCreate = ({closeModal, onAddUser, isOpen}) => {
@@ -11,8 +7,6 @@ export const ModalCreate = ({closeModal, onAddUser, isOpen}) => {
   const [password, setPassword] = useState('')
   const [role, setRole] = useState('')
   const [message, setMessage] = useState('')
-  // const [isOpenModalConfirmation, openModalConfirmation, closeModalConfirmation] = useModal(false)
-
 
   const validateRegistrationData = (data, event) => {
     switch (data) {
@@ -51,7 +45,7 @@ export const ModalCreate = ({closeModal, onAddUser, isOpen}) => {
 
   return (
     <>
-    <section className="containerModal">
+    <aside className="containerModal">
       <h3 className="tittleModal">Crear usuario</h3>
       <form className="formModal" data-text="create" onSubmit={(e) => handleSubmit(e)}>
         <label className="formModal_label">Correo electrónico</label>
@@ -72,16 +66,7 @@ export const ModalCreate = ({closeModal, onAddUser, isOpen}) => {
         <button className="btnSubmit" type="submit" >Crear usuario</button>
         <span className="message">{message}</span> 
       </form>
-    </section>
-
-    {/* <Modal isOpen={isOpenModalConfirmation} closeModal={closeModalConfirmation}>
-        <ModalConfirmation closeModal={closeModalConfirmation}/>
-      </Modal> */}
+    </aside>
     </>
   )
 }
-
-//ERRORES
-//Email format is invalid
-//Email already exists
-//Password is too short

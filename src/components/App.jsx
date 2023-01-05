@@ -14,13 +14,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path={LOGIN} element={<Login/>}/>
-          {/* <Route path={ADMIN_USERS} element={<Admin/>}/> */}
           <Route path={ADMIN_USERS} element={<AdminUser/>}/>
           <Route path={ADMIN_PRODUCTS} element={<AdminProducts/>}/>
           <Route path={WAITER_MENU} element={<ViewWaiterMenu />} />
           <Route path={WAITER_STATUS} element={<OrderStatus />} />
           <Route path={ORDERS} element={<ViewChefOrder />} />
-          {/* <Route path={ORDERS} element={<Orders logo={Logo}/>} /> */}
         </Routes>
       </BrowserRouter>
   )

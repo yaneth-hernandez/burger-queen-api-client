@@ -17,9 +17,6 @@ export const ViewChefOrder = () => {
     .then((res) => {
         setOrders(
             res.map((item => {
-                //console.log(item)
-             //  if(item.status==='pending' || item.status==='ready'){
-                // console.log(item)
                     return {
                     client: item.client || '',
                     id: item.id,
@@ -30,26 +27,21 @@ export const ViewChefOrder = () => {
                     userId:item.userId,
                     amount:item.amount
                 }
-              // }
                
             }))
         )
     })
    }
-//console.log(orders)
     useEffect(() => {
         getOrder()
     }, [])
-   // console.log(orders)
     return (
         <>
                 <HeaderChef />
                 <TableOrder>
                     {
                         orders.map((order) =>{
-                           // if(order.status === "pending"){
                             return (<ItemOrder key={order.id} order={order} getOrder={getOrder} />)
-                       // }
                         })                            
                     }
                 </TableOrder>
@@ -57,9 +49,7 @@ export const ViewChefOrder = () => {
                 <TableOrderReady>
                 {
                         orders.map((order) =>{
-                           // if(order.status === "ready"){
                             return (  <ItemOrderReady key={order.id} order={order} getOrder={getOrder} />)
-                       // }
                         })      
                     }
                 </TableOrderReady>

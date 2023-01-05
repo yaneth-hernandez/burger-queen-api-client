@@ -15,11 +15,11 @@ export const ModalSelection = ({ isOpen, isOpenDelete, closeModal }) => {
     }
 
     return (
-        <section className="containerModal">
-            <article className="selectionModal">
+        <aside className="containerModal">
+            <aside className="selectionModal">
                 <button className="btnSelection" type="button" onClick={modalHandleEdit}>Editar Usuario</button>
                 <button className="btnSelection" type="button" onClick={modalHandleDelete}>Eliminar Usuario</button>
-            </article>
-        </section>
+            </aside>
+        </aside>
     )
 }

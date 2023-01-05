@@ -14,15 +14,10 @@ const viewOderDetail = (product) => {
             order.map((productInList) => {
                 if (productInList.id === product.id) {
                     return productInList
-                } //else {
-                    //return productInCart
-                //}
+                } 
             })
         )
-    } //else {
-        //setOrder([...order])
-    //}
-
+    } 
     console.log(order)
 }
 

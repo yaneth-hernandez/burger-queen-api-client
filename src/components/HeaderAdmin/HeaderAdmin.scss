@@ -16,7 +16,7 @@
 
         .admin_containerLogo--img {
             width: 80px;
-    height: 80px;
+            height: 80px;
         }
 
         .admin_containerLogo--text {
@@ -29,6 +29,7 @@
     .admin_containerIcon {
         width: 31%;
         height: 55px;
+        cursor: pointer;
         @include flex-column-center;
 
         .bi {
@@ -46,38 +47,79 @@
 
     }
 
-    .admin_navBar {
-        width: 22%;
-        height: 500px;
-        @include flex-column-center;
-      justify-content: space-evenly;
-      
-      margin-top: 643px;
-      margin-left: 780px;
-   
-        //margin-top: -20rem;//oculta arriba
+    .container-menu {
         position: absolute;
-        transition: all 500ms ease;
         background-color: $secondary-color;
         opacity: 95%;
-        .itemNavBar{
-            border: 0;
+        width: 40%;
+        height: 100vh;
+        top: 0;
+        right: 0;
+        transition: all 500ms ease;
+
+        .btnX {
+            border: none;
             background-color: transparent;
-            color: $primary-color;
-            font-size: 1.1rem;
-            font-family: $general-text;
-            font-weight: bold;
-            .bi{
-                font-size: 2rem;
+            margin-left: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+
+            .bi {
+                color: $primary-color;
+                font-size: 18px;
+
+            }
+        }
+
+        .cont-menu {
+            width: 100%;
+            max-width: 250px;
+            height: 100vh;
+            position: relative;
+            transition: all 500ms ease;
+            
+
+            .admin_navBar {
+                transform: translateY(25%);
+                @include flex-column-center;
+                justify-content: space-between;
+
+                button {
+                    border: 0;
+                    background-color: transparent;
+                    color: $primary-color;
+                    font-size: 1.1rem;
+                    font-family: $general-text;
+                    font-weight: bold;
+                    padding: 20px;
+                    transition: all 400ms ease;
+                    border-bottom: 1px solid transparent;
+                    cursor: pointer;
+
+                    &:hover {
+                        border-bottom: 1px solid $primary-color;
+                        background-color: $secondary-color;
+                        opacity: 70%;
+                    }
+
+                    .bi {
+                        font-size: 2rem;
+                    }
+
+                }
             }
         }
     }
-    .admin_navBar_view{
-        //margin-top: 20.4em;//mostrar de arriba a aboajo
-        //transform: translateX(85px); //vista table-lado
-        //transform: translateX(85px) translateY(308px);;//vista table-lado
-        
-        margin-top: 643px;
-    margin-left: 599px;
+
+    .hidden {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(40%);
+    }
+
+    .visible {
+        opacity: 95%;
+        visibility: visible;
+        transform: translateX(0%);
     }
 }

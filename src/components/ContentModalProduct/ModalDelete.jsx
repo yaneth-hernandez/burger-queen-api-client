@@ -1,5 +1,5 @@
 
-import { useContext, useRef, useState } from 'react'
+import { useContext, useRef} from 'react'
 import { ProductContext } from '../ItemTableProducts/ItemTableProducts'
 import './ModalStyles.scss'
 import { requestGetProducts, requestDeleteProduct } from '../../helpers/API_request/productRequest'
@@ -46,8 +46,7 @@ export const ModalDelete = ({isOpen, closeModal}) => {
   }
 
   return (
-
-    <section className="containerModal">
+    <aside className="containerModal">
       <h3 className="tittleModal">¿Quieres eliminar?</h3>
       <form className="formModal">
         <label className="formModal_label">Id</label>
@@ -73,6 +72,6 @@ export const ModalDelete = ({isOpen, closeModal}) => {
           <button className="btnSubmit btnWith" type='button' onClick={deleteProduct}>Eliminar</button>
         </div>
       </form>
-    </section>
+    </aside>
   )
 }

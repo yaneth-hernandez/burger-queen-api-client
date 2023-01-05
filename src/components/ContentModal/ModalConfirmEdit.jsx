@@ -3,10 +3,6 @@ import { UserContext } from '../ItemTable/ItemTable'
 import { ProductContext } from "../ItemTableProducts/ItemTableProducts"
 
 export const ModalConfirmEdit = ({itemEdit}) => {
-
-
-
-
     if (itemEdit.email && UserContext !== undefined) {
         const { user, setDataUser } = useContext(UserContext)
         return (

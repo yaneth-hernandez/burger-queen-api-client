@@ -6,7 +6,7 @@ import { ModalViewOrder } from '../../waiter/Modal/ModalViewOrder'
 
 export const OrderContext = createContext()
 
-export const ItemOrder = ({ order,getOrder}) => {
+export const ItemOrder = ({ order, getOrder }) => {
     const [orderProduct, setOrderProduct] = useState([])
     const [isOPenModalView, openModalView, closeModalView] = useModal(false)
 
@@ -21,33 +21,26 @@ export const ItemOrder = ({ order,getOrder}) => {
         }))
     }
 
-    if(order.status === 'pending')
-    return (
-        <>
-        
+    if (order.status === 'pending')
+        return (
+            <>
                 <>
-                <article className="itemList">#00{order.id}</article>
-            <article className="itemList">{order.client}</article>
-            <article className="itemList">${order.amount}.00</article>
-            <article className="itemList">{order.hour}</article>
-            <article className="itemList">{order.status}</article>
-            <article className="itemList">{order.userId}</article>
-            <article className="itemList">
-                <button type='button' onClick={(e) => { handleOnclick(e) }}>
-                    <i className="bi bi-pencil-square"></i>
-                </button>
-            </article>
+                    <article className="itemList">#00{order.id}</article>
+                    <article className="itemList">{order.client}</article>
+                    <article className="itemList">${order.amount}.00</article>
+                    <article className="itemList">{order.hour}</article>
+                    <article className="itemList">{order.status}</article>
+                    <article className="itemList">{order.userId}</article>
+                    <article className="itemList">
+                        <button type='button' onClick={(e) => { handleOnclick(e) }}>
+                            <i className="bi bi-pencil-square"></i>
+                        </button>
+                    </article>
+                </>
+                <Modal isOpen={isOPenModalView} closeModal={closeModalView}>
+                    <ModalViewOrder order={order} orderProduct={orderProduct} getOrder={getOrder} isOpen={isOPenModalView} closeModal={closeModalView} />
+                </Modal>
             </>
-             
-        
-           
-            <Modal isOpen={isOPenModalView} closeModal={closeModalView}>
-                <ModalViewOrder order={order} orderProduct={orderProduct} getOrder={getOrder} isOpen={isOPenModalView} closeModal={closeModalView}/>
-            </Modal>
-        </>
-    )
-    // else
-    // return(
-    //     <p>No hay ordenes pendientes</p>
-    // )
+        )
+
 }

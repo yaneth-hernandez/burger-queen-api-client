@@ -41,7 +41,6 @@ $general-text:'Montserrat', sans-serif;
 
 @mixin styleInput {
     width: 90%;
-    // min-width: 290px;
     max-width: 450px;
     padding: 10px 7px;
     outline: none;
@@ -51,7 +50,6 @@ $general-text:'Montserrat', sans-serif;
 }
 @mixin styleButton {
     width: 90%;
-    // min-width: 290px;
     max-width: 450px;
     padding: 10px 7px;
     margin-top: 40px;

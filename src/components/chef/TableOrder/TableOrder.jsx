@@ -4,7 +4,7 @@ export const TableOrder = ({ children }) => {
     return (
         <>
             <h3 className="titleList">Estado de pedidos</h3>
-            <section className="containerTable">
+            <aside className="containerTable">
                 <article className="headerList">#Pedido</article>
                 <article className="headerList">Cliente</article>
                 <article className="headerList">Importe$</article>
@@ -13,8 +13,7 @@ export const TableOrder = ({ children }) => {
                 <article className="headerList">IdUser</article>
                 <article className="headerList">Acciones</article>
                 {children}
-
-            </section>
+            </aside>
         </>
     )
 }

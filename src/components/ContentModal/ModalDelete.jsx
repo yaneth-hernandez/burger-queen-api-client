@@ -1,5 +1,5 @@
 import { requestDeleteUser, requestGetUser } from '../../helpers/API_request/userRequest'
-import { useContext, useState, useRef, } from 'react'
+import { useContext, useRef } from 'react'
 import { UserContext } from '../ItemTable/ItemTable'
 import './ModalStyles.scss'
 
@@ -9,7 +9,6 @@ export const ModalDelete = ({isOpen, closeModal}) => {
   const roleRef = useRef(null)
   const emailRef = useRef(null)
   const idRef = useRef(null)
-  
 
 const handleModal = (data)=>{
   if(data){
@@ -42,7 +41,7 @@ const handleModal = (data)=>{
   }
 
   return (
-    <section className="containerModal">
+    <aside className="containerModal">
       <h3 className="tittleModal">¿Quieres eliminar?</h3>
       <form className="formModal">
         <label className="formModal_label">Id</label>
@@ -60,6 +59,6 @@ const handleModal = (data)=>{
         <button className="btnSubmit btnWith" type='button' data-text='delete' onClick={deleteUser}>Eliminar</button>
         </div>
       </form>
-    </section>
+    </aside>
   )
 }

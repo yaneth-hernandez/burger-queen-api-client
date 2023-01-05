@@ -46,7 +46,6 @@ export const requestDeleteOrder = (token, id)=>{
     return fetch(`http://localhost:8080/orders/${id}`,{
         method: 'DELETE',
         headers: {
-            // "Content-Type": "application/json",
             "Access-Control-Request-Method": "DELETE",
             "Authorization": "Bearer " + token
         },

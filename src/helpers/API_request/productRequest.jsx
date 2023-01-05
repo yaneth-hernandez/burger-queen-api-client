@@ -39,11 +39,6 @@ export const onChangeImg = async (e, setFunction) => {
   
   }
 
-
-
-
-
-
 export const requestCreateProduct = (token, name, price, img, type) => {
     return fetch('http://localhost:8080/products', {
         method: 'POST',
@@ -79,15 +74,10 @@ export const requestEditProducts = (token, id, name, price, img, type) => {
     })
 }
 
-
-
-
-
 export const requestDeleteProduct = (id, token) => {
     return fetch(`http://localhost:8080/products/${id}`, {
         method: 'DELETE',
         headers: {
-            // "Content-Type": "application/json",
             "Access-Control-Request-Method": "DELETE",
             "Authorization": "Bearer " + token
         },

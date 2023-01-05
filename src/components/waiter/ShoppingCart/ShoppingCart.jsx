@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react'
+import { useContext, useState } from 'react'
 import { CartContext } from '../CartContext/CartContext'
 import './ShoppingCart.scss'
 import { ItemCart } from '../ItemCart/ItemCart'
@@ -32,7 +32,6 @@ export const ShoppingCart = () => {
         requestCreateOrder(token, idUser, client, cartItems, total, 'pending', date, hour, time)
             .then((res) => res.json())
             .then((res) => {
-                //console.log(res)
                 setOrder(res.id)
                 openModalOrder()
             })

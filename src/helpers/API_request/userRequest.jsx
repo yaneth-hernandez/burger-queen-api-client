@@ -1,5 +1,3 @@
-const token = localStorage.getItem('Token')
-
 export const requestLogin = (email,password) => {
     return fetch('http://localhost:8080/login', {
         method: 'POST',
@@ -36,9 +34,7 @@ export const requestCreateUser = (email, password, role) => {
     })
 }
 
-//creo que hay que pasar el id del usuario
 export const requestEditUser = (email,  role, id, token) => {
-    //console.log(token)
     return fetch(`http://localhost:8080/users/${id}`, {
         method: 'PATCH',
         headers: {
@@ -48,7 +44,6 @@ export const requestEditUser = (email,  role, id, token) => {
         },
         body: JSON.stringify({
             "email": email,
-            // "password": password,
             "role": role,
             "id": id
         })
@@ -57,11 +52,9 @@ export const requestEditUser = (email,  role, id, token) => {
 
 export const requestDeleteUser = (id, token) => {
     
-    //console.log(token)
     return fetch(`http://localhost:8080/users/${id}`, {
         method: 'DELETE',
         headers: {
-           // "Content-Type": "application/json",
             "Access-Control-Request-Method": "DELETE",
             "Authorization": "Bearer " + token
         },

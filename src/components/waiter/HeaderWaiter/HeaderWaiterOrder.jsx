@@ -26,7 +26,6 @@ export const HeaderWaiterOrder = () => {
 
         const navBarMenu = document.getElementById('navMenuId')
         navBarMenu.classList.toggle('navMenuView')
-        //navBarMenu.style.display="flex"
     }
 
     const goToMenu = ()=>{

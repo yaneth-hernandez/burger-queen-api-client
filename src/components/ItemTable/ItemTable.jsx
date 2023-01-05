@@ -37,7 +37,6 @@ export const ItemTable = ({ id, email, role, addUser, setDataUser }) => {
             <>
                 <article className="item-table">{id}</article>
                 <article className="item-table">{email}</article>
-                {/* <article className="item-table">******</article>  */}
                 <article className="item-table">{role}</article>
                 <article className="item-table"><button className="selection" onClick={(e) => handleOnclick(e)}><i className="bi bi-three-dots-vertical" data-id={id} data-email={email} data-role={role}></i></button></article>
                 <Modal isOpen={isOpenModalSelection} closeModal={closeModalSelection}>

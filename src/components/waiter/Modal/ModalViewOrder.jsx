@@ -1,4 +1,4 @@
-import { useContext, useRef } from "react"
+import { useRef } from "react"
 import { ItemModal } from "./ItemModal"
 import { TableModal } from "./TableModal"
 import { requestEditOrders } from '../../../helpers/API_request/orderRequest'
@@ -70,7 +70,6 @@ export const ModalViewOrder = ({ order, orderProduct, getOrder, closeModal }) =>
                     ) : (
                         <>
                             <option className="formModal_option">pending</option>
-                            {/* <option className="formModal_option">delivered</option> */}
                             <option className="formModal_option">ready</option>
                         </>
                     )

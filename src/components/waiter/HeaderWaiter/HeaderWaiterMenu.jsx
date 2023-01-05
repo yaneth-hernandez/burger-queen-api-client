@@ -26,7 +26,6 @@ export const HeaderWaiterMenu = ({ setTypeMenu }) => {
 
         const navBarMenu = document.getElementById('navMenuId')
         navBarMenu.classList.toggle('navMenuView')
-        //navBarMenu.style.display="flex"
     }
 
     const goToStatus = ()=>{

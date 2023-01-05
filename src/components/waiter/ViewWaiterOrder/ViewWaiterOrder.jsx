@@ -21,12 +21,9 @@ export const OrderStatus = () => {
         getOrderList(token)
             .then((res) => res.json())
             .then((res) => {
-                //console.log(res)
                 setOrders(
                     res.map((item => {
-                        
                         if(user==='waiter'){
-                            //console.log(item)
                             return {
                             client: item.client || '',
                             id: item.id,
@@ -48,7 +45,6 @@ export const OrderStatus = () => {
         getOrder()
     }, [])
 
-
     return (
         <>
         
@@ -65,9 +61,7 @@ export const OrderStatus = () => {
                 <TableOrderDelivered>
                 {
                         orders.map((order) =>{
-                           // if(order.status === "ready"){
                             return (  <ItemOrderDelivered key={order.id} order={order} getOrder={getOrder} />)
-                       // }
                         })      
                     }
                 </TableOrderDelivered>
