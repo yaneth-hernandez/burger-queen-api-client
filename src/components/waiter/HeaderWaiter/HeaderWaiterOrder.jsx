@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LOGIN, WAITER_MENU, WAITER_STATUS } from "../../../routes/paths.js";
 import logo from '../../../assets/Logo.png'
@@ -9,6 +9,19 @@ export const HeaderWaiterOrder = () => {
 
     const navigate = useNavigate()
     const profile = localStorage.getItem('Profile') === 'waiter' ? 'Mesero' : ''
+    const [menu, setMenu] = useState('container-menu hidden')
+
+    const showNavigationBar = () => {
+        // navBar.classList.toggle('container-menu-visible')
+        setMenu('visible')
+    }
+
+    const closeBar = () => {
+        // navBar.classList.remove('container-menu-visible')
+        setMenu('hidden')
+        console.log('Hola')
+    }
+
 
     const clearSession = () => {
         localStorage.removeItem('Token')
@@ -17,10 +30,6 @@ export const HeaderWaiterOrder = () => {
         navigate(LOGIN)
     }
 
-    const showNavigationBar = () => {
-        const navBar = document.getElementById('admin_navBar_id')
-        navBar.classList.toggle('admin_navBar_view')
-    }
 
     const showNavigationBarMenu = () => {
 
@@ -28,11 +37,11 @@ export const HeaderWaiterOrder = () => {
         navBarMenu.classList.toggle('navMenuView')
     }
 
-    const goToMenu = ()=>{
+    const goToMenu = () => {
         navigate('')
         navigate(WAITER_MENU)
     }
-   
+
     return (
         <header className="admin_container">
             <figure className="admin_containerLogo">
@@ -43,11 +52,16 @@ export const HeaderWaiterOrder = () => {
                 <i className="bi bi-person-circle" ></i>
                 <figcaption className="admin_containerIcon--text">{profile}</figcaption>
             </figure>
-            <nav className="admin_navBar" id="admin_navBar_id">
-                <button className="itemNavBar" onClick={goToMenu} data-nav="users" ><i className="bi bi-person-gear"><br /></i>Menú</button>
-                <button className="itemNavBar"  data-nav="products" ><i className="bi bi-house-gear"><br /></i>Estado de pedido</button>
-                <button className="itemNavBar" onClick={clearSession}><i className="bi bi-box-arrow-right"><br /></i>Cerrar Sesión</button>
-            </nav>
+            <div className={`container-menu ${menu}`} id="admin_navBar_id" >
+                <button type="button" className="btnX" onClick={closeBar}><i className="bi bi-x-circle"></i></button>
+                <div className="cont-menu">
+                    <nav className="admin_navBar" id="admin_navBar_id">
+                        <button className="itemNavBar" onClick={goToMenu} data-nav="users" ><i className="bi bi-person-gear"><br /></i>Menú</button>
+                        <button className="itemNavBar" data-nav="products" ><i className="bi bi-house-gear"><br /></i>Estado de pedido</button>
+                        <button className="itemNavBar" onClick={clearSession}><i className="bi bi-box-arrow-right"><br /></i>Cerrar Sesión</button>
+                    </nav>
+                </div>
+            </div>
         </header>
     )
 }

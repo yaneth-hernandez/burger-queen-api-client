@@ -2,17 +2,22 @@
 
 .navMenu {
     width: 90%;
-    height: 100px;
+    height: 24vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-
     position: absolute;
+    top: 70px;
+    right: 94px;
     transition: all 500ms ease;
-    background-color: $secondary-color;
-    opacity: 95%;
-   transform: translate(168px, -135px);
+    background-color: #DEE7EC;
+    // opacity: 95%;
+    // transform: translate(168px, -135px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(40%);
+
     .btnMenu {
         border: 0;
         background-color: transparent;
@@ -22,9 +27,11 @@
         font-weight: bold;
     }
 
-   
-} 
+
+}
 
 .navMenuView {
-        transform: translate(-155px, -135px);
-    }
+    opacity: 100%;
+    visibility: visible;
+    transform: translateX(-69%);
+}

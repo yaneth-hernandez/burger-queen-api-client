@@ -10,7 +10,7 @@ export const HeaderAdmin = () => {
     const navigate = useNavigate()
     const profile = localStorage.getItem('Profile') === 'admin' ? 'Admin' : ''
      const navBar = document.getElementById('admin_navBar_id')
-     const [menu, setMenu]=useState('container-menu hidden')
+    const [menu, setMenu]=useState('container-menu hidden')
     const clearSession = () => {
         localStorage.removeItem('Token')
         localStorage.removeItem('Profile')
@@ -38,6 +38,8 @@ export const HeaderAdmin = () => {
         }
 
     }
+
+    
 
     return (
         <header className="admin_container">
