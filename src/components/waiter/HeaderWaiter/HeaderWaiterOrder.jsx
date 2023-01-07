@@ -12,14 +12,11 @@ export const HeaderWaiterOrder = () => {
     const [menu, setMenu] = useState('container-menu hidden')
 
     const showNavigationBar = () => {
-        // navBar.classList.toggle('container-menu-visible')
         setMenu('visible')
     }
 
     const closeBar = () => {
-        // navBar.classList.remove('container-menu-visible')
         setMenu('hidden')
-        console.log('Hola')
     }
 
 
@@ -28,13 +25,6 @@ export const HeaderWaiterOrder = () => {
         localStorage.removeItem('Profile')
         localStorage.removeItem('IdUser')
         navigate(LOGIN)
-    }
-
-
-    const showNavigationBarMenu = () => {
-
-        const navBarMenu = document.getElementById('navMenuId')
-        navBarMenu.classList.toggle('navMenuView')
     }
 
     const goToMenu = () => {

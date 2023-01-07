@@ -4,12 +4,9 @@ import logo from '../../assets/Logo.png'
 import './HeaderAdmin.scss'
 import { useState } from "react";
 
-
-
 export const HeaderAdmin = () => {
     const navigate = useNavigate()
     const profile = localStorage.getItem('Profile') === 'admin' ? 'Admin' : ''
-     const navBar = document.getElementById('admin_navBar_id')
     const [menu, setMenu]=useState('container-menu hidden')
     const clearSession = () => {
         localStorage.removeItem('Token')
@@ -19,14 +16,11 @@ export const HeaderAdmin = () => {
     }
 
     const showNavigationBar = () => {
-        // navBar.classList.toggle('container-menu-visible')
         setMenu('visible')
     }
 
     const closeBar = () => {
-        // navBar.classList.remove('container-menu-visible')
         setMenu('hidden')
-        console.log('Hola')
     }
 
     const navigateAdmin = () => {
@@ -38,8 +32,6 @@ export const HeaderAdmin = () => {
         }
 
     }
-
-    
 
     return (
         <header className="admin_container">

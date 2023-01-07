@@ -33,7 +33,7 @@ useEffect(()=>{
     return(
       <CartProvider>
         <>
-            <HeaderWaiterMenu setTypeMenu={setTypeMenu} />
+            <HeaderWaiterMenu setTypeMenu={setTypeMenu} typeMenu={typeMenu}/>
             <Menu menu={menu} typeMenu={typeMenu}/>
             <ShoppingCart typeMenu={typeMenu}/>
             

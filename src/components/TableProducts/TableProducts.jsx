@@ -2,9 +2,9 @@
 export const TableProducts = ({children})=>{
 
     return(
-      <>
+      <> 
+      <h4 className="table-title">Lista de productos</h4>
         <section className="container-table-products">
-          <h4 className="table-title">Lista de productos</h4>
           <article className="table-header">Id</article>
           <article className="table-header">Imágen</article>
           <article className="table-header">Nombre</article>

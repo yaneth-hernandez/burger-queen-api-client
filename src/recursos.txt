@@ -37,3 +37,7 @@ useContext para usuario: https://www.youtube.com/watch?v=lSMBhUEVK8k
     "email": "grace.hopper@systers.xyz",
     "password": "123456"
 }
+
+
+Cómo utilizar el useRef hook para administrar sugerencias automáticas.
+https://www.freecodecamp.org/espanol/news/como-crear-un-componente-react-verdaderamente-reutilizable-desde-cero/

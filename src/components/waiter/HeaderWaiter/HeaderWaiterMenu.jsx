@@ -5,7 +5,7 @@ import logo from '../../../assets/Logo.png'
 import '../../HeaderAdmin/HeaderAdmin.scss'
 import './HeaderWaiter.scss'
 
-export const HeaderWaiterMenu = ({ setTypeMenu }) => {
+export const HeaderWaiterMenu = ({ setTypeMenu, typeMenu }) => {
 
     const navigate = useNavigate()
     const profile = localStorage.getItem('Profile') === 'waiter' ? 'Mesero' : ''
@@ -33,12 +33,23 @@ export const HeaderWaiterMenu = ({ setTypeMenu }) => {
         navBarMenu.classList.toggle('navMenuView')
     }
 
+    const handleClick = (e)=>{
+        const navBarMenu = document.getElementById('navMenuId')
+        if(e.target.innerHTML === 'Desayuno'){
+            setTypeMenu('Desayuno')
+            navBarMenu.classList.remove('navMenuView')
+        }else{
+            setTypeMenu('Almuerzo')
+            navBarMenu.classList.remove('navMenuView')
+        }
+        
+        
+    }
+
     const goToStatus = () => {
         navigate('')
         navigate(WAITER_STATUS)
     }
-
-
     return (
         <header className="admin_container">
             <figure className="admin_containerLogo">
@@ -55,8 +66,8 @@ export const HeaderWaiterMenu = ({ setTypeMenu }) => {
                     <nav className="admin_navBar" id="admin_navBar_id">
                         <button className="itemNavBar" onClick={showNavigationBarMenu} data-nav="users" ><i className="bi bi-person-gear"><br /></i>Menú</button>
                         <article className="navMenu" id="navMenuId">
-                            <button type="button" className="btnMenu" onClick={() => { setTypeMenu('Desayuno') }}>Desayuno</button>
-                            <button type="button" className="btnMenu" onClick={() => { setTypeMenu('Almuerzo') }} >Almuerzo</button>
+                            <button type="button" className="btnMenu" onClick={(e) => { handleClick(e) }}>Desayuno</button>
+                            <button type="button" className="btnMenu" onClick={(e) => { handleClick(e) }} >Almuerzo</button>
                         </article>
                         <button className="itemNavBar" onClick={goToStatus} data-nav="products" ><i className="bi bi-house-gear"><br /></i>Estado de pedido</button>
                         <button className="itemNavBar" onClick={clearSession}><i className="bi bi-box-arrow-right"><br /></i>Cerrar Sesión</button>

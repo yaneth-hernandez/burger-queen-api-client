@@ -12,8 +12,6 @@
     right: 94px;
     transition: all 500ms ease;
     background-color: #DEE7EC;
-    // opacity: 95%;
-    // transform: translate(168px, -135px);
     opacity: 0;
     visibility: hidden;
     transform: translateX(40%);
@@ -26,8 +24,6 @@
         font-family: $general-text;
         font-weight: bold;
     }
-
-
 }
 
 .navMenuView {

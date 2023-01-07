@@ -1,14 +1,16 @@
 
-export const Table = ({children})=>{
+export const Table = ({ children }) => {
 
-    return(
-        <section className="container-table">
-          <h4 className="table-title">Lista de usuarios</h4>
-          <article className="table-header">Id</article>
-          <article className="table-header">Correo</article>
-          <article className="table-header">Perfil</article>
-          <article className="table-header">Acciones</article>
+  return (
+    <>
+      <h4 className="table-title">Lista de usuarios</h4>
+      <aside className="container-table">
+        <div className="table-header">Id</div>
+        <div className="table-header">Correo</div>
+        <div className="table-header">Perfil</div>
+        <div className="table-header">Acciones</div>
         {children}
-      </section>
-    )
+      </aside>
+    </>
+  )
 }

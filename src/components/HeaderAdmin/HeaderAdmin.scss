@@ -55,7 +55,7 @@
         height: 100vh;
         top: 0;
         right: 0;
-        transition: all 500ms ease;
+        transition: all 3000ms ease;
 
         .btnX {
             border: none;
@@ -76,7 +76,7 @@
             max-width: 250px;
             height: 100vh;
             position: relative;
-            transition: all 500ms ease;
+            transition: all 3000ms ease;
             
 
             .admin_navBar {
@@ -113,13 +113,18 @@
 
     .hidden {
         opacity: 0;
-        visibility: hidden;
-        transform: translateX(40%);
+        // visibility: hidden;
+        display: none;
+        transform: translateX(100%);
+        // transition: all 3000ms ease;
+       
     }
 
     .visible {
         opacity: 95%;
-        visibility: visible;
+    //    visibility: visible;
+       display: block;
         transform: translateX(0%);
+        // transition: all 3000ms ease;
     }
 }
