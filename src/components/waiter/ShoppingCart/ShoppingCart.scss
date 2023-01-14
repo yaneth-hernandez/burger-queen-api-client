@@ -25,36 +25,48 @@
         }
     }
 
+    .takeOrder {
+        margin: 1.25rem 0rem 1.25rem 0rem;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        color: $tertiary-color;
+        font-family: "Montserrat", sans-serif;
+        text-align: center;
+        font-size: 1.25rem;
+
+    }
+
     .clientContainer {
-        width: 94%;
+        width: 100%;
         display: flex;
-        justify-content: space-between;
-        margin-left: -20px;
+        flex-direction: column;
+        margin-bottom: 1.25rem;
+        padding-left: 0.3125rem;
 
         .client {
             width: 55%;
-            padding-left: 54px;
             display: flex;
             justify-content: space-between;
             color: $primary-color;
             font-weight: bold;
             font-family: "Montserrat", sans-serif;
-            font-size: 18px;
-            margin-bottom: 30px;
+            font-size: 1rem;
 
             input {
                 width: 76%;
-                padding: 5px;
+                padding: 0.3125rem;
+                margin-left: 0.3125rem;
                 outline: none;
                 background: $secondary-color;
                 border: $primary-color solid 1px;
-                border-radius: 8px;
+                border-radius: 0.3125rem;
                 font-family: $general-text;
                 font-weight: bold;
 
-                ::placeholder {
+                &::placeholder {
                     font-size: xx-small;
-                    color: $primary-color;
+                    color: rgb(97, 118, 129);
+                    font-weight: lighter;
                 }
 
             }
@@ -65,8 +77,15 @@
         p {
             color: $primary-color;
             font-family: $general-text;
-            font-size: 18px;
+            font-size: 1rem;
             font-weight: bold;
+            padding-top: 0.3125rem;
+
+            span {
+                padding-left: 0.3125rem;
+                font-weight: bolder;
+                color: rgb(97, 118, 129);
+            }
         }
     }
 
@@ -75,15 +94,15 @@
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         grid-auto-rows: 40px;
-        grid-gap: 10px;
-        font-size: 16px;
-        color: rgb(5, 39, 57);
+        grid-gap: 0.3125rem;
+        font-size: 0.8rem;
+        color: rgb(97, 118, 129);
         font-family: "Montserrat", sans-serif;
         background: #DEE7EC;
         border: 1px solid #0BA7B4;
         border-radius: 20px;
-        margin: 0px 10px;
-        padding-bottom: 10px;
+        padding-bottom: 0.3125rem;
+        margin: 0rem 0.3125rem 1.25rem;
 
         .headerInvoice {
             display: flex;
@@ -95,10 +114,10 @@
         }
 
         .itemInvoice.quantity {
-            width: 80%;
+            width: 65%;
             display: flex;
             justify-content: space-evenly;
-            padding-left: 27px;
+            padding-left: 1.125rem;
         }
 
         .itemInvoice {
@@ -114,34 +133,41 @@
 
                 .bi {
                     color: $primary-color;
-                    font-size: 20px;
+                    font-size: 1.25rem;
                     border: none;
                 }
             }
 
 
             img {
-                width: 45px;
-                height: 45px;
+                width: 2.5rem;
+                height: 2.5rem;
             }
 
         }
     }
 
     .totalContainer {
-        width: 74%;
+        width: 98%;
         display: flex;
-        margin-top: 30px;
-        margin-bottom: 30px;
+        margin-top: -3px;
+        margin-bottom: -15px;
         justify-content: flex-end;
 
         .total {
-            width: 37%;
+            width: 53%;
+            height: 1.875rem;
             display: flex;
-            justify-content: space-between;
-            font-family: $general-text;
+            justify-content: space-around;
+            align-items: center;
+            font-family: "Montserrat", sans-serif;
             font-weight: bold;
-            font-size: 17px;
+            font-size: 0.85rem;
+            color: rgb(97, 118, 129);
+            font-weight: bolder;
+            border: 0.0625rem solid #0BA7B4;
+            border-radius: 0.5rem;
+            background-color: #DEE7EC;
         }
     }
 }
@@ -153,8 +179,8 @@
 }
 
 .btnSubmit {
-    width: 34%;
-    padding: 7px 7px;
+    width: 58%;
+    height: 2.5rem;
     border: $tertiary-color solid 1px;
     border-radius: 8px;
     background-color: $tertiary-color;
@@ -165,11 +191,10 @@
 
 .btnClear {
     width: 34%;
-    padding: 7px 7px;
+    height: 2.5rem;
     border: $tertiary-color solid 1px;
     border-radius: 8px;
     background-color: $secondary-color;
     color: $tertiary-color;
     font-weight: bold;
-    font-size: 1rem;
 }

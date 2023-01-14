@@ -8,41 +8,45 @@
     align-items: center;
 
     .admin_containerLogo {
-        width: 30%;
+        width: 41%;
         display: flex;
         justify-content: flex-end;
 
         @include flex-column-center;
 
         .admin_containerLogo--img {
-            width: 80px;
-            height: 80px;
+            width: 3.5rem;
+            height: 3.5rem;
         }
 
         .admin_containerLogo--text {
-            font-size: 0.88rem;
+            font-size: 0.75rem;
             color: $tertiary-color;
             font-family: $logo-text;
         }
     }
 
     .admin_containerIcon {
-        width: 31%;
-        height: 55px;
+        width: 34%;
+        height: 3.4375rem;
         cursor: pointer;
         @include flex-column-center;
 
         .bi {
-            font-size: 50px;
+            font-size: 3rem;
             color: $primary-color;
+
+            &:hover {
+                color: $secondary-color;
+            }
         }
 
         .admin_containerIcon--text {
-            font-size: 1rem;
+            font-size: .90rem;
             color: $primary-color;
             font-family: $general-text;
             font-weight: bolder;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.03125rem;
         }
 
     }
@@ -77,7 +81,7 @@
             height: 100vh;
             position: relative;
             transition: all 3000ms ease;
-            
+
 
             .admin_navBar {
                 transform: translateY(25%);
@@ -117,14 +121,150 @@
         display: none;
         transform: translateX(100%);
         // transition: all 3000ms ease;
-       
+
     }
 
     .visible {
         opacity: 95%;
-    //    visibility: visible;
-       display: block;
+        //    visibility: visible;
+        display: block;
         transform: translateX(0%);
         // transition: all 3000ms ease;
+    }
+}
+
+@media (min-width: 768px) {
+    .admin_container {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .admin_containerLogo {
+            width: 27%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-end;
+
+            @include flex-column-center;
+
+            .admin_containerLogo--img {
+                width: 5rem;
+                height: 5rem;
+            }
+
+            .admin_containerLogo--text {
+                font-size: 0.85rem;
+                color: $tertiary-color;
+                font-family: $logo-text;
+            }
+        }
+
+        .admin_containerIcon {
+            width: 34%;
+            height: 3.4375rem;
+            cursor: pointer;
+            @include flex-column-center;
+
+            .bi {
+                font-size: 3.5rem;
+                color: $primary-color;
+
+                &:hover {
+                    color: $secondary-color;
+                }
+            }
+
+            .admin_containerIcon--text {
+                font-size: .98rem;
+                color: $primary-color;
+                font-family: $general-text;
+                font-weight: bolder;
+                letter-spacing: 0.03125rem;
+            }
+
+        }
+
+        .container-menu {
+            position: absolute;
+            background-color: $secondary-color;
+            opacity: 95%;
+            width: 40%;
+            height: 100vh;
+            top: 0;
+            right: 0;
+            transition: all 3000ms ease;
+
+            .btnX {
+                border: none;
+                background-color: transparent;
+                margin-left: 10px;
+                margin-top: 10px;
+                cursor: pointer;
+
+                .bi {
+                    color: $primary-color;
+                    font-size: 18px;
+
+                }
+            }
+
+            .cont-menu {
+                width: 100%;
+                max-width: 250px;
+                height: 100vh;
+                position: relative;
+                transition: all 3000ms ease;
+
+
+                .admin_navBar {
+                    transform: translateY(25%);
+                    @include flex-column-center;
+                    justify-content: space-between;
+
+                    button {
+                        border: 0;
+                        background-color: transparent;
+                        color: $primary-color;
+                        font-size: 1.1rem;
+                        font-family: $general-text;
+                        font-weight: bold;
+                        padding: 20px;
+                        transition: all 400ms ease;
+                        border-bottom: 1px solid transparent;
+                        cursor: pointer;
+
+                        &:hover {
+                            border-bottom: 1px solid $primary-color;
+                            background-color: $secondary-color;
+                            opacity: 70%;
+                        }
+
+                        .bi {
+                            font-size: 2rem;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        .hidden {
+            opacity: 0;
+            visibility: hidden;
+            // display: none;
+            transform: translateX(100%);
+            transition: all 3000ms ease;
+
+        }
+
+        .visible {
+            opacity: 95%;
+               visibility: visible;
+            // display: block;
+            transform: translateX(0%);
+            transition: all 3000ms ease;
+        }
     }
 }

@@ -47,12 +47,13 @@ export const ShoppingCart = () => {
                     </figure>
                 ) : (
                     <>
+                    <h3 className='takeOrder'>Tomar pedido</h3>
                         <div className='clientContainer'>
                             <label className='client'>Cliente:
                                 <input type="text" placeholder='Nombre del cliente' onChange={(e) => setClient(e.target.value)} required />
                             </label>
 
-                            <p>Pedido#:{order}</p>
+                            <p>Pedido#:<span>{order}</span></p>
                         </div>
                         <TableShoppingCart>
                             {cartItems.map((item, i) => (
