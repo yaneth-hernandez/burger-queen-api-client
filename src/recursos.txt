@@ -41,3 +41,8 @@ useContext para usuario: https://www.youtube.com/watch?v=lSMBhUEVK8k
 
 Cómo utilizar el useRef hook para administrar sugerencias automáticas.
 https://www.freecodecamp.org/espanol/news/como-crear-un-componente-react-verdaderamente-reutilizable-desde-cero/
+
+Media query
+https://getbootstrap.com/docs/5.0/layout/breakpoints/
+https://ricostacruz.com/til/css-media-query-breakpoints
+https://lenguajecss.com/css/responsive-web-design/media-queries/

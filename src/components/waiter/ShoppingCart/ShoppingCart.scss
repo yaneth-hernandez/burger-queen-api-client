@@ -16,7 +16,7 @@
         .backgroundText {
             color: $primary-color;
             font-family: $general-text;
-            font-size: 20px;
+            font-size: 1.25rem;
         }
 
         .backgroundImg {
@@ -58,7 +58,7 @@
                 margin-left: 0.3125rem;
                 outline: none;
                 background: $secondary-color;
-                border: $primary-color solid 1px;
+                border: $primary-color solid 0.0625rem;
                 border-radius: 0.3125rem;
                 font-family: $general-text;
                 font-weight: bold;
@@ -99,8 +99,8 @@
         color: rgb(97, 118, 129);
         font-family: "Montserrat", sans-serif;
         background: #DEE7EC;
-        border: 1px solid #0BA7B4;
-        border-radius: 20px;
+        border: 0.0625rem solid #0BA7B4;
+        border-radius: 1.25rem;
         padding-bottom: 0.3125rem;
         margin: 0rem 0.3125rem 1.25rem;
 
@@ -150,8 +150,8 @@
     .totalContainer {
         width: 98%;
         display: flex;
-        margin-top: -3px;
-        margin-bottom: -15px;
+        margin-top: -0.1875rem;
+        margin-bottom: -0.9375rem;
         justify-content: flex-end;
 
         .total {
@@ -180,20 +180,20 @@
 
 .btnSubmit {
     width: 58%;
-    height: 2.5rem;
-    border: $tertiary-color solid 1px;
-    border-radius: 8px;
+    height: 2rem;
+    border: $tertiary-color solid 0.0625rem;
+    border-radius: 0.5rem;
     background-color: $tertiary-color;
     color: $secondary-color;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: .90rem;
 }
 
 .btnClear {
     width: 34%;
-    height: 2.5rem;
-    border: $tertiary-color solid 1px;
-    border-radius: 8px;
+    height: 2rem;
+    border: $tertiary-color solid 0.0625rem;
+    border-radius: 0.5rem;
     background-color: $secondary-color;
     color: $tertiary-color;
     font-weight: bold;
