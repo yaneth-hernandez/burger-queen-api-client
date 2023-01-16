@@ -10,9 +10,13 @@ $general-text:'Montserrat', sans-serif;
     padding: 0;
 }
 
-:root{
+#root{
     width: 100vw;
     height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 @mixin flex-column-center {

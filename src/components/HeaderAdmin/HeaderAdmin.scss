@@ -8,10 +8,7 @@
     align-items: center;
 
     .admin_containerLogo {
-        width: 41%;
-        display: flex;
-        justify-content: flex-end;
-
+        width: 44%;
         @include flex-column-center;
 
         .admin_containerLogo--img {
@@ -27,7 +24,7 @@
     }
 
     .admin_containerIcon {
-        width: 34%;
+        width: 24%;
         height: 3.4375rem;
         cursor: pointer;
         @include flex-column-center;
@@ -54,12 +51,10 @@
     .container-menu {
         position: absolute;
         background-color: $secondary-color;
-        opacity: 95%;
-        width: 40%;
+        width: 50%;
         height: 100vh;
         top: 0;
         right: 0;
-        transition: all 800ms ease;
 
         .btnX {
             border: none;
@@ -117,8 +112,8 @@
 
     .hidden {
         opacity: 0;
-        visibility: hidden;
-        // display: none;
+        // visibility: hidden;
+        display: none;
         transform: translateX(100%);
         transition: all 800ms ease;
 
@@ -126,8 +121,8 @@
 
     .visible {
         opacity: 95%;
-        visibility: visible;
-        // display: block;
+        // visibility: visible;
+        display: block;
         transform: translateX(0%);
         transition: all 800ms ease;
     }
@@ -190,7 +185,7 @@
             position: absolute;
             background-color: $secondary-color;
             opacity: 95%;
-            width: 40%;
+            width: 37%;
             height: 100vh;
             top: 0;
             right: 0;
@@ -211,7 +206,6 @@
             }
 
             .cont-menu {
-                width: 100%;
                 max-width: 250px;
                 height: 100vh;
                 position: relative;
@@ -219,7 +213,8 @@
 
 
                 .admin_navBar {
-                    transform: translateY(25%);
+                    width: 100%;
+                transform: translateY(25%);
                     @include flex-column-center;
                     justify-content: space-between;
 
@@ -252,8 +247,8 @@
 
         .hidden {
             opacity: 0;
-            visibility: hidden;
-            // display: none;
+            // visibility: hidden;
+            display: none;
             transform: translateX(100%);
             transition: all 800ms ease;
 
@@ -261,8 +256,8 @@
 
         .visible {
             opacity: 95%;
-            visibility: visible;
-            // display: block;
+            // visibility: visible;
+            display: block;
             transform: translateX(0%);
             transition: all 800ms ease;
         }
@@ -278,7 +273,7 @@
         align-items: center;
 
         .admin_containerLogo {
-            width: 41%;
+            width: 36%;
             display: flex;
             justify-content: flex-end;
 
@@ -297,7 +292,7 @@
         }
 
         .admin_containerIcon {
-            width: 34%;
+            width: 22%;
             height: 3.4375rem;
             cursor: pointer;
             @include flex-column-center;
@@ -323,12 +318,12 @@
 
         .container-menu {
             position: absolute;
-            background-color: #DEE7EC;
+            background-color: $secondary-color;
             opacity: 95%;
-            width: 58%;
-            height: 8vh;
-            top: 4px;
-            right: 106px;
+            width: 27%;
+            height: 100vh;
+            top: 0;
+            right: 0;
             transition: all 800ms ease;
 
             .btnX {
@@ -341,30 +336,28 @@
                 .bi {
                     color: $primary-color;
                     font-size: 18px;
-                    display: none;
+
                 }
             }
 
             .cont-menu {
                 width: 100%;
-                max-width: 300px;
-                height: 11vh;
-                position: static;
+                max-width: 250px;
+                height: 100vh;
+                position: relative;
                 transition: all 800ms ease;
-                display: flex;
-                flex-direction: row;
-
 
                 .admin_navBar {
-                    transform: translateY(25%);
-                    @include flex-row-center;
+                    // transform: translateX(27%) translateY(25%);
+                    transform:translateY(25%);
+                    @include flex-column-center;
                     justify-content: space-between;
 
                     button {
                         border: 0;
                         background-color: transparent;
                         color: $primary-color;
-                        font-size: 1rem;
+                        font-size: 1.1rem;
                         font-family: $general-text;
                         font-weight: bold;
                         padding: 20px;
@@ -380,8 +373,6 @@
 
                         .bi {
                             font-size: 2rem;
-                            display: none;
-
                         }
 
                     }
@@ -390,20 +381,290 @@
         }
 
         .hidden {
-            opacity: 95%;
-            visibility: visible;
-            transform: translateX(-42%) translateY(22%);
+            opacity: 0;
+            // visibility: hidden;
+            display: none;
+            transform: translateX(100%);
             transition: all 800ms ease;
-            width: 400px;
 
         }
 
         .visible {
             opacity: 95%;
-            visibility: hidden;
-            transform: translateX(-22%) translateY(39%);
+            // visibility: visible;
+            display: block;
+            transform: translateX(0%);
             transition: all 800ms ease;
-            width: 500px;
+        }
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px)  {
+    .admin_container {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .admin_containerLogo {
+            width: 36%;
+            display: flex;
+            justify-content: flex-end;
+
+            @include flex-column-center;
+
+            .admin_containerLogo--img {
+                width: 5rem;
+                height: 5rem;
+            }
+
+            .admin_containerLogo--text {
+                font-size: 0.85rem;
+                color: $tertiary-color;
+                font-family: $logo-text;
+            }
+        }
+
+        .admin_containerIcon {
+            width: 22%;
+            height: 3.4375rem;
+            cursor: pointer;
+            @include flex-column-center;
+
+            .bi {
+                font-size: 4rem;
+                color: $primary-color;
+
+                &:hover {
+                    color: $secondary-color;
+                }
+            }
+
+            .admin_containerIcon--text {
+                font-size: .98rem;
+                color: $primary-color;
+                font-family: $general-text;
+                font-weight: bolder;
+                letter-spacing: 0.03125rem;
+            }
+
+        }
+
+        .container-menu {
+            position: absolute;
+            background-color: $secondary-color;
+            opacity: 95%;
+            width: 30%;
+            height: 100vh;
+            top: 0;
+            right: 0;
+            transition: all 800ms ease;
+
+            .btnX {
+                border: none;
+                background-color: transparent;
+                margin-left: 10px;
+                margin-top: 10px;
+                cursor: pointer;
+
+                .bi {
+                    color: $primary-color;
+                    font-size: 18px;
+
+                }
+            }
+
+            .cont-menu {
+                width: 100%;
+                max-width: 250px;
+                height: 100vh;
+                position: relative;
+                transition: all 800ms ease;
+
+                .admin_navBar {
+                    transform: translateX(0%) translateY(25%);
+                    // transform:translateY(25%);
+                    @include flex-column-center;
+                    justify-content: space-between;
+
+                    button {
+                        border: 0;
+                        background-color: transparent;
+                        color: $primary-color;
+                        font-size: 1.1rem;
+                        font-family: $general-text;
+                        font-weight: bold;
+                        padding: 20px;
+                        transition: all 400ms ease;
+                        border-bottom: 1px solid transparent;
+                        cursor: pointer;
+
+                        &:hover {
+                            border-bottom: 1px solid $primary-color;
+                            background-color: $secondary-color;
+                            opacity: 70%;
+                        }
+
+                        .bi {
+                            font-size: 2rem;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        .hidden {
+            opacity: 0;
+            // visibility: hidden;
+            display: none;
+            transform: translateX(100%);
+            transition: all 800ms ease;
+
+        }
+
+        .visible {
+            opacity: 95%;
+            // visibility: visible;
+            display: block;
+            transform: translateX(0%);
+            transition: all 800ms ease;
+        }
+    }
+}
+
+@media (min-width: 1201px)  {
+    .admin_container {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .admin_containerLogo {
+            width: 36%;
+            display: flex;
+            justify-content: flex-end;
+
+            @include flex-column-center;
+
+            .admin_containerLogo--img {
+                width: 5rem;
+                height: 5rem;
+            }
+
+            .admin_containerLogo--text {
+                font-size: 0.85rem;
+                color: $tertiary-color;
+                font-family: $logo-text;
+            }
+        }
+
+        .admin_containerIcon {
+            width: 22%;
+            height: 3.4375rem;
+            cursor: pointer;
+            @include flex-column-center;
+
+            .bi {
+                font-size: 4rem;
+                color: $primary-color;
+
+                &:hover {
+                    color: $secondary-color;
+                }
+            }
+
+            .admin_containerIcon--text {
+                font-size: .98rem;
+                color: $primary-color;
+                font-family: $general-text;
+                font-weight: bolder;
+                letter-spacing: 0.03125rem;
+            }
+
+        }
+
+        .container-menu {
+            position: absolute;
+            background-color: $secondary-color;
+            opacity: 95%;
+            width: 20%;
+            height: 100vh;
+            top: 0;
+            right: 0;
+            transition: all 800ms ease;
+
+            .btnX {
+                border: none;
+                background-color: transparent;
+                margin-left: 10px;
+                margin-top: 10px;
+                cursor: pointer;
+
+                .bi {
+                    color: $primary-color;
+                    font-size: 18px;
+
+                }
+            }
+
+            .cont-menu {
+                width: 100%;
+                max-width: 250px;
+                height: 100vh;
+                position: relative;
+                transition: all 800ms ease;
+
+                .admin_navBar {
+                    transform: translateY(25%);
+                    // transform:translateY(25%);
+                    @include flex-column-center;
+                    justify-content: space-between;
+width: 100%;
+                    button {
+                        border: 0;
+                        background-color: transparent;
+                        color: $primary-color;
+                        font-size: 1.1rem;
+                        font-family: $general-text;
+                        font-weight: bold;
+                        padding: 20px;
+                        transition: all 400ms ease;
+                        border-bottom: 1px solid transparent;
+                        cursor: pointer;
+
+                        &:hover {
+                            border-bottom: 1px solid $primary-color;
+                            background-color: $secondary-color;
+                            opacity: 70%;
+                        }
+
+                        .bi {
+                            font-size: 2rem;
+                        }
+
+                    }
+                }
+            }
+        }
+
+        .hidden {
+            opacity: 0;
+            // visibility: hidden;
+            display: none;
+            transform: translateX(100%);
+            transition: all 800ms ease;
+
+        }
+
+        .visible {
+            opacity: 95%;
+            // visibility: visible;
+            display: block;
+            transform: translateX(0%);
+            transition: all 800ms ease;
         }
     }
 }
