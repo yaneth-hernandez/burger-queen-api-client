@@ -32,7 +32,7 @@
         color: $tertiary-color;
         font-family: "Montserrat", sans-serif;
         text-align: center;
-        font-size: 1.25rem;
+        font-size: 1.5rem;
 
     }
 
@@ -91,18 +91,19 @@
 
 
     .invoiceContainer {
+        width: 96%;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         grid-auto-rows: 40px;
         grid-gap: 0.3125rem;
-        font-size: 0.8rem;
+        font-size: 0.85rem;
         color: rgb(97, 118, 129);
         font-family: "Montserrat", sans-serif;
         background: #DEE7EC;
         border: 0.0625rem solid #0BA7B4;
         border-radius: 1.25rem;
         padding-bottom: 0.3125rem;
-        margin: 0rem 0.3125rem 1.25rem;
+        margin: 0rem 0.4rem 1.25rem;
 
         .headerInvoice {
             display: flex;
@@ -142,6 +143,8 @@
             img {
                 width: 2.5rem;
                 height: 2.5rem;
+                border-radius: 0.3125rem;
+                border: 0.1rem solid $primary-color
             }
 
         }
@@ -162,7 +165,7 @@
             align-items: center;
             font-family: "Montserrat", sans-serif;
             font-weight: bold;
-            font-size: 0.85rem;
+            font-size: 0.90rem;
             color: rgb(97, 118, 129);
             font-weight: bolder;
             border: 0.0625rem solid #0BA7B4;
@@ -174,8 +177,10 @@
 
 .buttonContainer {
     width: 100%;
-    display: flex;
-    justify-content: space-around;
+    margin: 0rem 0.4rem 1.25rem;
+
+    // display: flex;
+    // justify-content: space-around;
 }
 
 .btnSubmit {
@@ -197,4 +202,825 @@
     background-color: $secondary-color;
     color: $tertiary-color;
     font-weight: bold;
+}
+
+@media (min-width: 576px) and (max-width: 768px){
+    .invoice {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+    
+        .background {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+    
+            .backgroundText {
+                color: $primary-color;
+                font-family: $general-text;
+                font-size: 1.25rem;
+            }
+    
+            .backgroundImg {
+                width: 100%;
+                opacity: 10%;
+            }
+        }
+    
+        .takeOrder {
+            margin: 1.25rem 0rem 1.25rem 0rem;
+            grid-column-start: 1;
+            grid-column-end: 4;
+            color: $tertiary-color;
+            font-family: "Montserrat", sans-serif;
+            text-align: center;
+            font-size: 1.5rem;
+    
+        }
+    
+        .clientContainer {
+            width: 96%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.25rem;
+            padding-left: 0.3125rem;
+    
+            .client {
+                width: 55%;
+                display: flex;
+                justify-content: space-between;
+                color: $primary-color;
+                font-weight: bold;
+                font-family: "Montserrat", sans-serif;
+                font-size: 1rem;
+    
+                input {
+                    width: 76%;
+                    padding: 0.3125rem;
+                    margin-left: 0.3125rem;
+                    outline: none;
+                    background: $secondary-color;
+                    border: $primary-color solid 0.0625rem;
+                    border-radius: 0.3125rem;
+                    font-family: $general-text;
+                    font-weight: bold;
+    
+                    &::placeholder {
+                        font-size: small;
+                        color: rgb(97, 118, 129);
+                        font-weight: lighter;
+                    }
+    
+                }
+    
+    
+            }
+    
+            p {
+                color: $primary-color;
+                font-family: $general-text;
+                font-size: 1rem;
+                font-weight: bold;
+                padding-top: 0.3125rem;
+    
+                span {
+                    padding-left: 0.3125rem;
+                    font-weight: bolder;
+                    color: rgb(97, 118, 129);
+                }
+            }
+        }
+    
+    
+        .invoiceContainer {
+            width: 97.5%;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-auto-rows: 40px;
+            grid-gap: 0.3125rem;
+            font-size: 0.95rem;
+            color: rgb(97, 118, 129);
+            font-family: "Montserrat", sans-serif;
+            background: #DEE7EC;
+            border: 0.0625rem solid #0BA7B4;
+            border-radius: 1.25rem;
+            padding-bottom: 0.3125rem;
+            margin: 0rem 0.3125rem 1.25rem;
+    
+            .headerInvoice {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                font-weight: bolder;
+                color: $primary-color;
+            }
+    
+            .itemInvoice.quantity {
+                width: 65%;
+                display: flex;
+                justify-content: space-evenly;
+                padding-left: 1.125rem;
+            }
+    
+            .itemInvoice {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+    
+                button {
+                    border: none;
+                    background-color: transparent;
+    
+                    .bi {
+                        color: $primary-color;
+                        font-size: 1.25rem;
+                        border: none;
+                    }
+                }
+    
+    
+                img {
+                    width: 2.7rem;
+                    height: 2.7rem;
+                    border-radius: 0.3125rem;
+                    border: 0.1rem solid $primary-color
+                }
+    
+            }
+        }
+    
+        .totalContainer {
+            width: 97.5%;
+            display: flex;
+            margin-top: -0.1875rem;
+            margin-bottom: -0.9375rem;
+            justify-content: flex-end;
+    
+            .total {
+                width: 53%;
+                height: 1.875rem;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                font-family: "Montserrat", sans-serif;
+                font-weight: bold;
+                font-size: 0.99rem;
+                color: rgb(97, 118, 129);
+                font-weight: bolder;
+                border: 0.0625rem solid #0BA7B4;
+                border-radius: 0.5rem;
+                background-color: #DEE7EC;
+            }
+        }
+    }
+    
+    
+    .btnSubmit {
+        width: 60%;
+        height: 2rem;
+        border: $tertiary-color solid 0.0625rem;
+        border-radius: 0.5rem;
+        background-color: $tertiary-color;
+        color: $secondary-color;
+        font-weight: bold;
+        font-size: .90rem;
+    }
+    
+    .btnClear {
+        width: 34%;
+        height: 2rem;
+        border: $tertiary-color solid 0.0625rem;
+        border-radius: 0.5rem;
+        background-color: $secondary-color;
+        color: $tertiary-color;
+        font-weight: bold;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px){
+    .invoice {
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+    
+        .background {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+    
+            .backgroundText {
+                color: $primary-color;
+                font-family: $general-text;
+                font-size: 1.25rem;
+            }
+    
+            .backgroundImg {
+                width: 100%;
+                opacity: 10%;
+            }
+        }
+    
+        .takeOrder {
+            margin: 1.25rem 0rem 1.25rem 0rem;
+            grid-column-start: 1;
+            grid-column-end: 4;
+            color: $tertiary-color;
+            font-family: "Montserrat", sans-serif;
+            text-align: center;
+            font-size: 1.5rem;
+    
+        }
+    
+        .clientContainer {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.25rem;
+            padding-left: 0.3125rem;
+    
+            .client {
+                width: 55%;
+                display: flex;
+                justify-content: space-between;
+                color: $primary-color;
+                font-weight: bold;
+                font-family: "Montserrat", sans-serif;
+                font-size: 1rem;
+    
+                input {
+                    width: 76%;
+                    padding: 0.3125rem;
+                    margin-left: 0.3125rem;
+                    outline: none;
+                    background: $secondary-color;
+                    border: $primary-color solid 0.0625rem;
+                    border-radius: 0.3125rem;
+                    font-family: $general-text;
+                    font-weight: bold;
+    
+                    &::placeholder {
+                        font-size: small;
+                        color: rgb(97, 118, 129);
+                        font-weight: lighter;
+                    }
+    
+                }
+    
+    
+            }
+    
+            p {
+                color: $primary-color;
+                font-family: $general-text;
+                font-size: 1rem;
+                font-weight: bold;
+                padding-top: 0.3125rem;
+    
+                span {
+                    padding-left: 0.3125rem;
+                    font-weight: bolder;
+                    color: rgb(97, 118, 129);
+                }
+            }
+        }
+    
+    
+        .invoiceContainer {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-auto-rows: 40px;
+            grid-gap: 0.3125rem;
+            font-size: 1rem;
+            color: rgb(97, 118, 129);
+            font-family: "Montserrat", sans-serif;
+            background: #DEE7EC;
+            border: 0.0625rem solid #0BA7B4;
+            border-radius: 1.25rem;
+            padding-bottom: 0.3125rem;
+            margin: 0rem 0.3125rem 1.25rem;
+    
+            .headerInvoice {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+                font-weight: bolder;
+                color: $primary-color;
+            }
+    
+            .itemInvoice.quantity {
+                width: 65%;
+                display: flex;
+                justify-content: space-evenly;
+                padding-left: 1.125rem;
+            }
+    
+            .itemInvoice {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: bold;
+    
+                button {
+                    border: none;
+                    background-color: transparent;
+    
+                    .bi {
+                        color: $primary-color;
+                        font-size: 1.5rem;
+                        border: none;
+                    }
+                }
+    
+    
+                img {
+                    width: 2.7rem;
+                    height: 2.7rem;
+                    border-radius: 0.3125rem;
+                    border: 0.1rem solid $primary-color
+                }
+    
+            }
+        }
+    
+        .totalContainer {
+            width: 98%;
+            display: flex;
+            margin-top: -0.1875rem;
+            margin-bottom: -0.9375rem;
+            justify-content: flex-end;
+    
+            .total {
+                width: 53%;
+                height: 1.875rem;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                font-family: "Montserrat", sans-serif;
+                font-weight: bold;
+                font-size: 1rem;
+                color: rgb(97, 118, 129);
+                font-weight: bolder;
+                border: 0.0625rem solid #0BA7B4;
+                border-radius: 0.5rem;
+                background-color: #DEE7EC;
+            }
+        }
+    }
+    
+    .buttonContainer {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .btnSubmit {
+        width: 60%;
+        height: 2rem;
+        border: $tertiary-color solid 0.0625rem;
+        border-radius: 0.5rem;
+        background-color: $tertiary-color;
+        color: $secondary-color;
+        font-weight: bold;
+        font-size: .90rem;
+    }
+    
+    .btnClear {
+        width: 34%;
+        height: 2rem;
+        border: $tertiary-color solid 0.0625rem;
+        border-radius: 0.5rem;
+        background-color: $secondary-color;
+        color: $tertiary-color;
+        font-weight: bold;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px){
+   
+    .orderContainer{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        
+        .invoice {
+            width: 50%;
+            display: flex;
+            flex-flow: column;
+            justify-content: space-around;
+        
+            .background {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+        
+                .backgroundText {
+                    color: $primary-color;
+                    font-family: $general-text;
+                    font-size: 1.25rem;
+                }
+        
+                .backgroundImg {
+                    width: 100%;
+                    opacity: 10%;
+                }
+            }
+        
+            .takeOrder {
+                margin: 1.25rem 0rem 1.25rem 0rem;
+                grid-column-start: 1;
+                grid-column-end: 4;
+                color: $tertiary-color;
+                font-family: "Montserrat", sans-serif;
+                text-align: center;
+                font-size: 1.5rem;
+        
+            }
+        
+            .clientContainer {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1.25rem;
+                padding-left: 0.3125rem;
+        
+                .client {
+                    width: 55%;
+                    display: flex;
+                    justify-content: space-between;
+                    color: $primary-color;
+                    font-weight: bold;
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 1rem;
+        
+                    input {
+                        width: 76%;
+                        padding: 0.3125rem;
+                        margin-left: 0.3125rem;
+                        outline: none;
+                        background: $secondary-color;
+                        border: $primary-color solid 0.0625rem;
+                        border-radius: 0.3125rem;
+                        font-family: $general-text;
+                        font-weight: bold;
+        
+                        &::placeholder {
+                            font-size: small;
+                            color: rgb(97, 118, 129);
+                            font-weight: lighter;
+                        }
+        
+                    }
+        
+        
+                }
+        
+                p {
+                    color: $primary-color;
+                    font-family: $general-text;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    padding-top: 0.3125rem;
+        
+                    span {
+                        padding-left: 0.3125rem;
+                        font-weight: bolder;
+                        color: rgb(97, 118, 129);
+                    }
+                }
+            }
+        
+        
+            .invoiceContainer {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                grid-auto-rows: 40px;
+                grid-gap: 0.8rem;
+                font-size: 0.95rem;
+                color: rgb(97, 118, 129);
+                font-family: "Montserrat", sans-serif;
+                background: #DEE7EC;
+                border: 0.0625rem solid #0BA7B4;
+                border-radius: 1.25rem;
+                padding-bottom: 0.3125rem;
+                margin: 0rem 0.3125rem 1.25rem;
+        
+                .headerInvoice {
+                    display: flex;
+                    width: 100%;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: bolder;
+                    color: $primary-color;
+                }
+        
+                .itemInvoice.quantity {
+                    width: 65%;
+                    display: flex;
+                    justify-content: space-evenly;
+                    padding-left: 2rem;
+                }
+        
+                .itemInvoice {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: bold;
+        
+                    button {
+                        border: none;
+                        background-color: transparent;
+        
+                        .bi {
+                            color: $primary-color;
+                            font-size: 1.8rem;
+                            border: none;
+                        }
+                    }
+        
+        
+                    img {
+                        width: 2.7rem;
+                        height: 2.7rem;
+                        border-radius: 0.3125rem;
+                        border: 0.1rem solid $primary-color
+                    }
+        
+                }
+            }
+        
+            .totalContainer {
+                width: 97%;
+                display: flex;
+                margin-top: -0.1875rem;
+                margin-bottom: -0.9375rem;
+                justify-content: flex-end;
+        
+                .total {
+                    width: 53%;
+                    height: 1.875rem;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    font-family: "Montserrat", sans-serif;
+                    font-weight: bold;
+                    font-size: 1rem;
+                    color: rgb(97, 118, 129);
+                    font-weight: bolder;
+                    border: 0.0625rem solid #0BA7B4;
+                    border-radius: 0.5rem;
+                    background-color: #DEE7EC;
+                }
+            }
+        }
+        
+        .buttonContainer {
+            width: 96%;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .btnSubmit {
+            width: 60%;
+            height: 2rem;
+            border: $tertiary-color solid 0.0625rem;
+            border-radius: 0.5rem;
+            background-color: $tertiary-color;
+            color: $secondary-color;
+            font-weight: bold;
+            font-size: .90rem;
+        }
+        
+        .btnClear {
+            width: 34%;
+            height: 2rem;
+            border: $tertiary-color solid 0.0625rem;
+            border-radius: 0.5rem;
+            background-color: $secondary-color;
+            color: $tertiary-color;
+            font-weight: bold;
+        }
+    }
+}
+
+
+@media (min-width: 1201px){
+    .orderContainer{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        
+        .invoice {
+            width: 50%;
+            display: flex;
+            flex-flow: column;
+            justify-content: space-around;
+        
+            .background {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+        
+                .backgroundText {
+                    color: $primary-color;
+                    font-family: $general-text;
+                    font-size: 1.25rem;
+                }
+        
+                .backgroundImg {
+                    width: 100%;
+                    opacity: 10%;
+                }
+            }
+        
+            .takeOrder {
+                margin: 1.25rem 0rem 1.25rem 0rem;
+                grid-column-start: 1;
+                grid-column-end: 4;
+                color: $tertiary-color;
+                font-family: "Montserrat", sans-serif;
+                text-align: center;
+                font-size: 1.5rem;
+        
+            }
+        
+            .clientContainer {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 1.25rem;
+                padding-left: 0.3125rem;
+        
+                .client {
+                    width: 55%;
+                    display: flex;
+                    justify-content: space-between;
+                    color: $primary-color;
+                    font-weight: bold;
+                    font-family: "Montserrat", sans-serif;
+                    font-size: 1rem;
+        
+                    input {
+                        width: 76%;
+                        padding: 0.3125rem;
+                        margin-left: 0.3125rem;
+                        outline: none;
+                        background: $secondary-color;
+                        border: $primary-color solid 0.0625rem;
+                        border-radius: 0.3125rem;
+                        font-family: $general-text;
+                        font-weight: bold;
+        
+                        &::placeholder {
+                            font-size: small;
+                            color: rgb(97, 118, 129);
+                            font-weight: lighter;
+                        }
+        
+                    }
+        
+        
+                }
+        
+                p {
+                    color: $primary-color;
+                    font-family: $general-text;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    padding-top: 0.3125rem;
+        
+                    span {
+                        padding-left: 0.3125rem;
+                        font-weight: bolder;
+                        color: rgb(97, 118, 129);
+                    }
+                }
+            }
+        
+        
+            .invoiceContainer {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                grid-auto-rows: 40px;
+                grid-gap: 0.8rem;
+                font-size: 1.1rem;
+                color: rgb(97, 118, 129);
+                font-family: "Montserrat", sans-serif;
+                background: #DEE7EC;
+                border: 0.0625rem solid #0BA7B4;
+                border-radius: 1.25rem;
+                padding-bottom: 0.3125rem;
+                margin: 0rem 0.3125rem 1.25rem;
+        
+                .headerInvoice {
+                    display: flex;
+                    width: 100%;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: bolder;
+                    color: $primary-color;
+                }
+        
+                .itemInvoice.quantity {
+                    width: 65%;
+                    display: flex;
+                    justify-content: space-evenly;
+                    padding-left: 3rem;
+                }
+        
+                .itemInvoice {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-weight: bold;
+        
+                    button {
+                        border: none;
+                        background-color: transparent;
+        
+                        .bi {
+                            color: $primary-color;
+                            font-size: 2rem;
+                            border: none;
+                        }
+                    }
+        
+        
+                    img {
+                        width: 2.7rem;
+                        height: 2.7rem;
+                        border-radius: 0.3125rem;
+                        border: 0.1rem solid $primary-color
+                    }
+        
+                }
+            }
+        
+            .totalContainer {
+                width: 97%;
+                display: flex;
+                margin-top: -0.1875rem;
+                margin-bottom: -0.9375rem;
+                justify-content: flex-end;
+        
+                .total {
+                    width: 53%;
+                    height: 1.875rem;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    font-family: "Montserrat", sans-serif;
+                    font-weight: bold;
+                    font-size: 1rem;
+                    color: rgb(97, 118, 129);
+                    font-weight: bolder;
+                    border: 0.0625rem solid #0BA7B4;
+                    border-radius: 0.5rem;
+                    background-color: #DEE7EC;
+                }
+            }
+        }
+        
+        .buttonContainer {
+            width: 96%;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .btnSubmit {
+            width: 60%;
+            height: 2rem;
+            border: $tertiary-color solid 0.0625rem;
+            border-radius: 0.5rem;
+            background-color: $tertiary-color;
+            color: $secondary-color;
+            font-weight: bold;
+            font-size: .90rem;
+        }
+        
+        .btnClear {
+            width: 34%;
+            height: 2rem;
+            border: $tertiary-color solid 0.0625rem;
+            border-radius: 0.5rem;
+            background-color: $secondary-color;
+            color: $tertiary-color;
+            font-weight: bold;
+        }
+    }
+   
 }

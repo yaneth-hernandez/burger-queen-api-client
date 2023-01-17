@@ -12,11 +12,8 @@ $general-text:'Montserrat', sans-serif;
 
 #root{
     width: 100vw;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    height: 100vh;
+    
 }
 
 @mixin flex-column-center {

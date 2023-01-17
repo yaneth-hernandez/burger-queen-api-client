@@ -6,9 +6,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 0px;
 
     .admin_containerLogo {
-        width: 44%;
+        width: 30%;
         @include flex-column-center;
 
         .admin_containerLogo--img {
@@ -136,6 +137,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 0px;
+
 
         .admin_containerLogo {
             width: 41%;
@@ -271,6 +274,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 0px;
+
 
         .admin_containerLogo {
             width: 36%;
@@ -406,6 +411,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 4rem;
+
 
         .admin_containerLogo {
             width: 36%;
@@ -541,6 +548,8 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 4rem;
+
 
         .admin_containerLogo {
             width: 36%;
