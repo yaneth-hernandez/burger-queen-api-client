@@ -1,6 +1,9 @@
 import { requestDeleteOrder } from '../../../helpers/API_request/orderRequest'
+import { useScreenSize } from '../../../helpers/screen/useScreeSize'
+
 
 export const ItemOrderDelivered = ({ order, getOrder }) => {
+    const [width] = useScreenSize()
 
     const token = localStorage.getItem('Token')
     const currentTime = new Date().toLocaleTimeString('es-ES').split(':')
@@ -21,7 +24,7 @@ export const ItemOrderDelivered = ({ order, getOrder }) => {
                 getOrder()
             })
     }
-
+ if (width >= 576 && width <= 1440) {
     if (order.status === 'delivered')
         return (
             <>
@@ -34,4 +37,17 @@ export const ItemOrderDelivered = ({ order, getOrder }) => {
                 
             </>
         )
+ }else if (width >= 320 && width <= 575){
+    if (order.status === 'delivered')
+        return (
+            <>
+                <article className="itemList">#00{order.id}</article>
+                <article className="itemList">${order.amount}.00</article>
+                <article className="itemList">{order.status}</article>
+                <article className="itemList">{deliveryTime}</article>
+                <article className="itemList"><button className="btnDelete" type="button" onClick={deleteOrder}><i className="bi bi-trash-fill"></i></button></article>
+                
+            </>
+        )
+ }
 }

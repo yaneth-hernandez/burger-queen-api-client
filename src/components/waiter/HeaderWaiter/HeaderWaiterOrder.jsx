@@ -9,14 +9,15 @@ export const HeaderWaiterOrder = () => {
 
     const navigate = useNavigate()
     const profile = localStorage.getItem('Profile') === 'waiter' ? 'Mesero' : ''
-    const [menu, setMenu] = useState('container-menu hidden')
+    const nav = document.getElementById('admin_navBar_id')
 
     const showNavigationBar = () => {
-        setMenu('visible')
+        nav.classList.toggle('visible')
     }
 
     const closeBar = () => {
-        setMenu('hidden')
+        nav.classList.remove('visible')
+        nav.classList.add('container-menu')
     }
 
 
@@ -42,7 +43,8 @@ export const HeaderWaiterOrder = () => {
                 <i className="bi bi-person-circle" ></i>
                 <figcaption className="admin_containerIcon--text">{profile}</figcaption>
             </figure>
-            <div className={`container-menu ${menu}`} id="admin_navBar_id" >
+            {/* <div className={`container-menu ${menu}`} id="admin_navBar_id" > */}
+            <div className='container-menu' id="admin_navBar_id" >
                 <button type="button" className="btnX" onClick={closeBar}><i className="bi bi-x-circle"></i></button>
                 <div className="cont-menu">
                     <nav className="admin_navBar" id="admin_navBar_id">
