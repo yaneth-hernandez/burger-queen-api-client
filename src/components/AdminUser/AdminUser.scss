@@ -7,14 +7,13 @@
     @include center-perfect;
 
     .btnCreate {
-        width: 35%;
-        height: 80%;
+        width: 57%;
+        height: 75%;
         border-radius: 7px;
         border: solid 1.5px #0BA7B4;
         color: #0BA7B4;
-        font-weight: 1px;
         letter-spacing: 1px;
-        font-family: $general-text;
+        font-family: "Montserrat", sans-serif;
         font-weight: bolder;
         display: flex;
         justify-content: space-evenly;
@@ -44,6 +43,7 @@
     grid-auto-rows: 30px;
     border: 1px solid #0BA7B4;
     border-radius: 5px;
+    font-size: smaller;
 
     .table-header {
         @include center-perfect;

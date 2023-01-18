@@ -63,7 +63,7 @@ export const ModalCreate = ({closeModal, onAddUser, isOpen}) => {
           <button className="btnReset" type="reset" >Limpiar</button>
         </div>
 
-        <button className="btnSubmit" type="submit" >Crear usuario</button>
+        <button className="btnSubmit" type="submit" >Crear </button>
         <span className="message">{message}</span> 
       </form>
     </aside>
