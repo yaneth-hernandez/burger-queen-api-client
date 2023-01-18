@@ -37,7 +37,6 @@ export const ViewWaiterMenu = () => {
         <CartProvider>
             <>
             <HeaderWaiterMenu setTypeMenu={setTypeMenu} typeMenu={typeMenu} width={width}/>
-            
                 <div className='orderContainer'>
                     <Menu menu={menu} typeMenu={typeMenu} />
                     <ShoppingCart typeMenu={typeMenu} />

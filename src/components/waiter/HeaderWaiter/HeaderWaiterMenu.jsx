@@ -7,39 +7,15 @@ import './HeaderWaiter.scss'
 
 
 export const HeaderWaiterMenu = ({ setTypeMenu, width }) => {
-   
-    
     const navigate = useNavigate()
     const profile = localStorage.getItem('Profile') === 'waiter' ? 'Mesero' : ''
-    const [menu, setMenu] = useState('container-menu')
-    
+    const nav = document.getElementById('admin_navBar_id')
 
-// const seeNavBar = ()=>{
-//     if(width >= 993 ){
-            
-//         setMenu('visible')
-//         console.log(menu)
-//     } 
-// }
-
-//     useEffect(()=>{
-//          seeNavBar()
-//     },[])
-const nav = document.getElementById('admin_navBar_id')
     const showNavigationBar = () => {
-       
-       nav.classList.toggle('visible')
-        // if(width <= 992 && navBarMenu.className === 'admin_navBar_ho'){
-        //     navBarMenu.classList.remove('admin_navBar_ho')
-        //     navBarMenu.classList.add('admin_navBar')
-        //     setMenu('visible')
-        //     //console.log(navBarMenu.className)
-        // } 
-       // setMenu('visible')
+        nav.classList.toggle('visible')
     }
 
     const closeBar = () => {
-        //setMenu('container-menu')
         nav.classList.remove('visible')
         nav.classList.add('container-menu')
     }
@@ -58,17 +34,17 @@ const nav = document.getElementById('admin_navBar_id')
         navBarMenu.classList.toggle('navMenuView')
     }
 
-    const handleClick = (e)=>{
+    const handleClick = (e) => {
         const navBarMenu = document.getElementById('navMenuId')
-        if(e.target.innerHTML === 'Desayuno'){
+        if (e.target.innerHTML === 'Desayuno') {
             setTypeMenu('Desayuno')
             navBarMenu.classList.remove('navMenuView')
-        }else{
+        } else {
             setTypeMenu('Almuerzo')
             navBarMenu.classList.remove('navMenuView')
         }
-        
-        
+
+
     }
 
     const goToStatus = () => {
@@ -85,7 +61,6 @@ const nav = document.getElementById('admin_navBar_id')
                 <i className="bi bi-person-circle" ></i>
                 <figcaption className="admin_containerIcon--text">{profile}</figcaption>
             </figure>
-            {/* <div className={`container-menu ${menu}`} id="admin_navBar_id" > */}
             <div className='container-menu' id="admin_navBar_id" >
                 <button type="button" className="btnX" onClick={closeBar}><i className="bi bi-x-circle"></i></button>
                 <div className="cont-menu">
