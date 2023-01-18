@@ -4,10 +4,13 @@ import logo from '../../assets/Logo.png'
 import './HeaderAdmin.scss'
 import { useState } from "react";
 
+
 export const HeaderAdmin = () => {
+      
     const navigate = useNavigate()
     const profile = localStorage.getItem('Profile') === 'admin' ? 'Admin' : ''
     const [menu, setMenu]=useState('container-menu hidden')
+
     const clearSession = () => {
         localStorage.removeItem('Token')
         localStorage.removeItem('Profile')
@@ -18,6 +21,7 @@ export const HeaderAdmin = () => {
     const showNavigationBar = () => {
         setMenu('visible')
     }
+
 
     const closeBar = () => {
         setMenu('hidden')
@@ -46,7 +50,7 @@ export const HeaderAdmin = () => {
             <div  className={`container-menu ${menu}`} id="admin_navBar_id" >
             <button type="button" className="btnX" onClick={closeBar}><i className="bi bi-x-circle"></i></button>
                 <div className="cont-menu">
-                    <nav className="admin_navBar" >
+                    <nav className="admin_navBar" id="navBar_id">
                         <button className="itemNavBar" data-nav="users" onClick={navigateAdmin}><i className="bi bi-person-gear"><br /></i>Admin Usuario</button>
                         <button className="itemNavBar" data-nav="products" onClick={navigateAdmin}><i className="bi bi-house-gear"><br /></i>Admin Producto</button>
                         <button className="itemNavBar" onClick={clearSession}><i className="bi bi-box-arrow-right"><br /></i>Cerrar Sesión</button>
