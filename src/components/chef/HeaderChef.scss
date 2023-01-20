@@ -1,0 +1,424 @@
+@import '../../generics.scss';
+
+.container-menu_ch {
+    width: 50%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $secondary-color;
+    opacity: 0;
+    // visibility: hidden;
+    display: none;
+    transform: translateX(100%);
+    transition: all 800ms ease;
+    
+    
+
+    .btnX {
+        border: none;
+        background-color: transparent;
+        margin-left: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+
+        .bi {
+            color: $primary-color;
+            font-size: 18px;
+
+        }
+    }
+
+    .cont-menu {
+        width: 100%;
+        max-width: 250px;
+        height: 100vh;
+        position: relative;
+        transition: all 800ms ease;
+
+
+        .admin_navBar {
+            transform: translateY(25%);
+            @include flex-column-center;
+            justify-content: space-between;
+
+            button {
+                border: 0;
+                background-color: transparent;
+                color: $primary-color;
+                font-size: 1.1rem;
+                font-family: $general-text;
+                font-weight: bold;
+                padding: 20px;
+                transition: all 400ms ease;
+                border-bottom: 1px solid transparent;
+                cursor: pointer;
+
+                &:hover {
+                    border-bottom: 1px solid $primary-color;
+                    background-color: $secondary-color;
+                    opacity: 70%;
+                }
+
+                .bi {
+                    font-size: 2rem;
+                }
+
+            }
+        }
+    }
+}
+
+   .visible {
+    // width: 50%;
+    // height: 100vh;
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    // background-color: $secondary-color;
+    opacity: 95%;
+    // visibility: visible;
+    display: block;
+    transform: translateX(0%);
+    transition: all 800ms ease;
+}
+
+@media (min-width: 576px) and (max-width: 768px){
+    .container-menu_ch {
+        width: 30%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: $secondary-color;
+        opacity: 0;
+        // visibility: hidden;
+        display: none;
+        transform: translateX(100%);
+        transition: all 800ms ease;
+        
+        
+    
+        .btnX {
+            border: none;
+            background-color: transparent;
+            margin-left: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+    
+            .bi {
+                color: $primary-color;
+                font-size: 18px;
+    
+            }
+        }
+    
+        .cont-menu {
+            width: 100%;
+            max-width: 250px;
+            height: 100vh;
+            position: relative;
+            transition: all 800ms ease;
+    
+    
+            .admin_navBar {
+                transform: translateY(25%);
+                @include flex-column-center;
+                justify-content: space-between;
+    
+                button {
+                    border: 0;
+                    background-color: transparent;
+                    color: $primary-color;
+                    font-size: 1.1rem;
+                    font-family: $general-text;
+                    font-weight: bold;
+                    padding: 20px;
+                    transition: all 400ms ease;
+                    border-bottom: 1px solid transparent;
+                    cursor: pointer;
+    
+                    &:hover {
+                        border-bottom: 1px solid $primary-color;
+                        background-color: $secondary-color;
+                        opacity: 70%;
+                    }
+    
+                    .bi {
+                        font-size: 2rem;
+                    }
+    
+                }
+            }
+        }
+    }
+    
+       .visible {
+        // width: 50%;
+        // height: 100vh;
+        // position: absolute;
+        // top: 0;
+        // right: 0;
+        // background-color: $secondary-color;
+        opacity: 95%;
+        // visibility: visible;
+        display: block;
+        transform: translateX(0%);
+        transition: all 800ms ease;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px){
+    .container-menu_ch {
+        width: 30%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: $secondary-color;
+        opacity: 0;
+        // visibility: hidden;
+        display: none;
+        transform: translateX(100%);
+        transition: all 800ms ease;
+        
+        
+    
+        .btnX {
+            border: none;
+            background-color: transparent;
+            margin-left: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+    
+            .bi {
+                color: $primary-color;
+                font-size: 18px;
+    
+            }
+        }
+    
+        .cont-menu {
+            width: 100%;
+            max-width: 250px;
+            height: 100vh;
+            position: relative;
+            transition: all 800ms ease;
+    
+    
+            .admin_navBar {
+                transform: translateY(25%);
+                @include flex-column-center;
+                justify-content: space-between;
+    
+                button {
+                    border: 0;
+                    background-color: transparent;
+                    color: $primary-color;
+                    font-size: 1.1rem;
+                    font-family: $general-text;
+                    font-weight: bold;
+                    padding: 20px;
+                    transition: all 400ms ease;
+                    border-bottom: 1px solid transparent;
+                    cursor: pointer;
+    
+                    &:hover {
+                        border-bottom: 1px solid $primary-color;
+                        background-color: $secondary-color;
+                        opacity: 70%;
+                    }
+    
+                    .bi {
+                        font-size: 2rem;
+                    }
+    
+                }
+            }
+        }
+    }
+    
+       .visible {
+        // width: 50%;
+        // height: 100vh;
+        // position: absolute;
+        // top: 0;
+        // right: 0;
+        // background-color: $secondary-color;
+        opacity: 95%;
+        // visibility: visible;
+        display: block;
+        transform: translateX(0%);
+        transition: all 800ms ease;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px){
+    .container-menu_ch {
+        width: 25%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: $secondary-color;
+        opacity: 0;
+        // visibility: hidden;
+        display: none;
+        transform: translateX(100%);
+        transition: all 800ms ease;
+        
+        
+    
+        .btnX {
+            border: none;
+            background-color: transparent;
+            margin-left: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+    
+            .bi {
+                color: $primary-color;
+                font-size: 18px;
+    
+            }
+        }
+    
+        .cont-menu {
+            width: 100%;
+            max-width: 250px;
+            height: 100vh;
+            position: relative;
+            transition: all 800ms ease;
+    
+    
+            .admin_navBar {
+                transform: translateY(25%);
+                @include flex-column-center;
+                justify-content: space-between;
+    
+                button {
+                    border: 0;
+                    background-color: transparent;
+                    color: $primary-color;
+                    font-size: 1.1rem;
+                    font-family: $general-text;
+                    font-weight: bold;
+                    padding: 20px;
+                    transition: all 400ms ease;
+                    border-bottom: 1px solid transparent;
+                    cursor: pointer;
+    
+                    &:hover {
+                        border-bottom: 1px solid $primary-color;
+                        background-color: $secondary-color;
+                        opacity: 70%;
+                    }
+    
+                    .bi {
+                        font-size: 2rem;
+                    }
+    
+                }
+            }
+        }
+    }
+    
+       .visible {
+        // width: 50%;
+        // height: 100vh;
+        // position: absolute;
+        // top: 0;
+        // right: 0;
+        // background-color: $secondary-color;
+        opacity: 95%;
+        // visibility: visible;
+        display: block;
+        transform: translateX(0%);
+        transition: all 800ms ease;
+    }
+}
+
+@media (min-width: 1201px){
+    .container-menu_ch {
+        width: 18%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: $secondary-color;
+        opacity: 0;
+        // visibility: hidden;
+        display: none;
+        transform: translateX(100%);
+        transition: all 800ms ease;
+        
+        
+    
+        .btnX {
+            border: none;
+            background-color: transparent;
+            margin-left: 10px;
+            margin-top: 10px;
+            cursor: pointer;
+    
+            .bi {
+                color: $primary-color;
+                font-size: 18px;
+    
+            }
+        }
+    
+        .cont-menu {
+            width: 100%;
+            max-width: 250px;
+            height: 100vh;
+            position: relative;
+            transition: all 800ms ease;
+    
+    
+            .admin_navBar {
+                transform: translateY(25%);
+                @include flex-column-center;
+                justify-content: space-between;
+    
+                button {
+                    border: 0;
+                    background-color: transparent;
+                    color: $primary-color;
+                    font-size: 1.1rem;
+                    font-family: $general-text;
+                    font-weight: bold;
+                    padding: 20px;
+                    transition: all 400ms ease;
+                    border-bottom: 1px solid transparent;
+                    cursor: pointer;
+    
+                    &:hover {
+                        border-bottom: 1px solid $primary-color;
+                        background-color: $secondary-color;
+                        opacity: 70%;
+                    }
+    
+                    .bi {
+                        font-size: 2rem;
+                    }
+    
+                }
+            }
+        }
+    }
+    
+       .visible {
+        // width: 50%;
+        // height: 100vh;
+        // position: absolute;
+        // top: 0;
+        // right: 0;
+        // background-color: $secondary-color;
+        opacity: 95%;
+        // visibility: visible;
+        display: block;
+        transform: translateX(0%);
+        transition: all 800ms ease;
+    }
+}

@@ -1,5 +1,7 @@
 export const requestLogin = (email,password) => {
-    return fetch('http://localhost:8080/login', {
+    
+    const request = new Request('http://localhost:8080/login', 
+    {
         method: 'POST',
         headers: {
             "Content-Type": "application/json",
@@ -9,8 +11,12 @@ export const requestLogin = (email,password) => {
             "email": email,
             "password": password
         })
-    })
-}
+    });
+
+        return fetch(request) 
+ }
+
+
 
 export const requestGetUser = (token) => {
      return fetch('http://localhost:8080/users',{

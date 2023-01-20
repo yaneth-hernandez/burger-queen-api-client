@@ -9,22 +9,22 @@ export const HeaderAdmin = () => {
       
     const navigate = useNavigate()
     const profile = localStorage.getItem('Profile') === 'admin' ? 'Admin' : ''
-    const [menu, setMenu]=useState('container-menu hidden')
+    const nav = document.getElementById('admin_navBar_id')
+
+    const showNavigationBar = () => {
+        nav.classList.toggle('visible')
+    }
+
+    const closeBar = () => {
+        nav.classList.remove('visible')
+        nav.classList.add('container-menu')
+    }
 
     const clearSession = () => {
         localStorage.removeItem('Token')
         localStorage.removeItem('Profile')
         localStorage.removeItem('IdUser')
         navigate(LOGIN)
-    }
-
-    const showNavigationBar = () => {
-        setMenu('visible')
-    }
-
-
-    const closeBar = () => {
-        setMenu('hidden')
     }
 
     const navigateAdmin = () => {
@@ -37,7 +37,7 @@ export const HeaderAdmin = () => {
 
     }
 
-    return (
+        return (
         <header className="admin_container">
             <figure className="admin_containerLogo">
                 <img className="admin_containerLogo--img" src={logo} alt="logo"></img>
@@ -47,7 +47,7 @@ export const HeaderAdmin = () => {
                 <i className="bi bi-person-circle" ></i>
                 <figcaption className="admin_containerIcon--text">{profile}</figcaption>
             </figure>
-            <div  className={`container-menu ${menu}`} id="admin_navBar_id" >
+            <div className='container-menu' id="admin_navBar_id" >
             <button type="button" className="btnX" onClick={closeBar}><i className="bi bi-x-circle"></i></button>
                 <div className="cont-menu">
                     <nav className="admin_navBar" id="navBar_id">

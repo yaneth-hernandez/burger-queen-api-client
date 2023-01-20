@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LOGIN, ADMIN_USERS, WAITER_MENU, ORDERS } from "../../routes/paths";
 import "./LoginFom.scss"
@@ -31,7 +31,7 @@ export const LoginForm = () => {
         } else if (data === 'Email format is invalid') {
             setErrorUser('Formato de email inválido')
             setErrorPassword('')
-        } else {
+        } else{
             switch (data.user.role) {
                 case 'admin':
                     navigate(ADMIN_USERS);
@@ -48,18 +48,27 @@ export const LoginForm = () => {
         }
     }
 
+    
     const handleSubmit = () => {
         requestLogin(email, password)
-            .then((res) => res.json())
-            .then((data) => {
-                validateDataUser(data)
-                localStorage.setItem('Profile', data.user.role)
-                localStorage.setItem('IdUser', data.user.id)
-                localStorage.setItem('Token', data.accessToken)
-            })
+//             .then(res => {
+
+//                 if (!res.ok) throw res;
+// console.log(res)
+//                 return res;
+//             })
+            .then(res => res.json())
             .catch((error) => {
                 console.error(error)
             })
+            .then((response) => {
+                
+                validateDataUser(response)
+                localStorage.setItem('Profile', response.user.role)
+                localStorage.setItem('IdUser', response.user.id)
+                localStorage.setItem('Token', response.accessToken)
+            })
+            
     }
     return (
         <>
@@ -74,9 +83,9 @@ export const LoginForm = () => {
                     <input type="password" size="6" placeholder="Contraseña" onChange={(e) => setPassword(e.target.value)} className="loginForm_contentInput--input" required />
                     <span className="loginForm_contentInput--span">{errorPassword}</span>
                 </article>
-              
+
                 <input className="loginForm_button" type="button" value="INICIAR SESIÓN" onClick={handleSubmit} />
-               
+
                 <span className="loginForm_contentInput--span">{errorMessage}</span>
             </form>
         </>

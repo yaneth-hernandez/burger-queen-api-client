@@ -25,7 +25,7 @@
     }
 
     .admin_containerIcon {
-        width: 24%;
+        width: 34%;
         height: 3.4375rem;
         cursor: pointer;
         @include flex-column-center;
@@ -40,7 +40,7 @@
         }
 
         .admin_containerIcon--text {
-            font-size: .90rem;
+            font-size: small;
             color: $primary-color;
             font-family: $general-text;
             font-weight: bolder;
