@@ -6,7 +6,6 @@ import { requestGetProducts } from '../../../helpers/API_request/productRequest'
 import { CartProvider } from '../CartContext/CartContext'
 import '../ShoppingCart/ShoppingCart.scss'
 import { useScreenSize } from '../../../helpers/screen/useScreeSize'
-import { HeaderWaiterMenuHorizontal } from '../HeaderWaiter/HeaderWaiterMenuHorizontal'
 
 export const ViewWaiterMenu = () => {
     const token = localStorage.getItem('Token')

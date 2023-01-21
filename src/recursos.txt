@@ -19,7 +19,6 @@ table https://www.geeksforgeeks.org/how-to-create-a-table-in-reactjs/
 https://www.youtube.com/watch?v=HVYzAf2DMAs
 javascript: https://aprendejavascript.org/
 
-crear usuario: http://localhost:8080/users
 
 itglobers: alex@itglobers.com (Alex Fuentes)
 
@@ -46,3 +45,6 @@ Media query
 https://getbootstrap.com/docs/5.0/layout/breakpoints/
 https://ricostacruz.com/til/css-media-query-breakpoints
 https://lenguajecss.com/css/responsive-web-design/media-queries/
+
+Despliegue:
+https://www.youtube.com/watch?v=igCO5i4NnfU&t=53s
