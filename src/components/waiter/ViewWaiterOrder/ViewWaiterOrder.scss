@@ -1,0 +1,377 @@
+@import '../../../generics.scss';
+
+.titleList{
+    text-align: center;
+    margin: 50px 0px;
+    font-family: $general-text;
+    color: $primary-color;
+}
+
+.containerTable{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 30px;
+    margin: 5px;
+    border: 1px solid #0BA7B4;
+    border-radius: 5px;
+    font-family: $general-text;
+    font-size: small;
+
+    .headerList{
+        background-color: $primary-color;
+        color: $secondary-color;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        
+    }
+
+    .itemList{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        button{
+            border: none;
+            color: $primary-color;
+            background: transparent;
+            .bi{
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+.containerTableDelivered{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 30px;
+    margin: 5px;
+    border: 1px solid #0BA7B4;
+    border-radius: 5px;
+    font-family: $general-text;
+    font-size: small;
+    .headerList{
+        background-color: $primary-color;
+        color: $secondary-color;
+        font-weight: bold;
+        @include center-perfect;
+    }
+    .itemList{
+        @include center-perfect;
+        .btnDelete{
+            border: none;
+            background-color: transparent;
+            .bi{
+                color: $primary-color;
+                font-size: medium;
+            }
+        }
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px){
+    .titleList{
+        text-align: center;
+        margin: 50px 0px;
+        font-family: $general-text;
+        color: $primary-color;
+    }
+    
+    .containerTable{
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-auto-rows: 30px;
+        margin: 10px;
+        border: 1px solid #0BA7B4;
+        border-radius: 5px;
+        font-family: $general-text;
+        font-size: medium;
+    
+        .headerList{
+            background-color: $primary-color;
+            color: $secondary-color;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            
+        }
+    
+        .itemList{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            button{
+                border: none;
+                color: $primary-color;
+                background: transparent;
+                .bi{
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    
+    .containerTableDelivered{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: 30px;
+        margin: 10px;
+        border: 1px solid #0BA7B4;
+        border-radius: 5px;
+        font-family: $general-text;
+        font-size: medium;
+        .headerList{
+            background-color: $primary-color;
+            color: $secondary-color;
+            font-weight: bold;
+            @include center-perfect;
+        }
+        .itemList{
+            @include center-perfect;
+            .btnDelete{
+                border: none;
+                background-color: transparent;
+                .bi{
+                    color: $primary-color;
+                    font-size: medium;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px){
+    .titleList{
+        text-align: center;
+        margin: 50px 0px;
+        font-family: $general-text;
+        color: $primary-color;
+    }
+    
+    .containerTable{
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-auto-rows: 30px;
+        margin: 5px;
+        border: 1px solid #0BA7B4;
+        border-radius: 5px;
+        font-family: $general-text;
+        font-size: medium;
+    
+        .headerList{
+            background-color: $primary-color;
+            color: $secondary-color;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            
+        }
+    
+        .itemList{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            button{
+                border: none;
+                color: $primary-color;
+                background: transparent;
+                .bi{
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    
+    .containerTableDelivered{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: 30px;
+        margin: 5px;
+        border: 1px solid #0BA7B4;
+        border-radius: 5px;
+        font-family: $general-text;
+        font-size: medium;
+        .headerList{
+            background-color: $primary-color;
+            color: $secondary-color;
+            font-weight: bold;
+            @include center-perfect;
+        }
+        .itemList{
+            @include center-perfect;
+            .btnDelete{
+                border: none;
+                background-color: transparent;
+                .bi{
+                    color: $primary-color;
+                    font-size: medium;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px){
+    .titleList{
+        text-align: center;
+        margin: 50px 0px;
+        font-family: $general-text;
+        color: $primary-color;
+        font-size: large;
+    }
+    
+    .containerTable{
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-auto-rows: 30px;
+        margin: 20px;
+        border: 1px solid #0BA7B4;
+        border-radius: 5px;
+        font-family: $general-text;
+        font-size: medium;
+    
+        .headerList{
+            background-color: $primary-color;
+            color: $secondary-color;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            
+        }
+    
+        .itemList{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            button{
+                border: none;
+                color: $primary-color;
+                background: transparent;
+                .bi{
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    
+    .containerTableDelivered{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: 30px;
+        margin: 20px;
+        border: 1px solid #0BA7B4;
+        border-radius: 5px;
+        font-family: $general-text;
+        font-size: medium;
+        .headerList{
+            background-color: $primary-color;
+            color: $secondary-color;
+            font-weight: bold;
+            @include center-perfect;
+        }
+        .itemList{
+            @include center-perfect;
+            .btnDelete{
+                border: none;
+                background-color: transparent;
+                .bi{
+                    color: $primary-color;
+                    font-size: medium;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1201px){
+    .titleList{
+        text-align: center;
+        margin: 50px 0px;
+        font-family: $general-text;
+        color: $primary-color;
+        font-size: large;
+    }
+    
+    .containerTable{
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-auto-rows: 30px;
+        margin: 20px;
+        border: 1px solid #0BA7B4;
+        border-radius: 5px;
+        font-family: $general-text;
+        font-size: large;
+    
+        .headerList{
+            background-color: $primary-color;
+            color: $secondary-color;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            
+        }
+    
+        .itemList{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            button{
+                border: none;
+                color: $primary-color;
+                background: transparent;
+                .bi{
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    
+    .containerTableDelivered{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-rows: 30px;
+        margin: 20px;
+        border: 1px solid #0BA7B4;
+        border-radius: 5px;
+        font-family: $general-text;
+        font-size: large;
+        .headerList{
+            background-color: $primary-color;
+            color: $secondary-color;
+            font-weight: bold;
+            @include center-perfect;
+        }
+        .itemList{
+            @include center-perfect;
+            .btnDelete{
+                border: none;
+                background-color: transparent;
+                .bi{
+                    color: $primary-color;
+                    font-size: medium;
+                }
+            }
+        }
+    }
+}
+

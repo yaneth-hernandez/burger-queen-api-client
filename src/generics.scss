@@ -1,0 +1,62 @@
+$primary-color: #0BA7B4;
+$secondary-color: #DEE7EC;
+$tertiary-color: #EE7028;
+$logo-text:'Playfair Display', serif;
+$general-text:'Montserrat', sans-serif;
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#root{
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex-row-center {
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+}
+@mixin center-perfect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin styleHeader {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@mixin styleInput {
+    width: 90%;
+    max-width: 450px;
+    padding: 10px 7px;
+    outline: none;
+    background: $secondary-color;
+    border: $primary-color solid 1px;
+    border-radius: 8px;
+}
+@mixin styleButton {
+    width: 90%;
+    max-width: 450px;
+    padding: 10px 7px;
+    margin-top: 40px;
+    outline: none;
+    background: $primary-color;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+}

@@ -1,0 +1,46 @@
+@import '../../../generics.scss';
+
+.containerTable{
+    width: 97%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 30px;
+    margin: 5px;
+    border: 1px solid #0BA7B4;
+    border-radius: 5px;
+
+    .headerList{
+        background-color: $primary-color;
+        color: $secondary-color;
+    }
+}
+
+.containerTableReady{
+    width: 97%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 30px;
+    margin: 5px;
+    border: 1px solid #0BA7B4;
+    border-radius: 5px;
+    font-family: $general-text;
+    // font-size: small;
+    .headerList{
+        background-color: $primary-color;
+        color: $secondary-color;
+        font-weight: bold;
+        @include center-perfect;
+    }
+    .itemList{
+        @include center-perfect;
+        .btnDelete{
+            border: none;
+            background-color: transparent;
+            .bi{
+                color: $primary-color;
+                font-size: medium;
+            }
+        }
+    }
+
+}
