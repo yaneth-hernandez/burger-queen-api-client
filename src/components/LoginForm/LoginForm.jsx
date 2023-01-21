@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LOGIN, ADMIN_USERS, WAITER_MENU, ORDERS } from "../../routes/paths";
 import "./LoginFom.scss"
@@ -51,24 +51,16 @@ export const LoginForm = () => {
     
     const handleSubmit = () => {
         requestLogin(email, password)
-//             .then(res => {
-
-//                 if (!res.ok) throw res;
-// console.log(res)
-//                 return res;
-//             })
             .then(res => res.json())
-            .catch((error) => {
-                console.error(error)
-            })
             .then((response) => {
-                
                 validateDataUser(response)
                 localStorage.setItem('Profile', response.user.role)
                 localStorage.setItem('IdUser', response.user.id)
                 localStorage.setItem('Token', response.accessToken)
             })
-            
+            .catch((error) => {
+                console.error(error)
+            })
     }
     return (
         <>
